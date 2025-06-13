@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+django-filter = "*"
+djangorestframework-simplejwt = "*"
+psycopg2-binary = "*"
+pillow = "*"
+django-otp = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
