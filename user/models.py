@@ -33,11 +33,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone = models.CharField(max_length=15, unique=True)
     profile_picture = models.ImageField(upload_to="profiles/", null=True, blank=True)
     role = models.CharField(max_length=25, choices=UserRole, default=UserRole.CUSTOMER)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
     objects = UserManager()
     
@@ -45,7 +45,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['first_name', 'last_name']
     
     def username(self):
-        return f"{self.first_name}_${self.last_name}_{self.id.hex[:8]}"
+        return f"{self.first_name}_{self.last_name}_{self.id.hex[:8]}"
     
     def __str__(self):
         return self.email or self.phone
