@@ -2,8 +2,8 @@
 
 A scalable multi-tenant eCommerce SaaS application built using **Python**, **Django**, **Django REST Framework (DRF)**, and **PostgreSQL**. This platform enables businesses to create and manage their own online stores within a shared infrastructure.
 
----
 
+---
 ### 🔧 Setup
 
 ```bash
@@ -26,6 +26,7 @@ cp .env.example .env
 
 ---
 
+---
 ## 🚀 Features
 
 ### ✅ Multi-Tenant Support
@@ -89,5 +90,4 @@ cp .env.example .env
 - Docker (optional but recommended)
 
 ---
-
 
