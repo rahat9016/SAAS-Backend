@@ -2,31 +2,8 @@
 
 A scalable multi-tenant eCommerce SaaS application built using **Python**, **Django**, **Django REST Framework (DRF)**, and **PostgreSQL**. This platform enables businesses to create and manage their own online stores within a shared infrastructure.
 
-
----
-### 🔧 Setup
-
-```bash
-# Create requirements.txt
-pip freeze > requirements.txt
-
-# Clone the repository
-git clone https://github.com/rahat9016/SAAS-Backend
-cd SAAS-Backend
-
-# Create a virtual environment
-python -m venv venv
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Set up environment variables
-cp .env.example .env
-
 ---
 
----
 ## 🚀 Features
 
 ### ✅ Multi-Tenant Support
@@ -91,3 +68,22 @@ cp .env.example .env
 
 ---
 
+### 🔧 Setup
+
+```bash
+# Create requirements.txt
+pip freeze > requirements.txt
+
+# Clone the repository
+git clone https://github.com/rahat9016/SAAS-Backend
+cd SAAS-Backend
+
+# Create a virtual environment
+python -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up environment variables
+cp .env.example .env
