@@ -71,6 +71,9 @@ A scalable multi-tenant eCommerce SaaS application built using **Python**, **Dja
 ### 🔧 Setup
 
 ```bash
+# Create requirements.txt
+pip freeze > requirements.txt
+
 # Clone the repository
 git clone https://github.com/rahat9016/SAAS-Backend
 cd SAAS-Backend
