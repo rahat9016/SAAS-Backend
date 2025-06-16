@@ -24,6 +24,7 @@ pip install -r requirements.txt
 # Set up environment variables
 cp .env.example .env
 
+---
 
 ## 🚀 Features
 
