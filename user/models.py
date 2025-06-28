@@ -44,6 +44,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'phone'
     REQUIRED_FIELDS = ['first_name', 'last_name']
     
+    @property
     def username(self):
         return f"{self.first_name}_{self.last_name}_{self.id.hex[:8]}"
     
