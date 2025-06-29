@@ -12,6 +12,7 @@ psycopg2-binary = "*"
 pillow = "*"
 django-otp = "*"
 drf-spectacular = "*"
+gunicorn = "*"
 
 [dev-packages]
 
