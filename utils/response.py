@@ -1,6 +1,5 @@
 from rest_framework.response import Response
 
-
 def error_response(message: str, errors: dict = None, status_code: int = 400):
     return Response(
         {"status_code": status_code, "message": message, "errors": errors},

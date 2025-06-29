@@ -11,6 +11,7 @@ djangorestframework-simplejwt = "*"
 psycopg2-binary = "*"
 pillow = "*"
 django-otp = "*"
+drf-spectacular = "*"
 
 [dev-packages]
 
