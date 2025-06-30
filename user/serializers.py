@@ -26,9 +26,14 @@ class UserSerializer(serializers.ModelSerializer):
         return obj.username
 
 
-class UserRegisterSeralizer(serializers.Serializer):
+class UserRegisterSerializer(serializers.Serializer):
     first_name = serializers.CharField(max_length=255)
     last_name = serializers.CharField(max_length=255)
     phone = serializers.CharField(max_length=15)
     password = serializers.CharField(write_only=True)
     email = serializers.EmailField(required=False)
+    
+
+class UserLoginSerializer(serializers.Serializer):
+    phone = serializers.CharField()
+    password = serializers.CharField()
