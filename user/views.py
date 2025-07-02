@@ -15,6 +15,7 @@ User = get_user_model()
 
 # Create your views here.
 class RegisterView(APIView):
+    
     @extend_schema(
         request=UserRegisterSerializer,
         responses={
@@ -64,15 +65,14 @@ class RegisterView(APIView):
                 status_code=status.HTTP_400_BAD_REQUEST,
             )
 
-        user = User.objects.create(
+        user = User.objects.create_user(
             phone=data["phone"],
             password=data["password"],
             first_name=data["first_name"],
             last_name=data["last_name"],
             email=email,
+            is_active=True 
         )
-        user.is_active = True
-        user.save()
 
         serializers = UserSerializer(user)
 
