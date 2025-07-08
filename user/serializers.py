@@ -2,6 +2,8 @@ from rest_framework import serializers
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 from django.core.validators import RegexValidator
+from django.contrib.auth import authenticate
+import re
 
 User = get_user_model()
 
@@ -27,10 +29,9 @@ class UserSerializer(serializers.ModelSerializer):
         return obj.username
 
 
-class UserRegisterSerializer(serializers.Serializer):
-    first_name = serializers.CharField(max_length=255)
-    last_name = serializers.CharField(max_length=255)
+class UserRegisterSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=False, allow_null=True)
+    password = serializers.CharField(write_only=True, min_length=1)
     phone = serializers.CharField(
         max_length=15,
         validators=[
@@ -40,20 +41,40 @@ class UserRegisterSerializer(serializers.Serializer):
             )
         ],
     )
-    password = serializers.CharField(write_only=True, min_length=1)
-    
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email', 'phone', 'password']
+        
 
     def validate_phone(self, value):
         if User.objects.filter(phone=value).exists():
-            raise serializers.ValidationError('Phone number already registered.')
+            raise serializers.ValidationError("Phone number already exists.")
         return value
     
     def validate_email(self, value):
         if User.objects.filter(email=value).exists():
             raise serializers.ValidationError('E-mail already registered.')
         return value
-
+    
 
 class UserLoginSerializer(serializers.Serializer):
-    phone = serializers.CharField()
-    password = serializers.CharField()
+    phone = serializers.CharField(required=True)
+    password = serializers.CharField(required=True, write_only=True)
+
+    def validate(self, data):
+        phone = data.get('phone')
+        password = data.get('password')
+        if not phone and not password:
+            raise serializers.ValidationError("Phone or password are required.")
+        
+        user = authenticate(request=self.context.get('request'), phone=phone, password=password)
+        
+        if not user:
+            raise serializers.ValidationError("Invalid phone or password")
+        
+        if not user.is_active:
+            raise serializers.ValidationError("Your account is inactive. Please contact support")
+        
+        data['user'] = user
+        return data
+    
