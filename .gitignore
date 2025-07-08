@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.mo
+*.po
+*.pot
+
+# Media and static files
+/media/
+staticfiles/
+static/
+
+# Environment variables
+.env
+.env.*
+
+# Virtualenv
+venv/
+ENV/
+env/
+.venv/
+.ENV/
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+*.iml
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# MyPy
+.mypy_cache/
+
+# Pytest
+.pytest_cache/
+
+# Others
+*.swp
+
+# Docker
+*.orig
+*.bak
+docker-compose.override.yml
