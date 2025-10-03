@@ -3,7 +3,6 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 from django.core.validators import RegexValidator
 from django.contrib.auth import authenticate
-import re
 
 User = get_user_model()
 
@@ -41,40 +40,43 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             )
         ],
     )
+
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'phone', 'password']
-        
+        fields = ["first_name", "last_name", "email", "phone", "password"]
 
     def validate_phone(self, value):
         if User.objects.filter(phone=value).exists():
             raise serializers.ValidationError("Phone number already exists.")
         return value
-    
+
     def validate_email(self, value):
         if User.objects.filter(email=value).exists():
-            raise serializers.ValidationError('E-mail already registered.')
+            raise serializers.ValidationError("E-mail already registered.")
         return value
-    
+
 
 class UserLoginSerializer(serializers.Serializer):
-    phone = serializers.CharField(required=True)
-    password = serializers.CharField(required=True, write_only=True)
+    phone = serializers.CharField(required=False, allow_blank=True)
+    password = serializers.CharField(required=False, allow_blank=True, write_only=True)
 
     def validate(self, data):
-        phone = data.get('phone')
-        password = data.get('password')
-        if not phone and not password:
+        phone = data.get("phone")
+        password = data.get("password")
+        if not phone or not password:
             raise serializers.ValidationError("Phone or password are required.")
-        
-        user = authenticate(request=self.context.get('request'), phone=phone, password=password)
-        
+
+        user = authenticate(
+            request=self.context.get("request"), phone=phone, password=password
+        )
+
         if not user:
             raise serializers.ValidationError("Invalid phone or password")
-        
+
         if not user.is_active:
-            raise serializers.ValidationError("Your account is inactive. Please contact support")
-        
-        data['user'] = user
+            raise serializers.ValidationError(
+                "Your account is inactive. Please contact support"
+            )
+
+        data["user"] = user
         return data
-    

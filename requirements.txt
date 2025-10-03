@@ -10,6 +10,7 @@ gunicorn==23.0.0
 inflection==0.5.1
 jsonschema==4.24.0
 jsonschema-specifications==2025.4.1
+logging==0.4.9.6
 packaging==25.0
 pillow==11.2.1
 psycopg2-binary==2.9.10

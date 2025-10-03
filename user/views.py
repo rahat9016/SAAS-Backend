@@ -11,19 +11,21 @@ from django.contrib.auth import get_user_model
 from drf_spectacular.utils import extend_schema, OpenApiResponse
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+
 User = get_user_model()
 
 
 class RegisterView(APIView):
+    permission_classes = [permissions.AllowAny]
+
     @extend_schema(
         request=UserRegisterSerializer,
         responses={
             201: OpenApiResponse(
-                response=UserSerializer,
-                description="User created successfully.",
+                description="User created successfully", response=UserSerializer
             ),
+            400: OpenApiResponse(description="Invalid input data"),
         },
-        description="Register a user with phone, first_name, last_name, and password",
     )
     def post(self, request):
         serializer = UserRegisterSerializer(data=request.data)
@@ -48,15 +50,27 @@ class RegisterView(APIView):
 
 
 class LoginView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    @extend_schema(
+        request=UserLoginSerializer,
+        responses={
+            200: OpenApiResponse(
+                description="User login successfully", response=UserSerializer
+            ),
+            400: OpenApiResponse(description="Invalid input data"),
+        },
+    )
     def post(self, request):
         data = request.data
+        print("Login request data->", data)
         serializer = UserLoginSerializer(data=data, context={"request": request})
         serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
-        
+        user = serializer.validated_data["user"]
+
         # Generate JWT tokens
         refresh = RefreshToken.for_user(user)
-        
+
         return Response(
             {
                 "success": True,
@@ -64,19 +78,19 @@ class LoginView(APIView):
                 "data": {
                     "user": UserSerializer(user).data,
                     "access": str(refresh.access_token),
-                    "refresh": str(refresh)
-                }
+                    "refresh": str(refresh),
+                },
             },
-            status=status.HTTP_200_OK
+            status=status.HTTP_200_OK,
         )
+
 
 class ProfileView(APIView):
     permission_classes = [permissions.IsAuthenticated]
-    
+
     def get(self, request):
         serializer = UserSerializer(request.user)
-        return Response({
-            'success': True,
-            'message': 'Profile retrieved',
-            'data': serializer.data
-        }, status=status.HTTP_200_OK)
+        return Response(
+            {"success": True, "message": "Profile retrieved", "data": serializer.data},
+            status=status.HTTP_200_OK,
+        )
