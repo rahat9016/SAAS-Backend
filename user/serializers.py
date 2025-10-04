@@ -6,7 +6,6 @@ from django.contrib.auth import authenticate
 
 User = get_user_model()
 
-
 class UserSerializer(serializers.ModelSerializer):
     username = serializers.SerializerMethodField()
 
@@ -63,8 +62,10 @@ class UserLoginSerializer(serializers.Serializer):
     def validate(self, data):
         phone = data.get("phone")
         password = data.get("password")
-        if not phone or not password:
-            raise serializers.ValidationError("Phone or password are required.")
+        if not phone:
+            raise serializers.ValidationError({"phone":"Phone number is required."})
+        if not password:
+            raise serializers.ValidationError({"password":"Password is required."})
 
         user = authenticate(
             request=self.context.get("request"), phone=phone, password=password
