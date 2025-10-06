@@ -1,2 +1,55 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
-*
+
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+staticfiles/
+.env
+
+# If you use Django collectstatic
+/static/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Virtualenv
+venv/
+ENV/
+env/
+.venv/
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*$py.class
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pycharm
+*.iml
+
+# Mac / Linux / Windows junk
+.DS_Store
+Thumbs.db
