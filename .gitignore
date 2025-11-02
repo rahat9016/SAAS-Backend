@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment
+.env
+.venv/
+venv/
+env/
+ENV/
+*.env
+
+# Django stuff
+*.log
+db.sqlite3
+media/
+staticfiles/
+static/
+local_settings.py
+
+# Migrations (optional — uncomment if you don’t want to track them)
+# */migrations/
+# !*/migrations/__init__.py
+
+# VS Code / IDE settings
+.vscode/
+.idea/
+*.swp
+
+# Byte-compiled / cache
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+
+# Testing / Coverage
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+htmlcov/
+
+# Node / Frontend (if using React, Vue, etc.)
+node_modules/
+npm-debug.log
+yarn-error.log
+build/
+dist/
+
+# macOS / Linux
+.DS_Store
+Thumbs.db
+
+# Docker
+*.pid
+*.seed
+*.pid.lock
+docker-compose.override.yml
+
+# PyCharm
+*.iml
+*.idea/

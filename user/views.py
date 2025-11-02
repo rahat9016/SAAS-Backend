@@ -4,7 +4,7 @@ from rest_framework.permissions import AllowAny
 from drf_spectacular.openapi import AutoSchema
 from rest_framework import status
 from django.utils.translation import gettext as _
-from .serializer import UserRegisterSerializer
+from .serializer import UserRegisterSerializer, UserLoginSerializer
 
 
 class RegisterAPIView(APIView):
@@ -49,5 +49,26 @@ class RegisterAPIView(APIView):
         )
 
 
+class LoginAPIView(APIView):
+    def post(self, request):
+        serializer = UserLoginSerializer(data = request.data)
+        
+        if serializer.is_valid():
+            
+            return 'ok'
+        
+        return Response(
+            {
+                "success": False,
+                "status": status.HTTP_400_BAD_REQUEST,
+                "message": _("Login field"),
+                "errors": serializer.errors,
+                "data": None,
+            }
+        )
+        
+
+
 class SendOTPAPIView(APIView):
     pass
+

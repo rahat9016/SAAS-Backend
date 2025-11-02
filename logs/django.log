@@ -122,3 +122,91 @@
 [2025-11-01 17:09:10,474] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10210
 [2025-11-01 17:09:10,499] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
 [2025-11-01 17:09:19,048] INFO django.server - "POST /api/auth/register/ HTTP/1.1" 200 294
+[2025-11-02 03:45:18,076] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 03:45:33,698] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2025-11-02 03:45:34,536] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 1527
+[2025-11-02 03:45:42,873] INFO django.server - "GET /api/auth/test-email/ HTTP/1.1" 200 43
+[2025-11-02 03:46:57,515] INFO django.server - "GET /api/auth/test-email/ HTTP/1.1" 200 43
+[2025-11-02 03:54:08,671] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-02 03:54:09,032] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 03:54:33,808] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-02 03:54:34,080] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 03:57:34,147] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/urls.py changed, reloading.
+[2025-11-02 03:57:34,445] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 03:59:02,984] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-02 03:59:03,232] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 03:59:40,321] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-02 03:59:40,520] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:00:11,466] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/urls.py changed, reloading.
+[2025-11-02 04:00:11,736] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:02:55,027] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:02:55,292] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:03:59,402] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:03:59,669] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:04:08,991] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:04:09,183] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:04:32,850] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:04:33,036] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:05:04,923] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:05:05,198] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:05:16,538] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:05:16,797] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:05:42,551] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:05:42,813] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:06:02,381] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:06:02,569] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:06:11,818] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:06:11,986] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:07:00,222] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:07:00,427] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:07:15,884] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:07:16,065] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:20:36,120] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:20:36,374] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:21:14,319] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:21:14,506] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:21:37,194] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:21:37,383] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:21:44,640] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:21:44,830] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:21:57,174] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:21:57,356] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:22:06,696] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:22:06,868] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:23:42,398] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:23:42,654] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:24:12,511] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:24:12,774] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:24:38,509] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:24:38,761] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:25:24,898] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:25:25,065] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:25:36,450] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:25:36,714] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:25:57,346] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:25:57,528] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:30:33,539] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:30:33,809] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:32:38,061] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:32:38,321] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:34:36,519] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:34:36,703] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:35:33,186] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-02 04:35:33,382] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:36:44,098] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-02 04:36:44,268] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:37:11,037] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-02 04:37:11,221] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:37:16,229] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2025-11-02 04:37:16,339] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 1516
+[2025-11-02 04:37:44,015] ERROR django.server - "POST /api/auth/login/ HTTP/1.1" 500 121704
+[2025-11-02 04:56:15,440] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-02 04:56:15,714] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:56:30,217] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-02 04:56:30,421] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:56:43,207] ERROR django.server - "POST /api/auth/login/ HTTP/1.1" 500 121810
+[2025-11-02 04:57:44,465] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-02 04:57:44,630] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-02 04:57:50,517] ERROR django.server - "POST /api/auth/login/ HTTP/1.1" 500 121810
+[2025-11-02 05:00:23,074] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-02 05:00:23,338] INFO django.utils.autoreload - Watching for file changes with StatReloader

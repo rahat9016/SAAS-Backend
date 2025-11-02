@@ -1,10 +1,14 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from phonenumber_field.serializerfields import PhoneNumberField
+from django.contrib.auth import authenticate, get_user_model
 from django.utils.translation import gettext as _
 from django.db import transaction
 from .models import User, Profile
 from .email_services import EmailService
+
+User = get_user_model()
+
 
 class UserRegisterSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField(required=True, write_only=True)
@@ -59,9 +63,9 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             Profile.objects.create(
                 user=user, first_name=first_name, last_name=last_name
             )
-            
+
             self._send_register_otp(email)
-            
+
         return user
 
     def _send_register_otp(self, email):
@@ -72,10 +76,49 @@ class UserRegisterSerializer(serializers.ModelSerializer):
                 print(f"⚠️ OTP sending failed for {email}")
         except Exception as e:
             print(f"Error int otp sending {str(e)}")
-            
-    
+
     def to_representation(self, instance):
         profile_instance = instance.profile
+        return {
+            "id": str(instance.id),
+            "email": str(instance.email),
+            "phone": str(instance.phone),
+            "is_active": instance.is_active,
+            "first_name": profile_instance.first_name,
+            "last_name": profile_instance.last_name,
+        }
+
+
+class UserLoginSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(required=True)
+    password = serializers.CharField(
+        write_only=True, min_length=6, style={"input_type": "password"}
+    )
+
+    def validate(self, attrs):
+        email = attrs.get("email")
+        password = attrs.get("password")
+
+        if not email and password:
+            raise serializers.ValidationError(_("Email and password is required."))
+
+        user = authenticate(email=email, password=password)
+
+        if not user:
+            raise serializers.ValidationError(
+                _("Invalided credentials. Please check your email and password")
+            )
+
+        if not user.is_active:
+            raise serializers.ValidationError(_("Your account not activated."))
+
+        attrs["user"] = user
+        return attrs
+    
+    def to_representation(self, instance):
+        print("instance", instance)
+        profile_instance = instance.profile
+        
         return {
             "id": str(instance.id),
             "email": str(instance.email),
