@@ -4,7 +4,7 @@ from phonenumber_field.serializerfields import PhoneNumberField
 from django.utils.translation import gettext as _
 from django.db import transaction
 from .models import User, Profile
-
+from .email_services import EmailService
 
 class UserRegisterSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField(required=True, write_only=True)
@@ -59,12 +59,22 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             Profile.objects.create(
                 user=user, first_name=first_name, last_name=last_name
             )
+            
+            self._send_register_otp(email)
+            
         return user
 
+    def _send_register_otp(self, email):
+        try:
+            email_service = EmailService()
+            otp_sent = email_service.sent_otp(email, "registration")
+            if not otp_sent:
+                print(f"⚠️ OTP sending failed for {email}")
+        except Exception as e:
+            print(f"Error int otp sending {str(e)}")
+            
+    
     def to_representation(self, instance):
-        # Return basic user data after register
-
-        # Prefetch profile
         profile_instance = instance.profile
         return {
             "id": str(instance.id),

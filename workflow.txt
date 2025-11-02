@@ -1,0 +1,19 @@
+
+
+
+User Register process
+User Registration Request
+         ↓
+UserRegistrationSerializer
+         ↓
+  Create User & Profile
+         ↓
+   EmailService.send_otp()
+         ↓
+   Generate OTP: "123456"
+         ↓
+Send Email (minhajur→user)
+         ↓
+Store OTP in Cache (5min)
+         ↓
+   Return Success Response
