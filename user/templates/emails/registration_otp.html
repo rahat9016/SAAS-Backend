@@ -1,0 +1,13 @@
+{% extends "emails/otp_base.html" %}
+
+{% block title %}Complete Your Registration{% endblock %}
+
+{% block content %}
+<p>Welcome! Please complete your registration with this OTP:</p>
+
+<div class="otp-box">
+    {{ otp }}
+</div>
+
+<p>Enter this code in the verification page to activate your account.</p>
+{% endblock %}

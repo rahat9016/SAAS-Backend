@@ -3,6 +3,8 @@ import logging
 from django.core.mail import send_mail
 from django.conf import settings
 from django.core.cache import cache
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 from smtplib import SMTPAuthenticationError
 
 """
@@ -30,13 +32,14 @@ class EmailService:
 
         try:
             # Prepare email content
-            subject, message = self._prepare_otp_email(otp, purpose)
+            subject, plain_message, html_message = self._prepare_otp_email(otp, purpose)
             send_mail(
                 subject,
-                message,
+                plain_message,
                 self.from_email,
                 [email],
                 fail_silently=False,
+                html_message=html_message
             )
             cache_key = f'otp_{email}'
             cache.set(cache_key, otp, timeout=300)
@@ -60,49 +63,31 @@ class EmailService:
             return None
 
     def _prepare_otp_email(self, otp, purpose):
-        """Prepare email subject and message based on purpose"""
-
-        if purpose == "registration":
-            subject = "Complete Your Registration - OTP Verification"
-            message = f"""
-            Welcome! Complete your registration with this OTP:
-            
-            Your OTP Code: {otp}
-            
-            This OTP is valid for 5 minutes.
-            
-            Enter this code in the verification page to activate your account.
-            
-            If you didn't request this, please ignore this email.
-            
-            Best regards,
-            Tecgen Soft
-            """
-        elif purpose == "password_reset":
-            subject = "Password Reset - OTP Verification"
-            message = f"""
-            Password Reset Request
-            
-            Your OTP Code: {otp}
-            
-            This OTP is valid for 5 minutes.
-            
-            Enter this code to reset your password.
-            
-            If you didn't request a password reset, please ignore this email.
-            
-            Best regards,
-            Tecgen Soft
-            """
-        else:
-            subject = "Your OTP Code"
-            message = f"""
-            Your OTP Code: {otp}
-            
-            This OTP is valid for 5 minutes.
-            
-            Best regards,
-            Tecgen Soft
-            """
-
-        return subject, message
+        """Prepare email subject and message based on purpose using HTML templates"""
+        
+        template_map = {
+            "registration": {
+                "subject": "Complete Your Registration - OTP Verification",
+                "template": "emails/registration_otp.html"
+            },
+            "password_reset": {
+                "subject": "Password Reset - OTP Verification",
+                "template": "emails/password_reset_otp.html"
+            }
+        }
+        
+        email_config = template_map.get(purpose, {
+            "subject": "Your OTP Code",
+            "template": "emails/registration_otp.html"  # fallback to registration template
+        })
+        
+        # Render HTML email
+        html_message = render_to_string(
+            email_config["template"],
+            {'otp': otp}
+        )
+        
+        # Create plain text version
+        plain_message = strip_tags(html_message)
+        
+        return email_config["subject"], plain_message, html_message

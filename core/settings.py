@@ -97,13 +97,14 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'minhajurrohoman9016@gmail.com'
-EMAIL_HOST_PASSWORD = 'sdit cody wjfr akut'
+EMAIL_HOST_PASSWORD = 'bkri xdxt sfmy rodl'
 DEFAULT_FROM_EMAIL = 'minhajurrohoman9016@gmail.com'
 SERVER_EMAIL = 'minhajurrohoman9016@gmail.com'
 
-if DEBUG:
-    # Use console but still can test with real emails
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# if DEBUG:
+#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# else:
+#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
