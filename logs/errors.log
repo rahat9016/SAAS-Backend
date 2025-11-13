@@ -133,3 +133,138 @@ Traceback (most recent call last):
            ~~~~~~~^^^^^^^^^^^^^^
 AssertionError: Class UserLoginSerializer missing "Meta" attribute
 ERROR 2025-11-02 04:57:50,517 basehttp 4972 6130937856 "POST /api/auth/login/ HTTP/1.1" 500 121810
+ERROR 2025-11-13 17:22:15,207 log 42819 6131871744 Internal Server Error: /api/auth/verify-account
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/auth/verify-account/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-11-13 17:22:15,209 basehttp 42819 6131871744 "POST /api/auth/verify-account HTTP/1.1" 500 72633
+ERROR 2025-11-13 17:23:21,644 log 42891 6167539712 Internal Server Error: /api/auth/verify-account
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/auth/verify-account/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-11-13 17:23:21,645 basehttp 42891 6167539712 "POST /api/auth/verify-account HTTP/1.1" 500 72633
+ERROR 2025-11-13 17:25:09,209 log 42947 6172782592 Internal Server Error: /api/auth/verify-account
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/auth/verify-account/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-11-13 17:25:09,209 basehttp 42947 6172782592 "POST /api/auth/verify-account HTTP/1.1" 500 72633
+ERROR 2025-11-13 17:28:26,411 log 42947 6172782592 Internal Server Error: /api/auth/verify-account/
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/minhazurrahman/Desktop/Django/user/views.py", line 96, in post
+    if not serializer.is_valid():
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/serializers.py", line 225, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/serializers.py", line 444, in run_validation
+    value = self.to_internal_value(data)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/serializers.py", line 497, in to_internal_value
+    for field in fields:
+                 ^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/serializers.py", line 380, in _writable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/serializers.py", line 1056, in get_fields
+    assert hasattr(self, 'Meta'), (
+           ~~~~~~~^^^^^^^^^^^^^^
+AssertionError: Class VerifyOTPSerializer missing "Meta" attribute
+ERROR 2025-11-13 17:28:26,413 basehttp 42947 6172782592 "POST /api/auth/verify-account/ HTTP/1.1" 500 123110
+ERROR 2025-11-13 17:28:27,753 log 42947 6172782592 Internal Server Error: /api/auth/verify-account/
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/minhazurrahman/Desktop/Django/user/views.py", line 96, in post
+    if not serializer.is_valid():
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/serializers.py", line 225, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/serializers.py", line 444, in run_validation
+    value = self.to_internal_value(data)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/serializers.py", line 497, in to_internal_value
+    for field in fields:
+                 ^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/serializers.py", line 380, in _writable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/serializers.py", line 1056, in get_fields
+    assert hasattr(self, 'Meta'), (
+           ~~~~~~~^^^^^^^^^^^^^^
+AssertionError: Class VerifyOTPSerializer missing "Meta" attribute
+ERROR 2025-11-13 17:28:27,754 basehttp 42947 6172782592 "POST /api/auth/verify-account/ HTTP/1.1" 500 123110

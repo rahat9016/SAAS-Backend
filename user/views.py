@@ -10,10 +10,12 @@ from .email_services import EmailService
 from .exception import AccountNotRegisteredException, InvalidCredentialException
 from .models import User
 
+
 class RegisterAPIView(APIView):
     """
     Register User
     """
+
     permission_classes = [AllowAny]
 
     def post(self, request):
@@ -84,11 +86,13 @@ class LoginAPIView(APIView):
 
 class VerifyOTPAPIView(APIView):
     """
-        Verify OTP for account activation or password reset
+    Verify OTP for account activation or password reset
     """
+    permission_classes = [AllowAny]
+
     def post(self, request):
         serializer = VerifyOTPSerializer(data=request.data)
-        
+
         if not serializer.is_valid():
             return Response(
                 {
@@ -99,15 +103,15 @@ class VerifyOTPAPIView(APIView):
                     "data": None,
                 }
             )
-        
-        try:
-            email = serializer.validate_data['email']
-            otp = serializer.validate_data['otp']
-            purpose = request.data.get('purpose', 'registration')
             
+        try:
+            email = serializer.data["email"]
+            otp = serializer.data["otp"]
+            
+            purpose = request.data.get("purpose", "registration")
             email_service = EmailService()
             is_valid, message = email_service.verify_otp(email, otp, purpose)
-            
+
             if not is_valid:
                 return Response(
                     {
@@ -117,7 +121,7 @@ class VerifyOTPAPIView(APIView):
                         "data": None,
                     }
                 )
-            if purpose == 'registration':
+            if purpose == "registration":
                 try:
                     user = User.objects.get(email=email)
                     user.is_active = True
@@ -127,15 +131,25 @@ class VerifyOTPAPIView(APIView):
                             "success": True,
                             "status": status.HTTP_200_OK,
                             "message": message,
-                            "data": {
-                                "email": email,
-                                "is_active": True
-                            },
+                            "data": {"email": email, "is_active": True},
                         }
                     )
-                except AccountNotRegisteredException as e:
-                    raise e
+
+                except User.DoesNotExist:
+                    raise AccountNotRegisteredException()
                 
+            return Response(
+                {
+                    "success": True,
+                    "status": status.HTTP_200_OK,
+                    "message": message,
+                    "data": {
+                        "email": email,
+                        "purpose": purpose
+                    }
+                }
+            )
+
         except Exception as e:
             return Response(
                 {

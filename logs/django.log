@@ -908,3 +908,83 @@
 [2025-11-10 17:07:21,505] INFO django.utils.autoreload - Watching for file changes with StatReloader
 [2025-11-10 17:07:25,638] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/email_services.py changed, reloading.
 [2025-11-10 17:07:25,843] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:22:06,547] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:22:15,209] ERROR django.server - "POST /api/auth/verify-account HTTP/1.1" 500 72633
+[2025-11-13 17:22:53,503] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/urls.py changed, reloading.
+[2025-11-13 17:22:53,697] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:22:59,954] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/urls.py changed, reloading.
+[2025-11-13 17:23:00,129] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:23:02,267] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/urls.py changed, reloading.
+[2025-11-13 17:23:02,443] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:23:04,568] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/urls.py changed, reloading.
+[2025-11-13 17:23:04,726] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:23:06,861] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/urls.py changed, reloading.
+[2025-11-13 17:23:07,071] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:23:08,185] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/urls.py changed, reloading.
+[2025-11-13 17:23:08,338] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:23:21,645] ERROR django.server - "POST /api/auth/verify-account HTTP/1.1" 500 72633
+[2025-11-13 17:23:36,689] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2025-11-13 17:23:37,169] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 2137
+[2025-11-13 17:24:52,224] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:24:52,415] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:24:53,545] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:24:53,699] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:24:58,933] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:24:59,116] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:25:00,182] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:25:00,354] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:25:09,209] ERROR django.server - "POST /api/auth/verify-account HTTP/1.1" 500 72633
+[2025-11-13 17:28:26,413] ERROR django.server - "POST /api/auth/verify-account/ HTTP/1.1" 500 123110
+[2025-11-13 17:28:27,754] ERROR django.server - "POST /api/auth/verify-account/ HTTP/1.1" 500 123110
+[2025-11-13 17:50:09,336] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:50:09,631] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:50:37,388] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:50:37,656] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:50:39,766] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:50:39,926] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:50:41,003] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:50:41,188] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:50:47,380] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:50:47,560] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:50:54,782] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:50:54,962] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:50:56,091] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:50:56,250] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:50:57,371] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:50:57,529] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:50:58,656] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:50:58,809] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:52:08,682] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/serializer.py changed, reloading.
+[2025-11-13 17:52:08,871] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:52:21,114] INFO django.server - "POST /api/auth/verify-account/ HTTP/1.1" 200 160
+[2025-11-13 17:52:59,302] INFO django.server - "POST /api/auth/verify-account/ HTTP/1.1" 200 151
+[2025-11-13 17:53:35,183] INFO django.server - "POST /api/auth/verify-account/ HTTP/1.1" 200 151
+[2025-11-13 17:54:46,928] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:54:47,191] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:54:48,335] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:54:48,488] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:54:51,642] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:54:51,831] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:54:53,956] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:54:54,144] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:54:59,124] INFO django.server - "POST /api/auth/verify-account/ HTTP/1.1" 200 151
+[2025-11-13 17:56:53,406] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:56:53,670] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:56:57,875] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:56:58,054] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:56:59,157] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:56:59,309] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:57:00,427] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:57:00,579] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:57:08,882] INFO django.server - "POST /api/auth/verify-account/ HTTP/1.1" 200 151
+[2025-11-13 17:57:35,560] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:57:35,750] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:57:38,906] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:57:39,098] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:57:44,559] INFO django.server - "POST /api/auth/verify-account/ HTTP/1.1" 200 114
+[2025-11-13 17:58:13,094] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:58:13,287] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 17:58:19,534] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 17:58:19,722] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-13 19:15:49,516] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-11-13 19:15:49,830] INFO django.utils.autoreload - Watching for file changes with StatReloader

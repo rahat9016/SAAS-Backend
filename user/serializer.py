@@ -130,7 +130,7 @@ class SendOTPSerializer(serializers.ModelSerializer):
         return value
 
 
-class VerifyOTPSerializer(serializers.ModelSerializer):
+class VerifyOTPSerializer(serializers.Serializer):
     otp = serializers.CharField(required=True, max_length=6)
     email= serializers.EmailField(required=True)
     
