@@ -45,7 +45,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(max_length=255, unique=True)
-    phone = PhoneNumberField(region="BD", unique=True, blank=True, null= True)
+    phone = PhoneNumberField(region="BD", unique=True, blank=True, null=True)
     role = models.CharField(max_length=25, choices=UserRole, default=UserRole.CUSTOMER)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)

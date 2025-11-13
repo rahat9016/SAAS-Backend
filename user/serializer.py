@@ -3,9 +3,7 @@ from rest_framework.validators import UniqueValidator
 from phonenumber_field.serializerfields import PhoneNumberField
 from django.contrib.auth import authenticate, get_user_model
 from django.utils.translation import gettext as _
-from django.db import transaction
 from .models import User, Profile
-from .email_services import EmailService
 
 User = get_user_model()
 
@@ -41,53 +39,36 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         fields = ("first_name", "last_name", "phone", "email", "password")
 
     def create(self, validated_data):
-        # Profile-related data আলাদা করে নিচ্ছি
         first_name = validated_data.pop("first_name")
         last_name = validated_data.pop("last_name")
         phone = validated_data.pop("phone", None)
         email = validated_data.pop("email")
         password = validated_data.pop("password")
 
-        with transaction.atomic():
-            # Transaction is used to keep database operations atomic.
-            # That means either all operations will succeed together
-            # or all operations will fail together.
-            user = User.objects.create(
-                email=email,
-                phone=phone,
-                password=password,
-                is_active=False,  # User must verify OTP to active account
-            )
+        user = User.objects.create(
+            email=email,
+            phone=phone,
+            password=password,
+            is_active=False,  # User must verify OTP to active account
+        )
 
-            # Create the profile
-            Profile.objects.create(
-                user=user, first_name=first_name, last_name=last_name
-            )
-
-            self._send_register_otp(email)
-
+        # Create the profile
+        Profile.objects.create(user=user, first_name=first_name, last_name=last_name)
         return user
 
-    def _send_register_otp(self, email):
-        try:
-            email_service = EmailService()
-            otp_sent = email_service.sent_otp(email, "registration")
-            if not otp_sent:
-                print(f"⚠️ OTP sending failed for {email}")
-        except Exception as e:
-            print(f"Error int otp sending {str(e)}")
-
     def to_representation(self, instance):
-        profile_instance = instance.profile
+        profile = getattr(instance, 'profile', None)
         return {
             "id": str(instance.id),
             "email": str(instance.email),
             "phone": str(instance.phone),
             "is_active": instance.is_active,
-            "first_name": profile_instance.first_name,
-            "last_name": profile_instance.last_name,
+            "first_name": profile.first_name if profile else "",
+            "last_name": profile.last_name if profile else "",
         }
+        
 
+    
 
 class UserLoginSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=True)
@@ -114,11 +95,11 @@ class UserLoginSerializer(serializers.ModelSerializer):
 
         attrs["user"] = user
         return attrs
-    
+
     def to_representation(self, instance):
         print("instance", instance)
         profile_instance = instance.profile
-        
+
         return {
             "id": str(instance.id),
             "email": str(instance.email),
@@ -147,3 +128,9 @@ class SendOTPSerializer(serializers.ModelSerializer):
                 }
             )
         return value
+
+
+class VerifyOTPSerializer(serializers.ModelSerializer):
+    otp = serializers.CharField(required=True, max_length=6)
+    email= serializers.EmailField(required=True)
+    
