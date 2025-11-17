@@ -1,0 +1,10 @@
+[2025-11-17 19:49:34,896] ERROR emails - Failed to sent email to ['minhazurrahman9026@gmail.com']: emails/auth/registration_otp.txt
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/Desktop/Django/core/services/email/base.py", line 38, in _sent_email
+    plain_message = render_to_string(text_template, context)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: emails/auth/registration_otp.txt
+[2025-11-17 19:53:08,696] INFO emails - [2025-11-17 19-53-08] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
