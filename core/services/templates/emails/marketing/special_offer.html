@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ subject }}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f9fc;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+            padding: 50px 30px;
+            text-align: center;
+            color: white;
+        }
+        .offer-banner {
+            background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+            padding: 30px;
+            text-align: center;
+            margin: 0;
+            color: #742a2a;
+        }
+        .discount-badge {
+            background: #e53e3e;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .product-card {
+            background: #f7fafc;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+        }
+        .product-image {
+            width: 100%;
+            height: 150px;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .price {
+            color: #e53e3e;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .original-price {
+            text-decoration: line-through;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 25px 30px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+            border-top: 1px solid #e9ecef;
+        }
+        .button {
+            display: inline-block;
+            background: #e53e3e;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .countdown {
+            background: #2d3748;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        @media (max-width: 600px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 style="margin: 0; font-size: 32px;">{{ offer_title }}</h1>
+            <p style="font-size: 18px; margin: 10px 0 0 0;">{{ offer_subtitle }}</p>
+        </div>
+        
+        <div class="offer-banner">
+            <h2 style="margin: 0; font-size: 28px;">🚨 Limited Time Offer!</h2>
+            <div class="discount-badge">{{ discount_amount }} OFF</div>
+            <p style="margin: 10px 0 0 0; font-size: 18px;">Use code: <strong>{{ discount_code }}</strong></p>
+        </div>
+
+        <div class="content" style="padding: 40px 30px;">
+            <div class="countdown">
+                <h3 style="margin: 0 0 10px 0;">⏰ Offer Ends In:</h3>
+                <p style="margin: 0; font-size: 20px; font-weight: bold;">{{ days_left }} days {{ hours_left }} hours</p>
+            </div>
+
+            <p>Hello valued customer,</p>
+            
+            <p>{{ offer_description }}</p>
+
+            <h3 style="color: #2d3748;">Featured Products</h3>
+            
+            <div class="product-grid">
+                {% for product in featured_products %}
+                <div class="product-card">
+                    <div class="product-image">
+                        {% if product.image %}
+                        <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: 100%; object-fit: cover;">
+                        {% else %}
+                        {{ product.name }}
+                        {% endif %}
+                    </div>
+                    <div class="product-info">
+                        <h4 style="margin: 0 0 10px 0;">{{ product.name }}</h4>
+                        <div class="price">${{ product.sale_price }}</div>
+                        <div class="original-price">${{ product.original_price }}</div>
+                        <a href="{{ product.url }}" style="color: #667eea; text-decoration: none; font-size: 14px;">View Product →</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="{{ shop_url }}" class="button">Shop Now & Save</a>
+            </div>
+
+            <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 25px 0;">
+                <h4 style="margin: 0 0 10px 0; color: #1a365d;">💎 Why Shop With Us?</h4>
+                <ul style="margin: 0;">
+                    <li>Free shipping on orders over $50</li>
+                    <li>30-day money-back guarantee</li>
+                    <li>Secure payment processing</li>
+                    <li>24/7 customer support</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>This offer is valid until {{ offer_end_date|date:"F j, Y" }} or while supplies last.</p>
+            <p>Follow us for more deals:
+                <a href="{{ social_links.facebook }}" style="color: #667eea; margin: 0 10px;">Facebook</a> •
+                <a href="{{ social_links.instagram }}" style="color: #667eea; margin: 0 10px;">Instagram</a>
+            </p>
+            <p>&copy; {{ now|date:"Y" }} {{ company_name }}. All rights reserved.</p>
+            <p style="font-size: 12px; margin-top: 15px;">
+                <a href="{{ website_url }}/unsubscribe" style="color: #6c757d;">Unsubscribe</a> • 
+                <a href="{{ website_url }}/preferences" style="color: #6c757d;">Email Preferences</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

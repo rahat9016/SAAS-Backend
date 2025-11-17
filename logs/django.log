@@ -988,3 +988,6 @@
 [2025-11-13 17:58:19,722] INFO django.utils.autoreload - Watching for file changes with StatReloader
 [2025-11-13 19:15:49,516] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
 [2025-11-13 19:15:49,830] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-17 15:02:45,891] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-11-17 15:03:48,320] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2025-11-17 15:03:48,749] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 2137

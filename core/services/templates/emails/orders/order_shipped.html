@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Order Has Shipped! - {{ order.order_number }}</title>
+    <style>
+        /* Same base styles as order confirmation */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f9fc;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #68d391 0%, #48bb78 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+        }
+        .tracking-info {
+            background: #f0fff4;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #48bb78;
+            margin: 25px 0;
+        }
+        .tracking-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #22543d;
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 25px 30px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+            border-top: 1px solid #e9ecef;
+        }
+        .button {
+            display: inline-block;
+            background: #48bb78;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Your Order is on the Way! 🚚</h1>
+            <p>Order #{{ order.order_number }} has been shipped</p>
+        </div>
+        
+        <div class="content" style="padding: 40px 30px;">
+            <p>Hello <strong>{{ order.customer.first_name }}</strong>,</p>
+            
+            <p>Great news! Your order has been shipped and is on its way to you.</p>
+
+            <div class="tracking-info">
+                <h3 style="color: #22543d; margin-top: 0;">Tracking Information</h3>
+                <p><strong>Carrier:</strong> {{ carrier }}</p>
+                <p><strong>Tracking Number:</strong></p>
+                <div class="tracking-number">{{ tracking_number }}</div>
+                <p><strong>Estimated Delivery:</strong> {{ estimated_delivery|date:"F j, Y" }}</p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="{{ tracking_url }}" class="button" style="background: #48bb78;">Track Package</a>
+                <a href="{{ website_url }}/orders/{{ order.order_number }}" class="button" style="background: #667eea;">View Order Details</a>
+            </div>
+
+            <p><strong>Delivery Instructions:</strong></p>
+            <ul>
+                <li>Please ensure someone is available to receive the package</li>
+                <li>Check your tracking regularly for updates</li>
+                <li>Contact the carrier directly for delivery questions</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>Questions about your shipment? Contact <a href="mailto:{{ support_email }}" style="color: #48bb78;">{{ support_email }}</a></p>
+            <p>&copy; {{ now|date:"Y" }} {{ company_name }}. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

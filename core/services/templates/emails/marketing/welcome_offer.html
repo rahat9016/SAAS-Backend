@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to {{ company_name }}!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f9fc;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #f6e05e 0%, #d69e2e 100%);
+            padding: 50px 30px;
+            text-align: center;
+            color: white;
+        }
+        .offer-card {
+            background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 25px 0;
+            color: #742a2a;
+        }
+        .discount-code {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 15px 0;
+            border: 2px dashed #e53e3e;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 25px 30px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+            border-top: 1px solid #e9ecef;
+        }
+        .button {
+            display: inline-block;
+            background: #d69e2e;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                margin: 10px;
+                border-radius: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 style="margin: 0; font-size: 36px;">Welcome to the Family! 🎉</h1>
+            <p style="font-size: 18px; margin: 10px 0 0 0;">Here's a special welcome gift for you</p>
+        </div>
+        
+        <div class="content" style="padding: 40px 30px;">
+            <p>Hello <strong>{{ user_name }}</strong>,</p>
+            
+            <p>Welcome to {{ company_name }}! We're thrilled to have you as part of our community. To help you get started, we'd like to offer you a special welcome gift:</p>
+
+            <div class="offer-card">
+                <h2 style="margin: 0 0 15px 0; color: #742a2a;">🎁 Exclusive Welcome Offer</h2>
+                <p style="font-size: 20px; margin: 0;">Get <strong>20% OFF</strong> your first order</p>
+                <div class="discount-code">WELCOME20</div>
+                <p style="margin: 10px 0 0 0;">Use this code at checkout</p>
+                <p style="margin: 5px 0;"><small>Valid for 30 days</small></p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="{{ website_url }}/shop?utm_source=welcome_email&utm_medium=email&utm_campaign=welcome_offer" class="button">Start Shopping Now</a>
+            </div>
+
+            <h3 style="color: #2d3748;">Why You'll Love {{ company_name }}</h3>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🚚</div>
+                    <h4 style="margin: 0 0 10px 0;">Free Shipping</h4>
+                    <p style="margin: 0; color: #6c757d;">On orders over $50</p>
+                </div>
+                <div class="feature">
+                    <div style="font-size: 32px; margin-bottom: 10px;">↩️</div>
+                    <h4 style="margin: 0 0 10px 0;">Easy Returns</h4>
+                    <p style="margin: 0; color: #6c757d;">30-day return policy</p>
+                </div>
+                <div class="feature">
+                    <div style="font-size: 32px; margin-bottom: 10px;">⭐</div>
+                    <h4 style="margin: 0 0 10px 0;">Quality Products</h4>
+                    <p style="margin: 0; color: #6c757d;">Curated just for you</p>
+                </div>
+                <div class="feature">
+                    <div style="font-size: 32px; margin-bottom: 10px;">📞</div>
+                    <h4 style="margin: 0 0 10px 0;">24/7 Support</h4>
+                    <p style="margin: 0; color: #6c757d;">We're here to help</p>
+                </div>
+            </div>
+
+            <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 25px 0;">
+                <h4 style="margin: 0 0 10px 0; color: #1a365d;">💡 Pro Tip</h4>
+                <p style="margin: 0;">Complete your profile to get personalized recommendations and early access to sales!</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Follow us on social media for updates and exclusive offers:</p>
+            <p>
+                <a href="{{ social_links.facebook }}" style="color: #667eea; margin: 0 10px;">Facebook</a> •
+                <a href="{{ social_links.instagram }}" style="color: #667eea; margin: 0 10px;">Instagram</a> •
+                <a href="{{ social_links.twitter }}" style="color: #667eea; margin: 0 10px;">Twitter</a>
+            </p>
+            <p>Have questions? We're here to help at <a href="mailto:{{ support_email }}" style="color: #d69e2e;">{{ support_email }}</a></p>
+            <p>&copy; {{ now|date:"Y" }} {{ company_name }}. All rights reserved.</p>
+            <p style="font-size: 12px; margin-top: 15px;">
+                <a href="{{ website_url }}/unsubscribe" style="color: #6c757d;">Unsubscribe</a> • 
+                <a href="{{ website_url }}/preferences" style="color: #6c757d;">Email Preferences</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
