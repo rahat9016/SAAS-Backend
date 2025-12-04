@@ -31,9 +31,6 @@ class BaseEmailService:
         try:
             html_message = render_to_string(template_name, context)
             plain_message = strip_tags(html_message)
-            print("html_message (email/base.py)", html_message)
-            print("plain_message (email/base.py)", plain_message)
-            print("context (email/base.py)", context)
             if text_template:
                 plain_message = render_to_string(text_template, context)
 

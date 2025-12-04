@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    'rest_framework.authtoken',
     "drf_spectacular",
     "phonenumber_field",
     "user",
@@ -101,12 +102,6 @@ EMAIL_HOST_PASSWORD = config("GMAIL_APP_PASSWORD")
 DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
 SUPPORT_EMAIL = config("SUPPORT_EMAIL")
 OTP_TIMEOUT = 300
-# SERVER_EMAIL = 'minhajurrohoman9016@gmail.com'
-
-# if DEBUG:
-#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# else:
-#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -126,12 +121,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Define the custom user model
-# AUTH_USER_MODEL = "user.User"
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
     ),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }

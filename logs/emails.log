@@ -8,3 +8,18 @@ Traceback (most recent call last):
     raise TemplateDoesNotExist(template_name, chain=chain)
 django.template.exceptions.TemplateDoesNotExist: emails/auth/registration_otp.txt
 [2025-11-17 19:53:08,696] INFO emails - [2025-11-17 19-53-08] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-11-19 14:30:24,056] INFO emails - [2025-11-19 14-30-24] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-11-19 14:45:21,090] INFO emails - [2025-11-19 14-45-21] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-11-19 18:10:00,746] INFO emails - [2025-11-19 18-10-00] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-11-29 18:36:46,761] INFO emails - [2025-11-29 18-36-46] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-11-29 20:09:36,127] INFO emails - [2025-11-29 20-09-36] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-12-03 18:31:27,155] INFO emails - [2025-12-03 18-31-27] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-12-03 18:33:39,316] INFO emails - [2025-12-03 18-33-39] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-12-03 18:34:20,160] INFO emails - [2025-12-03 18-34-20] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-12-03 18:35:34,504] INFO emails - [2025-12-03 18-35-34] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-12-03 18:43:51,229] INFO emails - [2025-12-03 18-43-51] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-12-03 18:47:48,483] INFO emails - [2025-12-03 18-47-48] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-12-03 18:52:14,340] INFO emails - [2025-12-03 18-52-14] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-12-03 18:54:00,953] INFO emails - [2025-12-03 18-54-00] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-12-04 18:15:36,890] INFO emails - [2025-12-04 18-15-36] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-12-04 18:21:48,965] INFO emails - [2025-12-04 18-21-48] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required

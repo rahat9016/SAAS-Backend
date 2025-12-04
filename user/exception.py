@@ -4,7 +4,7 @@ from django.utils.translation import gettext as _
 
 class AccountNotRegisteredException(APIException):
     status_code = status.HTTP_404_NOT_FOUND
-    default_detail = ("The account is not registered.")
+    default_detail = _("The account is not registered.")
     default_code = "non-registered-account"
     
 
