@@ -5,10 +5,12 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 from core.services.email.otp_services import OTPEmailService
+from core.utils.response import APIResponse
 from django.utils.translation import gettext as _
 from django.contrib.auth import authenticate
 from .serializer import UserRegisterSerializer, OTPVerifySerializer, LoginSerializer
 from .models import User, Profile
+
 import logging
 
 logger = logging.getLogger(__name__)
@@ -26,16 +28,9 @@ class RegisterAPIView(APIView):
         serializer = UserRegisterSerializer(data=data)
 
         if not serializer.is_valid():
-            return Response(
-                {
-                    "success": False,
-                    "status": status.HTTP_400_BAD_REQUEST,
-                    "message": _("Invalid registered data."),
-                    "errors": serializer.errors,
-                    "data": None,
-                }
+            return APIResponse.validation_error(
+                serializer.errors, "Invalid registered data."
             )
-
         try:
             with transaction.atomic():
                 validated_data = serializer.validated_data
@@ -46,14 +41,8 @@ class RegisterAPIView(APIView):
                 phone = validated_data.get("phone")
 
                 if User.objects.filter(email=email).exists():
-                    return Response(
-                        {
-                            "success": False,
-                            "status": status.HTTP_400_BAD_REQUEST,
-                            "message": _("User with this email already exists."),
-                            "data": None,
-                        }
-                    )
+                    return APIResponse.conflict("User with this email already exists.")
+
                 user = User.objects.create_user(  # type: ignore
                     email=email,
                     phone=phone,
@@ -71,29 +60,16 @@ class RegisterAPIView(APIView):
                     logger.error(f"Failed to send OTP to {user.email}")
                     raise Exception("OTP sending failed")
 
-            return Response(
-                {
-                    "success": True,
-                    "status": status.HTTP_201_CREATED,
-                    "message": _(
-                        "User created successfully done. Please check your email to active your account"
-                    ),
-                    "data": serializer.data,
-                }
+            return APIResponse.created(
+                "User created successfully done. Please check your email to active your account",
+                serializer.data,
             )
+
         except Exception as e:
             logger.error(
                 f"Registration failed for {request.data.get('email')}: {str(e)}"
             )
-            return Response(
-                {
-                    "success": False,
-                    "status": status.HTTP_400_BAD_REQUEST,
-                    "message": _("User registration failed."),
-                    "error": str(e),
-                    "data": None,
-                }
-            )
+            return APIResponse.error("User registration failed.")
 
 
 class LoginAPIView(APIView):
@@ -102,14 +78,8 @@ class LoginAPIView(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
         if not serializer.is_valid():
-            return Response(
-                {
-                    "success": False,
-                    "status": status.HTTP_400_BAD_REQUEST,
-                    "message": _("Invalid data."),
-                    "errors": serializer.errors,
-                    "data": None,
-                }
+            return APIResponse.validation_error(
+                serializer.errors, "Invalid login data."
             )
 
         email = serializer.validated_data["email"]
@@ -118,36 +88,20 @@ class LoginAPIView(APIView):
             user = User.objects.get(email=email)
             print(user.id)
             if not user.is_active:
-                return Response(
-                    {
-                        "success": False,
-                        "status": status.HTTP_400_BAD_REQUEST,
-                        "message": _(
-                            "This account is not active. Please active first."
-                        ),
-                        "data": None,
-                    }
+                return APIResponse.error(
+                    "This account is not active. Please active first."
                 )
 
             authenticated_user = authenticate(email=email, password=password)
             if not authenticated_user:
-                return Response(
-                    {
-                        "success": False,
-                        "status": status.HTTP_401_UNAUTHORIZED,
-                        "message": _("Invalid Crendicaial."),
-                        "data": None,
-                    }
-                )
+                return APIResponse.unauthorized("Invalid Credentials.")
 
             # Generate token.
             refresh = RefreshToken.for_user(user)
             profile = getattr(user, "profile", None)
-            return Response(
-                {
-                    "success": True,
-                    "status": status.HTTP_200_OK,
-                    "message": "Login successfully done.",
+            return APIResponse.created(
+                "Login successfully done.",
+                data={
                     "tokens": {
                         "access": str(refresh.access_token),
                         "refresh": str(refresh),
@@ -160,28 +114,14 @@ class LoginAPIView(APIView):
                         "last_name": profile.last_name if profile else "",
                         "role": user.role,
                     },
-                }
+                },
             )
         except User.DoesNotExist:
-            return Response(
-                {
-                    "success": False,
-                    "status": status.HTTP_404_NOT_FOUND,
-                    "message": _("User with this email does not exist."),
-                    "data": None,
-                }
-            )
+            return APIResponse.not_found("User with this email does not exist.")
 
         except Exception as e:
             print(e)
-            return Response(
-                {
-                    "success": False,
-                    "status": status.HTTP_500_INTERNAL_SERVER_ERROR,
-                    "message": _(str(e)),
-                    "data": None,
-                }
-            )
+            return APIResponse.server_error(str(e))
 
 
 class OTPVerifyAPIView(APIView):
@@ -191,15 +131,8 @@ class OTPVerifyAPIView(APIView):
         serializer = OTPVerifySerializer(data=request.data)
 
         if not serializer.is_valid():
-            return Response(
-                {
-                    "success": False,
-                    "status": status.HTTP_400_BAD_REQUEST,
-                    "message": _("Invalid data."),
-                    "errors": serializer.errors,
-                    "data": None,
-                }
-            )
+            return APIResponse.validation_error(serializer.errors, "Invalid OTP data.")
+
         email = serializer.validated_data["email"]
         otp = serializer.validated_data["otp"]
         purpose = "registration"
@@ -211,39 +144,14 @@ class OTPVerifyAPIView(APIView):
             if is_success:
                 user.is_active = True
                 user.save()
-                return Response(
-                    {
-                        "success": True,
-                        "status": status.HTTP_200_OK,
-                        "message": message,
-                        "data": {"email": email},
-                    }
-                )
-            return Response(
-                {
-                    "success": False,
-                    "status": status.HTTP_400_BAD_REQUEST,
-                    "message": message,
-                    "data": None,
-                }
-            )
+                return APIResponse.success(message, data={"email": email})
+
+            # OTP response error
+            return APIResponse.error(message)
+
         except User.DoesNotExist:
-            return Response(
-                {
-                    "success": False,
-                    "status": status.HTTP_404_NOT_FOUND,
-                    "message": _("User with this email does not exist."),
-                    "data": None,
-                }
-            )
+            return APIResponse.not_found("User with this email does not exist.")
 
         except Exception as e:
             logger.exception(f"OTP verification failed: {str(e)}")
-            return Response(
-                {
-                    "success": False,
-                    "status": status.HTTP_500_INTERNAL_SERVER_ERROR,
-                    "message": _("OTP verification failed."),
-                    "data": None,
-                }
-            )
+            return APIResponse.server_error(f"OTP verification failed. {str(e)}")
