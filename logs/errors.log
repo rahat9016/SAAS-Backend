@@ -516,3 +516,79 @@ LINE 1: SELECT COUNT(*) AS "__count" FROM "authtoken_token"
                                           ^
 
 ERROR 2025-12-02 18:02:40,339 basehttp 2274 6250590208 "GET /admin/authtoken/tokenproxy/ HTTP/1.1" 500 190012
+ERROR 2025-12-05 05:21:35,844 log 4651 6158823424 Internal Server Error: /api/auth/login/
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 517, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 429, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected a `Response`, `HttpResponse` or `StreamingHttpResponse` to be returned from the view, but received a `<class 'NoneType'>`
+ERROR 2025-12-05 05:21:35,846 basehttp 4651 6158823424 "POST /api/auth/login/ HTTP/1.1" 500 82304
+ERROR 2025-12-05 05:23:05,330 log 4754 6133166080 Internal Server Error: /api/auth/login/
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 517, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 429, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected a `Response`, `HttpResponse` or `StreamingHttpResponse` to be returned from the view, but received a `<class 'NoneType'>`
+ERROR 2025-12-05 05:23:05,331 basehttp 4754 6133166080 "POST /api/auth/login/ HTTP/1.1" 500 82304
+ERROR 2025-12-05 05:23:51,488 log 4798 6124482560 Internal Server Error: /api/auth/login/
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 517, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 429, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected a `Response`, `HttpResponse` or `StreamingHttpResponse` to be returned from the view, but received a `<class 'NoneType'>`
+ERROR 2025-12-05 05:23:51,489 basehttp 4798 6124482560 "POST /api/auth/login/ HTTP/1.1" 500 82304
+ERROR 2025-12-05 06:20:10,682 log 7760 6189723648 Internal Server Error: /api/auth/login/
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 517, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 429, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected a `Response`, `HttpResponse` or `StreamingHttpResponse` to be returned from the view, but received a `<class 'dict'>`
+ERROR 2025-12-05 06:20:10,683 basehttp 7760 6189723648 "POST /api/auth/login/ HTTP/1.1" 500 83532

@@ -1,11 +1,12 @@
 from django.db import transaction
+from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
-from rest_framework import status
+from rest_framework_simplejwt.tokens import RefreshToken
 from core.services.email.otp_services import OTPEmailService
 from django.utils.translation import gettext as _
-from django.contrib.auth import get_user_model
+from django.contrib.auth import authenticate
 from .serializer import UserRegisterSerializer, OTPVerifySerializer, LoginSerializer
 from .models import User, Profile
 import logging
@@ -110,14 +111,77 @@ class LoginAPIView(APIView):
                     "data": None,
                 }
             )
-        return Response(
-            {
-                "success": True,
-                "status": status.HTTP_200_OK,
-                "message": "message",
-                "data": {"email": "email"},
-            }
-        )
+
+        email = serializer.validated_data["email"]
+        password = serializer.validated_data["password"]
+        try:
+            user = User.objects.get(email=email)
+            print(user.id)
+            if not user.is_active:
+                return Response(
+                    {
+                        "success": False,
+                        "status": status.HTTP_400_BAD_REQUEST,
+                        "message": _(
+                            "This account is not active. Please active first."
+                        ),
+                        "data": None,
+                    }
+                )
+
+            authenticated_user = authenticate(email=email, password=password)
+            if not authenticated_user:
+                return Response(
+                    {
+                        "success": False,
+                        "status": status.HTTP_401_UNAUTHORIZED,
+                        "message": _("Invalid Crendicaial."),
+                        "data": None,
+                    }
+                )
+
+            # Generate token.
+            refresh = RefreshToken.for_user(user)
+            profile = getattr(user, "profile", None)
+            return Response(
+                {
+                    "success": True,
+                    "status": status.HTTP_200_OK,
+                    "message": "Login successfully done.",
+                    "tokens": {
+                        "access": str(refresh.access_token),
+                        "refresh": str(refresh),
+                    },
+                    "user": {
+                        "id": str(user.id),
+                        "email": user.email,
+                        "phone": str(user.phone) if user.phone else None,
+                        "first_name": profile.first_name if profile else "",
+                        "last_name": profile.last_name if profile else "",
+                        "role": user.role,
+                    },
+                }
+            )
+        except User.DoesNotExist:
+            return Response(
+                {
+                    "success": False,
+                    "status": status.HTTP_404_NOT_FOUND,
+                    "message": _("User with this email does not exist."),
+                    "data": None,
+                }
+            )
+
+        except Exception as e:
+            print(e)
+            return Response(
+                {
+                    "success": False,
+                    "status": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "message": _(str(e)),
+                    "data": None,
+                }
+            )
 
 
 class OTPVerifyAPIView(APIView):
@@ -172,7 +236,9 @@ class OTPVerifyAPIView(APIView):
                     "data": None,
                 }
             )
+
         except Exception as e:
+            logger.exception(f"OTP verification failed: {str(e)}")
             return Response(
                 {
                     "success": False,
