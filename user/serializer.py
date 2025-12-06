@@ -47,3 +47,5 @@ class OTPVerifySerializer(serializers.Serializer):
     otp = serializers.CharField(required=True, min_length=6, max_length=6)
     email = serializers.EmailField(required=True)
 
+class RefreshTokenSerializer(serializers.Serializer):
+    refresh_token = serializers.CharField(required=True)

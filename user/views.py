@@ -1,14 +1,18 @@
 from django.db import transaction
-from rest_framework import status
 from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.exceptions import TokenError
 from core.services.email.otp_services import OTPEmailService
 from core.utils.response import APIResponse
 from django.utils.translation import gettext as _
 from django.contrib.auth import authenticate
-from .serializer import UserRegisterSerializer, OTPVerifySerializer, LoginSerializer
+from .serializer import (
+    UserRegisterSerializer,
+    OTPVerifySerializer,
+    LoginSerializer,
+    RefreshTokenSerializer,
+)
 from .models import User, Profile
 
 import logging
@@ -99,7 +103,7 @@ class LoginAPIView(APIView):
             # Generate token.
             refresh = RefreshToken.for_user(user)
             profile = getattr(user, "profile", None)
-            return APIResponse.created(
+            return APIResponse.success(
                 "Login successfully done.",
                 data={
                     "tokens": {
@@ -120,7 +124,7 @@ class LoginAPIView(APIView):
             return APIResponse.not_found("User with this email does not exist.")
 
         except Exception as e:
-            print(e)
+            logger.exception(f"Login failed: {str(e)}")
             return APIResponse.server_error(str(e))
 
 
@@ -155,3 +159,50 @@ class OTPVerifyAPIView(APIView):
         except Exception as e:
             logger.exception(f"OTP verification failed: {str(e)}")
             return APIResponse.server_error(f"OTP verification failed. {str(e)}")
+
+
+class RefreshTokenAPIView(APIView):
+    # 1. If refresh token not pass then show an error
+    # 2. If token has valid date
+    # 3. do generate new access token
+    # 4. If token hasn't valid time show and error. Token expired
+    # 5. if any how case failed show error. token not generated.
+    def post(self, request):
+        serializer = RefreshTokenSerializer(data=request.data)
+
+        if not serializer.is_valid():
+            return APIResponse.validation_error(
+                serializer.errors, "Refresh token validation failed."
+            )
+        try:
+            refresh_token = serializer.validated_data["refresh_token"]
+            refresh = RefreshToken(refresh_token)
+
+            # Is refresh token has expired date
+            refresh.check_exp()
+            user_id = refresh["user_id"]
+
+            try:
+                user = User.objects.get(id=user_id)
+                if not user.is_active:
+                    return APIResponse.error("This user account not active")
+
+                # Generate new access token
+                new_access_token = str(refresh.access_token)
+                return APIResponse.success(
+                    "Token refreshed successfully",
+                    data={
+                        "tokens": {
+                            "access": new_access_token,
+                        },
+                    },
+                )
+            except User.DoesNotExist:
+                return APIResponse.not_found("User not found for this token")
+
+        except TokenError as e:
+            logger.error(f"Token validation failed: {str(e)}")
+            return APIResponse.error("Refresh token has been expired")
+        except Exception as e:
+            logger.exception(f"Token refresh failed: {str(e)}")
+            APIResponse.server_error(f"Token refresh failed")

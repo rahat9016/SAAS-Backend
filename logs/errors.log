@@ -592,3 +592,22 @@ Traceback (most recent call last):
            ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError: Expected a `Response`, `HttpResponse` or `StreamingHttpResponse` to be returned from the view, but received a `<class 'dict'>`
 ERROR 2025-12-05 06:20:10,683 basehttp 7760 6189723648 "POST /api/auth/login/ HTTP/1.1" 500 83532
+ERROR 2025-12-06 07:46:55,402 log 4979 6136672256 Internal Server Error: /api/auth/refresh-token/
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 517, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 429, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected a `Response`, `HttpResponse` or `StreamingHttpResponse` to be returned from the view, but received a `<class 'dict'>`
+ERROR 2025-12-06 07:46:55,404 basehttp 4979 6136672256 "POST /api/auth/refresh-token/ HTTP/1.1" 500 82686

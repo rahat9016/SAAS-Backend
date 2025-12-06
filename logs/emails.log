@@ -24,3 +24,4 @@ django.template.exceptions.TemplateDoesNotExist: emails/auth/registration_otp.tx
 [2025-12-04 18:15:36,890] INFO emails - [2025-12-04 18-15-36] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
 [2025-12-04 18:21:48,965] INFO emails - [2025-12-04 18-21-48] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
 [2025-12-05 16:15:55,746] INFO emails - [2025-12-05 16-15-55] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
+[2025-12-06 08:04:41,937] INFO emails - [2025-12-06 08-04-41] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
