@@ -26,11 +26,10 @@ class RegisterAPIView(APIView):
     """
 
     permission_classes = [AllowAny]
-
+    serializer_class = UserRegisterSerializer
     def post(self, request):
         data = request.data
-        serializer = UserRegisterSerializer(data=data)
-
+        serializer = self.serializer_class(data)
         if not serializer.is_valid():
             return APIResponse.validation_error(
                 serializer.errors, "Invalid registered data."
@@ -78,9 +77,9 @@ class RegisterAPIView(APIView):
 
 class LoginAPIView(APIView):
     permission_classes = [AllowAny]
-
+    serializer_class = LoginSerializer
     def post(self, request):
-        serializer = LoginSerializer(data=request.data)
+        serializer = self.serializer_class(data=request.data)
         if not serializer.is_valid():
             return APIResponse.validation_error(
                 serializer.errors, "Invalid login data."
@@ -90,7 +89,6 @@ class LoginAPIView(APIView):
         password = serializer.validated_data["password"]
         try:
             user = User.objects.get(email=email)
-            print(user.id)
             if not user.is_active:
                 return APIResponse.error(
                     "This account is not active. Please active first."
@@ -130,10 +128,10 @@ class LoginAPIView(APIView):
 
 class OTPVerifyAPIView(APIView):
     permission_classes = [AllowAny]
-
+    serializer_class = OTPVerifySerializer
+    
     def post(self, request):
-        serializer = OTPVerifySerializer(data=request.data)
-
+        serializer = self.serializer_class(data=request.data)
         if not serializer.is_valid():
             return APIResponse.validation_error(serializer.errors, "Invalid OTP data.")
 
@@ -167,9 +165,9 @@ class RefreshTokenAPIView(APIView):
     # 3. do generate new access token
     # 4. If token hasn't valid time show and error. Token expired
     # 5. if any how case failed show error. token not generated.
+    serializer_class = RefreshTokenSerializer
     def post(self, request):
-        serializer = RefreshTokenSerializer(data=request.data)
-
+        serializer = self.serializer_class(data=request.data)
         if not serializer.is_valid():
             return APIResponse.validation_error(
                 serializer.errors, "Refresh token validation failed."
