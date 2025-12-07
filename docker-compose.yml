@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: saas_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: saas_backend
+      POSTGRES_USER: minhazurrahman
+      POSTGRES_PASSWORD: rahat9016
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

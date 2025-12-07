@@ -28,8 +28,7 @@ class RegisterAPIView(APIView):
     permission_classes = [AllowAny]
     serializer_class = UserRegisterSerializer
     def post(self, request):
-        data = request.data
-        serializer = self.serializer_class(data)
+        serializer = self.serializer_class(data=request.data)
         if not serializer.is_valid():
             return APIResponse.validation_error(
                 serializer.errors, "Invalid registered data."

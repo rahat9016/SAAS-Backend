@@ -611,3 +611,31 @@ Traceback (most recent call last):
            ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError: Expected a `Response`, `HttpResponse` or `StreamingHttpResponse` to be returned from the view, but received a `<class 'dict'>`
 ERROR 2025-12-06 07:46:55,404 basehttp 4979 6136672256 "POST /api/auth/refresh-token/ HTTP/1.1" 500 82686
+ERROR 2025-12-07 11:15:52,375 log 117395 140385393288896 Internal Server Error: /api/auth/register/
+Traceback (most recent call last):
+  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py", line 33, in post
+    if not serializer.is_valid():
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 218, in is_valid
+    assert hasattr(self, 'initial_data'), (
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Cannot call `.is_valid()` as no `data=` keyword argument was passed when instantiating the serializer instance.
+ERROR 2025-12-07 11:15:52,377 basehttp 117395 140385393288896 "POST /api/auth/register/ HTTP/1.1" 500 23315
