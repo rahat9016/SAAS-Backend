@@ -1,4 +1,5 @@
 from django.db import transaction
+from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -12,6 +13,7 @@ from .serializer import (
     OTPVerifySerializer,
     LoginSerializer,
     RefreshTokenSerializer,
+    ResendOTPSerializer,
 )
 from .models import User, Profile
 
@@ -27,6 +29,7 @@ class RegisterAPIView(APIView):
 
     permission_classes = [AllowAny]
     serializer_class = UserRegisterSerializer
+
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
         if not serializer.is_valid():
@@ -77,6 +80,7 @@ class RegisterAPIView(APIView):
 class LoginAPIView(APIView):
     permission_classes = [AllowAny]
     serializer_class = LoginSerializer
+
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
         if not serializer.is_valid():
@@ -128,7 +132,7 @@ class LoginAPIView(APIView):
 class OTPVerifyAPIView(APIView):
     permission_classes = [AllowAny]
     serializer_class = OTPVerifySerializer
-    
+
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
         if not serializer.is_valid():
@@ -136,7 +140,7 @@ class OTPVerifyAPIView(APIView):
 
         email = serializer.validated_data["email"]
         otp = serializer.validated_data["otp"]
-        purpose = "registration"
+        purpose = serializer.validated_data.get("purpose", "registration")
 
         try:
             user = User.objects.get(email=email)
@@ -165,6 +169,7 @@ class RefreshTokenAPIView(APIView):
     # 4. If token hasn't valid time show and error. Token expired
     # 5. if any how case failed show error. token not generated.
     serializer_class = RefreshTokenSerializer
+
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
         if not serializer.is_valid():
@@ -203,3 +208,41 @@ class RefreshTokenAPIView(APIView):
         except Exception as e:
             logger.exception(f"Token refresh failed: {str(e)}")
             APIResponse.server_error(f"Token refresh failed")
+
+
+class ResendOTPAPIView(APIView):
+    permission_classes = [AllowAny]
+    serializer_class = ResendOTPSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+
+        if not serializer.is_valid():
+            return APIResponse.validation_error(
+                serializer.errors, "Resend OTP validation failed."
+            )
+
+        email = serializer.validated_data["email"]
+
+        try:
+            user = User.objects.select_related("profile").get(email=email)
+            otp_service = OTPEmailService()
+            allowed, wait_time = otp_service.can_resend_otp(email, "resend_otp")
+            if not allowed:
+                return APIResponse.error(
+                    f"Please wait for {wait_time} seconds before requesting another OTP.",
+                    status=status.HTTP_429_TOO_MANY_REQUESTS,
+                )
+            profile = getattr(user, "profile", None)
+
+            otp_sent = otp_service.sent_otp(email, "resend_otp", profile)
+            if not otp_sent:
+                logger.error(f"Failed to send OTP to {user.email}")
+                raise Exception("OTP sending failed")
+            return APIResponse.success("A new OTP has been sent successfully. ")
+
+        except User.DoesNotExist:
+            return APIResponse.not_found("Email not found")
+        except Exception as e:
+            logger.exception(f"Resend OTP Failed: {str(e)}")
+            return APIResponse.server_error("Resend OTP Failed.")

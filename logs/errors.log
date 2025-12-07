@@ -639,3 +639,28 @@ Traceback (most recent call last):
            ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
 AssertionError: Cannot call `.is_valid()` as no `data=` keyword argument was passed when instantiating the serializer instance.
 ERROR 2025-12-07 11:15:52,377 basehttp 117395 140385393288896 "POST /api/auth/register/ HTTP/1.1" 500 23315
+ERROR 2025-12-07 16:23:19,672 log 7574 6224375808 Internal Server Error: /api/auth/resend-otp/
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/minhazurrahman/Desktop/Django/user/views.py", line 224, in post
+    email = serializer.validate_data["email"]
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ResendOTPSerializer' object has no attribute 'validate_data'. Did you mean: 'validated_data'?
+ERROR 2025-12-07 16:23:19,673 basehttp 7574 6224375808 "POST /api/auth/resend-otp/ HTTP/1.1" 500 95409

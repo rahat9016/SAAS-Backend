@@ -63,3 +63,10 @@ Traceback (most recent call last):
     sock.connect(sa)
     ~~~~~~~~~~~~^^^^
 OSError: [Errno 101] Network is unreachable
+[2025-12-07 16:24:20,355] INFO emails - [2025-12-07 16-24-20] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject New Verification Code
+[2025-12-07 16:28:00,066] INFO emails - [2025-12-07 16-28-00] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject New Verification Code
+[2025-12-07 16:28:48,135] INFO emails - [2025-12-07 16-28-48] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject New Verification Code
+[2025-12-07 16:48:56,987] INFO emails - [2025-12-07 16-48-56] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject New Verification Code
+[2025-12-07 16:50:25,952] INFO emails - [2025-12-07 16-50-25] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject New Verification Code
+[2025-12-07 17:07:33,124] INFO emails - [2025-12-07 17-07-33] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject New Verification Code
+[2025-12-07 17:09:36,627] INFO emails - [2025-12-07 17-09-36] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject New Verification Code

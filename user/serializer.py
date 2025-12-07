@@ -46,6 +46,10 @@ class LoginSerializer(serializers.Serializer):
 class OTPVerifySerializer(serializers.Serializer):
     otp = serializers.CharField(required=True, min_length=6, max_length=6)
     email = serializers.EmailField(required=True)
+    purpose = serializers.CharField(required=False)
 
 class RefreshTokenSerializer(serializers.Serializer):
     refresh_token = serializers.CharField(required=True)
+    
+class ResendOTPSerializer(serializers.Serializer):
+    email = serializers.EmailField(required=True)

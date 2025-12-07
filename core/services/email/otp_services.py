@@ -2,6 +2,7 @@ import random
 import logging
 from django.core.cache import cache
 from django.utils import timezone
+from datetime import datetime
 from django.conf import settings
 from .base import BaseEmailService
 
@@ -12,12 +13,27 @@ class OTPEmailService(BaseEmailService):
     def __init__(self):
         super().__init__()
         self.otp_timeout = getattr(settings, "OTP_TIMEOUT", 300)
+        self.COOLDOWN_SECONDS = 30
 
     def _get_otp_catch_key(self, email, purpose):
         return f"otp_{purpose}_{email}"
 
     def _generate_otp(self):
         return str(random.randint(100000, 999999))
+
+    def can_resend_otp(self, email, purpose):
+        catch_key = self._get_otp_catch_key(email, purpose)
+        data = cache.get(catch_key)
+
+        if not data:
+            return True, None
+        created_at = datetime.fromisoformat(data["created_at"])
+        seconds_passed = (timezone.now() - created_at).total_seconds()
+        if seconds_passed < self.COOLDOWN_SECONDS:
+            wait_time = int(self.COOLDOWN_SECONDS - seconds_passed)
+            return False, wait_time
+
+        return True, None
 
     def sent_otp(self, email, purpose, user_name=None, extra_context=None):
         otp = self._generate_otp()
@@ -32,9 +48,14 @@ class OTPEmailService(BaseEmailService):
 
         template_map = {
             "registration": {
-                "subject": "Verify Your Account - OTP Required",
+                "subject": "Verify Your Account",
                 "template": "emails/auth/registration_otp.html",
                 "text_template": "emails/auth/registration_otp.txt",
+            },
+            "resend_otp": {
+                "subject": "New Verification Code",
+                "template": "emails/auth/resend_otp.html",
+                "text_template": "emails/auth/resend_otp.txt",
             },
             "password_reset": {
                 "subject": "Reset Your Password - OTP Verification",
@@ -114,7 +135,7 @@ class OTPEmailService(BaseEmailService):
             text_template=None,
             context=context,
         )
-        
+
         if success:
             catch_key = self._get_otp_catch_key(email, purpose)
             catch_data = {

@@ -1,0 +1,23 @@
+Resend OTP - {{ company_name }}
+
+Hello again!
+
+You requested a new One-Time Password (OTP). Use the code below:
+
+Your New OTP: {{ otp }}
+
+Steps:
+1. Return to the {{ company_name }} verification page
+2. Enter the new 6-digit code
+3. Click "Verify" to continue
+
+⏰ This code will expire in {{ timeout_minutes }} minutes.
+
+Security Reminder:
+Never share this code with anyone. {{ company_name }} will never ask for it.
+
+If you didn’t request this OTP, please ignore the email.
+
+Need help? Contact support: {{ support_email }}
+
+© {{ now|date:"Y" }} {{ company_name }}. All rights reserved.

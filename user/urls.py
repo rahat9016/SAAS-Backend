@@ -1,5 +1,11 @@
 from django.urls import path
-from .views import RegisterAPIView, LoginAPIView, OTPVerifyAPIView, RefreshTokenAPIView
+from .views import (
+    RegisterAPIView,
+    LoginAPIView,
+    OTPVerifyAPIView,
+    RefreshTokenAPIView,
+    ResendOTPAPIView,
+)
 
 app_name = "users"
 urlpatterns = [
@@ -7,4 +13,5 @@ urlpatterns = [
     path("login/", LoginAPIView.as_view(), name="login"),
     path("verify-account/", OTPVerifyAPIView.as_view(), name="verify_account"),
     path("refresh-token/", RefreshTokenAPIView.as_view(), name="refresh_token"),
+    path("resend-otp/", ResendOTPAPIView.as_view(), name="resend_otp"),
 ]
