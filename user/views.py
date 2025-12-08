@@ -122,7 +122,7 @@ class LoginAPIView(APIView):
                 },
             )
         except User.DoesNotExist:
-            return APIResponse.not_found("User with this email does not exist.")
+            return APIResponse.unauthorized("Invalid email or password.")
 
         except Exception as e:
             logger.exception(f"Login failed: {str(e)}")
@@ -155,7 +155,7 @@ class OTPVerifyAPIView(APIView):
             return APIResponse.error(message)
 
         except User.DoesNotExist:
-            return APIResponse.not_found("User with this email does not exist.")
+            return APIResponse.unauthorized("Invalid email or password.")
 
         except Exception as e:
             logger.exception(f"OTP verification failed: {str(e)}")
@@ -211,6 +211,12 @@ class RefreshTokenAPIView(APIView):
 
 
 class ResendOTPAPIView(APIView):
+    """
+    Resend OTP for multiple purposes:
+    - registration
+    - send_otp (login, password reset, etc.)
+    """
+
     permission_classes = [AllowAny]
     serializer_class = ResendOTPSerializer
 
@@ -223,26 +229,39 @@ class ResendOTPAPIView(APIView):
             )
 
         email = serializer.validated_data["email"]
+        purpose = serializer.validated_data.get("purpose", "registration")
 
         try:
             user = User.objects.select_related("profile").get(email=email)
-            otp_service = OTPEmailService()
-            allowed, wait_time = otp_service.can_resend_otp(email, "resend_otp")
-            if not allowed:
-                return APIResponse.error(
-                    f"Please wait for {wait_time} seconds before requesting another OTP.",
-                    status=status.HTTP_429_TOO_MANY_REQUESTS,
-                )
-            profile = getattr(user, "profile", None)
-
-            otp_sent = otp_service.sent_otp(email, "resend_otp", profile)
-            if not otp_sent:
-                logger.error(f"Failed to send OTP to {user.email}")
-                raise Exception("OTP sending failed")
-            return APIResponse.success("A new OTP has been sent successfully. ")
 
         except User.DoesNotExist:
             return APIResponse.not_found("Email not found")
+        
+        """
+            Prevent re-sending registration OTP to already activated users.
+            Once the account is active, sending another registration OTP is unnecessary
+            and could indicate misuse or an invalid registration attempt.
+        """
+        if purpose == "registration" and user.is_active:
+            return APIResponse.error("Already account is activated.")
+
+        otp_service = OTPEmailService()
+        allowed, wait_time = otp_service.can_resend_otp(email, purpose)
+
+        if not allowed:
+            return APIResponse.error(
+                f"Please wait for {wait_time} seconds before requesting another OTP.",
+                status=status.HTTP_429_TOO_MANY_REQUESTS,
+            )
+        try:
+            profile = getattr(user, "profile", None)
+            otp_sent = otp_service.sent_otp(email, purpose, profile)
+            if not otp_sent:
+                logger.error(f"Failed to send OTP to {user.email}")
+                raise Exception("OTP sending failed")
+                
         except Exception as e:
             logger.exception(f"Resend OTP Failed: {str(e)}")
             return APIResponse.server_error("Resend OTP Failed.")
+        
+        return APIResponse.success("A new OTP has been sent successfully. ")

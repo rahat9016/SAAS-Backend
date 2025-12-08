@@ -53,3 +53,4 @@ class RefreshTokenSerializer(serializers.Serializer):
     
 class ResendOTPSerializer(serializers.Serializer):
     email = serializers.EmailField(required=True)
+    purpose = serializers.CharField(required=False)
