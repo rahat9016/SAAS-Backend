@@ -4730,3 +4730,71 @@
 [2025-12-08 17:56:56,492] INFO django.utils.autoreload - Watching for file changes with StatReloader
 [2025-12-08 17:57:39,678] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
 [2025-12-08 17:57:39,873] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-09 18:27:23,823] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-09 18:27:29,050] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2025-12-09 18:27:29,456] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 11442
+[2025-12-09 18:27:36,268] INFO django.server - "GET /admin HTTP/1.1" 301 0
+[2025-12-09 18:27:36,311] INFO django.server - "GET /admin/ HTTP/1.1" 200 11087
+[2025-12-09 18:27:36,331] INFO django.server - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[2025-12-09 18:27:36,332] INFO django.server - "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+[2025-12-09 18:27:36,332] INFO django.server - "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[2025-12-09 18:27:36,333] INFO django.server - "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+[2025-12-09 18:27:36,333] INFO django.server - "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+[2025-12-09 18:27:36,333] INFO django.server - "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[2025-12-09 18:27:36,338] INFO django.server - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[2025-12-09 18:27:36,341] INFO django.server - "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2025-12-09 18:27:36,341] INFO django.server - "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2025-12-09 18:27:36,342] INFO django.server - "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[2025-12-09 18:27:36,373] WARNING django.server - "GET /favicon.ico HTTP/1.1" 404 2689
+[2025-12-09 18:27:48,682] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10778
+[2025-12-09 18:27:48,696] INFO django.server - "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[2025-12-09 18:27:48,696] INFO django.server - "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+[2025-12-09 18:27:48,699] INFO django.server - "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-12-09 18:27:48,700] INFO django.server - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[2025-12-09 18:27:48,702] INFO django.server - "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[2025-12-09 18:27:48,704] INFO django.server - "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[2025-12-09 18:27:48,704] INFO django.server - "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[2025-12-09 18:27:48,707] INFO django.server - "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2025-12-09 18:27:48,709] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-12-09 18:27:48,710] INFO django.server - "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+[2025-12-09 18:27:48,712] INFO django.server - "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2025-12-09 18:27:48,718] INFO django.server - "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[2025-12-09 18:27:55,328] INFO django.server - "POST /admin/user/user/ HTTP/1.1" 200 9353
+[2025-12-09 18:27:55,339] INFO django.server - "GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+[2025-12-09 18:27:56,500] INFO django.server - "POST /admin/user/user/ HTTP/1.1" 302 0
+[2025-12-09 18:27:56,514] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10170
+[2025-12-09 18:27:56,533] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-12-09 18:27:56,539] INFO django.server - "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[2025-12-09 18:30:44,150] WARNING django.server - "POST /api/auth/register/ HTTP/1.1" 400 68
+[2025-12-09 18:31:55,999] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/settings.py changed, reloading.
+[2025-12-09 18:31:56,297] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-09 18:32:01,546] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/settings.py changed, reloading.
+[2025-12-09 18:32:01,755] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-09 18:32:16,800] INFO django.server - "POST /api/auth/register/ HTTP/1.1" 201 238
+[2025-12-09 18:34:02,950] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/urls.py changed, reloading.
+[2025-12-09 18:34:03,265] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-09 18:34:04,406] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/urls.py changed, reloading.
+[2025-12-09 18:34:04,575] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-09 18:34:08,701] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/urls.py changed, reloading.
+[2025-12-09 18:34:08,875] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-09 18:34:09,936] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/urls.py changed, reloading.
+[2025-12-09 18:34:10,123] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-09 18:34:11,181] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/urls.py changed, reloading.
+[2025-12-09 18:34:11,353] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-09 18:34:20,702] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/urls.py changed, reloading.
+[2025-12-09 18:34:20,899] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-09 18:35:11,209] WARNING django.server - "POST /api/auth/verify-account/ HTTP/1.1" 401 56
+[2025-12-09 18:35:37,718] WARNING django.server - "POST /api/auth/verify-account/ HTTP/1.1" 400 76
+[2025-12-09 18:36:10,721] WARNING django.server - "POST /api/auth/verify-account/ HTTP/1.1" 400 76
+[2025-12-09 18:36:12,161] WARNING django.server - "POST /api/auth/verify-account/ HTTP/1.1" 400 76
+[2025-12-09 18:36:29,418] WARNING django.server - "POST /api/auth/register/ HTTP/1.1" 400 195
+[2025-12-09 18:39:43,024] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10407
+[2025-12-09 18:39:43,050] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-12-09 18:39:47,497] INFO django.server - "POST /admin/user/user/ HTTP/1.1" 200 9001
+[2025-12-09 18:39:48,563] INFO django.server - "POST /admin/user/user/ HTTP/1.1" 302 0
+[2025-12-09 18:39:48,585] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10169
+[2025-12-09 18:39:48,603] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-12-09 18:40:02,768] INFO django.server - "POST /api/auth/register/ HTTP/1.1" 201 238
+[2025-12-09 18:41:06,781] INFO django.server - "POST /api/auth/verify-account/ HTTP/1.1" 200 72
+[2025-12-09 18:41:50,961] WARNING django.server - "POST /api/auth/verify-account/ HTTP/1.1" 400 76
+[2025-12-09 18:43:22,549] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 847

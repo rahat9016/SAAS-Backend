@@ -10,7 +10,7 @@ from django.utils.translation import gettext as _
 from django.contrib.auth import authenticate
 from .serializer import (
     UserRegisterSerializer,
-    OTPVerifySerializer,
+    VerifySerializer,
     LoginSerializer,
     RefreshTokenSerializer,
     ResendOTPSerializer,
@@ -58,9 +58,7 @@ class RegisterAPIView(APIView):
                     user=user, first_name=first_name, last_name=last_name
                 )
                 email_service = OTPEmailService()
-                otp_sent = email_service.sent_otp(
-                    email, user_name=first_name
-                )
+                otp_sent = email_service.sent_otp(email, user_name=first_name)
                 if not otp_sent:
                     logger.error(f"Failed to send OTP to {user.email}")
                     raise Exception("OTP sending failed")
@@ -129,9 +127,45 @@ class LoginAPIView(APIView):
             return APIResponse.server_error(str(e))
 
 
+class VerifyAccountAPIView(APIView):
+    permission_classes = [AllowAny]
+    serializer_class = VerifySerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+
+        if not serializer.is_valid():
+            return APIResponse.validation_error(serializer.errors, "Invalid data")
+        email = serializer.validated_data["email"]
+        otp = serializer.validated_data["otp"]
+        try:
+            user = User.objects.get(email=email)
+            otp_service = OTPEmailService()
+            success, message = otp_service.verify_otp(email, otp)
+
+            if not success:
+                return APIResponse.error(message)
+            
+            # OTP matched → activate the account
+            user.is_active = True
+            user.save()
+            
+            # Remove OTP from cache
+            otp_service.verify_account_remove_otp(email)
+            
+            return APIResponse.success("Your account has been verified")
+
+        except User.DoesNotExist:
+            return APIResponse.unauthorized("Invalid email")
+
+        except Exception as e:
+            logger.error(f"Verify Account: {str(e)}")
+            return APIResponse.server_error("Account not activated. Please try again.")
+
+
 class OTPVerifyAPIView(APIView):
     permission_classes = [AllowAny]
-    serializer_class = OTPVerifySerializer
+    serializer_class = VerifySerializer
 
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
@@ -140,15 +174,12 @@ class OTPVerifyAPIView(APIView):
 
         email = serializer.validated_data["email"]
         otp = serializer.validated_data["otp"]
-        purpose = serializer.validated_data.get("purpose", "registration")
 
         try:
-            user = User.objects.get(email=email)
+            User.objects.get(email=email)
             otp_service = OTPEmailService()
             is_success, message = otp_service.verify_otp(email, otp)
             if is_success:
-                user.is_active = True
-                user.save()
                 return APIResponse.success(message, data={"email": email})
 
             # OTP response error
@@ -236,7 +267,7 @@ class ResendOTPAPIView(APIView):
 
         except User.DoesNotExist:
             return APIResponse.not_found("Email not found")
-        
+
         """
             Prevent re-sending registration OTP to already activated users.
             Once the account is active, sending another registration OTP is unnecessary
@@ -246,7 +277,7 @@ class ResendOTPAPIView(APIView):
             return APIResponse.error("Already account is activated.")
 
         otp_service = OTPEmailService()
-        allowed, wait_time = otp_service.can_resend_otp(email, purpose)
+        allowed, wait_time = otp_service.can_resend_otp(email)
 
         if not allowed:
             return APIResponse.error(
@@ -259,9 +290,9 @@ class ResendOTPAPIView(APIView):
             if not otp_sent:
                 logger.error(f"Failed to send OTP to {user.email}")
                 raise Exception("OTP sending failed")
-                
+
         except Exception as e:
             logger.exception(f"Resend OTP Failed: {str(e)}")
             return APIResponse.server_error("Resend OTP Failed.")
-        
+
         return APIResponse.success("A new OTP has been sent successfully. ")

@@ -21,7 +21,7 @@ class OTPEmailService(BaseEmailService):
     def _generate_otp(self):
         return str(random.randint(100000, 999999))
 
-    def can_resend_otp(self, email, purpose):
+    def can_resend_otp(self, email):
         catch_key = self._get_otp_catch_key(email)
         data = cache.get(catch_key)
 
@@ -83,12 +83,21 @@ class OTPEmailService(BaseEmailService):
                 cache.set(catch_key, stored_data, timeout=self.otp_timeout)
                 return False, "OTP doesn't match. Please try again."
 
-            cache.delete(catch_key)
             return True, "OTP verify successfully."
 
         except Exception as e:
             error_msg = f"OTP verification error for {email}, {str(e)}"
             otp_logger.error(error_msg)
             return False, "OTP verification failed. Please try again."
+    
+    def verify_account_remove_otp(self,  email):
+        try:
+            catch_key = self._get_otp_catch_key(email)
+            cache.delete(catch_key)
+            return True, "OTP removed successfully."
+        except Exception as e:
+            return False, "Can't removed OTP"
+            
+        
 
     
