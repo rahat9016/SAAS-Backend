@@ -4691,3 +4691,42 @@
 [2025-12-08 11:39:30,729] INFO django.utils.autoreload - Watching for file changes with StatReloader
 [2025-12-08 11:39:39,117] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
 [2025-12-08 11:39:39,449] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:47:47,793] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:49:45,919] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2025-12-08 17:49:46,416] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 11651
+[2025-12-08 17:50:24,481] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:50:24,654] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:50:32,962] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:50:33,154] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:50:51,752] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:50:51,952] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:51:13,591] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:51:13,764] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:51:27,228] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:51:27,414] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:51:42,924] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:51:43,115] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:51:45,244] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:51:45,431] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:51:52,695] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:51:52,872] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:51:59,092] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:51:59,269] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:52:02,431] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:52:02,628] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:52:13,000] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:52:13,178] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:52:20,426] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:52:20,595] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:52:23,735] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:52:23,915] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:52:29,122] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:52:29,297] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:52:33,488] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:52:33,675] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:55:40,921] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:55:41,202] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:56:56,303] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/core/services/email/otp_services.py changed, reloading.
+[2025-12-08 17:56:56,492] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-08 17:57:39,678] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
+[2025-12-08 17:57:39,873] INFO django.utils.autoreload - Watching for file changes with StatReloader

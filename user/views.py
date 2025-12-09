@@ -59,7 +59,7 @@ class RegisterAPIView(APIView):
                 )
                 email_service = OTPEmailService()
                 otp_sent = email_service.sent_otp(
-                    email, purpose="registration", user_name=first_name
+                    email, user_name=first_name
                 )
                 if not otp_sent:
                     logger.error(f"Failed to send OTP to {user.email}")
@@ -145,7 +145,7 @@ class OTPVerifyAPIView(APIView):
         try:
             user = User.objects.get(email=email)
             otp_service = OTPEmailService()
-            is_success, message = otp_service.verify_otp(email, otp, purpose)
+            is_success, message = otp_service.verify_otp(email, otp)
             if is_success:
                 user.is_active = True
                 user.save()

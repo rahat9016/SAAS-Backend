@@ -15,14 +15,14 @@ class OTPEmailService(BaseEmailService):
         self.otp_timeout = getattr(settings, "OTP_TIMEOUT", 300)
         self.COOLDOWN_SECONDS = 30
 
-    def _get_otp_catch_key(self, email, purpose):
-        return f"otp_{purpose}_{email}"
+    def _get_otp_catch_key(self, email):
+        return f"otp_{email}"
 
     def _generate_otp(self):
         return str(random.randint(100000, 999999))
 
     def can_resend_otp(self, email, purpose):
-        catch_key = self._get_otp_catch_key(email, purpose)
+        catch_key = self._get_otp_catch_key(email)
         data = cache.get(catch_key)
 
         if not data:
@@ -35,53 +35,26 @@ class OTPEmailService(BaseEmailService):
 
         return True, None
 
-    def sent_otp(self, email, purpose, user_name=None, extra_context=None):
+    def sent_otp(self, email, user_name=None, extra_context=None):
         otp = self._generate_otp()
 
         context = {
             "otp": otp,
-            "purpose": purpose,
             "timeout_minutes": self.otp_timeout // 60,
             "user_name": user_name,
             **(extra_context or {}),
         }
 
-        template_map = {
-            "registration": {
-                "subject": "Verify Your Account",
-                "template": "emails/auth/registration_otp.html",
-                "text_template": "emails/auth/registration_otp.txt",
-            },
-            "resend_otp": {
-                "subject": "New Verification Code",
-                "template": "emails/auth/resend_otp.html",
-                "text_template": "emails/auth/resend_otp.txt",
-            },
-            "password_reset": {
-                "subject": "Reset Your Password - OTP Verification",
-                "template": "emails/auth/password_reset_otp.html",
-                "text_template": "emails/auth/password_reset_otp.txt",
-            },
-        }
-
-        email_config = template_map.get(
-            purpose,
-            {
-                "subject": "Your Verification Code",
-                "template": "emails/auth/registration_otp.html",
-                "text_template": "emails/auth/registration_otp.txt",
-            },
-        )
         success = self._sent_email(
-            subject=email_config["subject"],
+            subject="Your Verification Code",
             recipient_list=[email],
-            template_name=email_config["template"],
-            text_template=email_config["text_template"],
+            template_name="emails/auth/registration_otp.html",
+            text_template="emails/auth/registration_otp.txt",
             context=context,
         )
 
         if success:
-            catch_key = self._get_otp_catch_key(email, purpose)
+            catch_key = self._get_otp_catch_key(email)
             catch_data = {
                 "otp": otp,
                 "attempts": 0,
@@ -89,13 +62,13 @@ class OTPEmailService(BaseEmailService):
                 "created_at": timezone.now().isoformat(),
             }
             cache.set(catch_key, catch_data)
-            otp_logger.info(f"OTP sent to {email} for {purpose}")
+            otp_logger.info(f"OTP sent to {email}")
 
         return success
 
-    def verify_otp(self, email, user_otp, purpose):
+    def verify_otp(self, email, user_otp):
         try:
-            catch_key = self._get_otp_catch_key(email, purpose)
+            catch_key = self._get_otp_catch_key(email)
             stored_data = cache.get(catch_key)
 
             if not stored_data:
@@ -118,33 +91,4 @@ class OTPEmailService(BaseEmailService):
             otp_logger.error(error_msg)
             return False, "OTP verification failed. Please try again."
 
-    def resend_otp(self, email, purpose, user_name=None, extra_context=None):
-        otp = self._generate_otp()
-        context = {
-            "otp": otp,
-            "purpose": purpose,
-            "timeout_minutes": self.otp_timeout // 60,
-            "user_name": user_name,
-            **(extra_context or {}),
-        }
-
-        success = self._sent_email(
-            subject="New Verification Code",
-            recipient_list=[email],
-            template_name="emails/auth/resend_otp.html",
-            text_template=None,
-            context=context,
-        )
-
-        if success:
-            catch_key = self._get_otp_catch_key(email, purpose)
-            catch_data = {
-                "otp": otp,
-                "attempts": 0,
-                "max_attempts": 3,
-                "created_at": timezone.now().isoformat(),
-            }
-            cache.set(catch_key, catch_data)
-            otp_logger.info(f"OTP sent to {email} for {purpose}")
-
-        return success
+    
