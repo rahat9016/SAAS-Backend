@@ -1,0 +1,22 @@
+Hello there! 👋
+
+Thank you for choosing {{ company_name }}! To continue your request, please use the following One-Time Password (OTP):
+
+Your OTP Code: {{ otp }}
+
+How to use this code:
+1. Go back to the {{ company_name }} page
+2. Enter the 6-digit OTP shown above
+3. Click "Continue" to proceed
+
+⏰ This code will expire in {{ timeout_minutes }} minutes.
+
+Security Tip:
+Never share this code with anyone. {{ company_name }} will never ask for your verification code.
+
+If you didn’t request this action, you can safely ignore this email.
+
+Need help?
+Contact our support team: {{ support_email }}
+
+© {{ now|date:"Y" }} {{ company_name }}. All rights reserved.

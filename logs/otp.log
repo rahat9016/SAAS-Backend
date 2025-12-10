@@ -1,35 +1,17 @@
-[2025-11-17 19:53:08,698] INFO otp - OTP sent to minhazurrahman9026@gmail.com for registration
-[2025-11-19 14:30:24,062] INFO otp - OTP sent to minhazurrahman9026@gmail.com for registration
-[2025-11-19 14:45:21,094] INFO otp - OTP sent to minhazurrahman9026@gmail.com for registration
-[2025-11-19 18:10:00,749] INFO otp - OTP sent to minhazurrahman9026@gmail.com for registration
-[2025-11-29 18:36:46,763] INFO otp - OTP sent to minhazurrahman9026@gmail.com for registration
-[2025-11-29 20:09:36,131] INFO otp - OTP sent to minhazurrahman9016@gmail.com for registration
-[2025-12-03 18:31:27,159] INFO otp - OTP sent to minhazurrahman9016@gmail.com for registration
-[2025-12-03 18:33:39,319] INFO otp - OTP sent to minhazurrahman9016@gmail.com for registration
-[2025-12-03 18:34:20,164] INFO otp - OTP sent to minhazurrahman9016@gmail.com for registration
-[2025-12-03 18:35:34,507] INFO otp - OTP sent to minhazurrahman9016@gmail.com for registration
-[2025-12-03 18:43:51,233] INFO otp - OTP sent to minhazurrahman9016@gmail.com for registration
-[2025-12-03 18:47:48,486] INFO otp - OTP sent to minhazurrahman9016@gmail.com for registration
-[2025-12-03 18:52:14,343] INFO otp - OTP sent to minhazurrahman9016@gmail.com for registration
-[2025-12-03 18:54:00,956] INFO otp - OTP sent to minhazurrahman9016@gmail.com for registration
-[2025-12-04 18:15:36,893] INFO otp - OTP sent to minhazurrahman9016@gmail.com for registration
-[2025-12-04 18:21:48,966] INFO otp - OTP sent to minhazurrahman9026@gmail.com for registration
-[2025-12-05 16:15:55,752] INFO otp - OTP sent to minhazurrahman9026@gmail.com for registration
-[2025-12-06 08:04:41,939] INFO otp - OTP sent to minhazurrahman9016@gmail.com for registration
-[2025-12-07 16:24:20,359] INFO otp - OTP sent to minhazurrahman9026@gmail.com for resend_otp
-[2025-12-07 16:28:00,068] INFO otp - OTP sent to minhazurrahman9026@gmail.com for resend_otp
-[2025-12-07 16:28:48,138] INFO otp - OTP sent to minhazurrahman9026@gmail.com for resend_otp
-[2025-12-07 16:48:56,989] INFO otp - OTP sent to minhazurrahman9026@gmail.com for resend_otp
-[2025-12-07 16:50:25,956] INFO otp - OTP sent to minhazurrahman9026@gmail.com for resend_otp
-[2025-12-07 17:07:33,127] INFO otp - OTP sent to minhazurrahman9026@gmail.com for resend_otp
-[2025-12-07 17:09:36,631] INFO otp - OTP sent to minhazurrahman9026@gmail.com for resend_otp
-[2025-12-08 09:28:21,759] INFO otp - OTP sent to rahat.official.info9016@gmail.com for registration
-[2025-12-08 09:30:20,410] INFO otp - OTP sent to rahat.official.info9016@gmail.com for registration
-[2025-12-08 09:32:30,422] INFO otp - OTP sent to minhazur@atilimited.net for registration
-[2025-12-08 09:41:44,650] INFO otp - OTP sent to minhazur@atilimited.net for resend_otp
-[2025-12-08 09:55:16,322] INFO otp - OTP sent to rahat.official.info9016@gmail.com for registration
-[2025-12-08 10:37:14,535] INFO otp - OTP sent to rahat.official.info9016@gmail.com for registration
-[2025-12-08 11:18:21,919] INFO otp - OTP sent to rahat.official.info9016@gmail.com for registration
-[2025-12-08 11:23:20,434] INFO otp - OTP sent to rahat.official.info9016@gmail.com for send_otp
-[2025-12-09 18:32:16,796] INFO otp - OTP sent to minhazurrahman9016@gmail.com
-[2025-12-09 18:40:02,764] INFO otp - OTP sent to minhazurrahman9016@gmail.com
+[2025-12-10 06:37:18,255] ERROR otp - OTP sending FAILED for minhazurrahman9016@gmail.com. Check email logs for underlying SMTP error.
+NoneType: None
+[2025-12-10 06:41:32,945] ERROR otp - OTP sending FAILED for minhazurrahman9016@gmail.com. Check email logs for underlying SMTP error.
+NoneType: None
+[2025-12-10 06:52:40,668] INFO otp - OTP sent to minhazurrahman9016@gmail.com
+[2025-12-10 11:13:53,122] INFO otp - OTP sent to minhazurrahman9026@gmail.com
+[2025-12-10 11:14:56,486] INFO otp - OTP sent to minhazurrahman9026@gmail.com
+[2025-12-10 11:15:32,773] INFO otp - OTP sent to minhazurrahman9026@gmail.com
+[2025-12-10 11:20:10,129] INFO otp - OTP sent to minhazurrahman9026@gmail.com
+[2025-12-10 11:47:03,903] INFO otp - OTP sent to minhazurrahman9026@gmail.com
+[2025-12-10 11:56:45,636] INFO otp - OTP sent to minhazurrahman9026@gmail.com
+[2025-12-10 11:57:29,473] INFO otp - OTP sent to minhazurrahman9026@gmail.com
+[2025-12-10 11:58:42,174] INFO otp - OTP sent to minhazurrahman9026@gmail.com
+[2025-12-10 12:02:05,823] INFO otp - OTP sent to minhazurrahman9026@gmail.com
+[2025-12-10 12:13:03,377] INFO otp - OTP sent to minhazurrahman9026@gmail.com
+[2025-12-10 13:46:38,043] INFO otp - OTP sent to minhazurrahman9026@gmail.com
+[2025-12-10 13:55:59,561] INFO otp - OTP sent to minhazurrahman9026@gmail.com

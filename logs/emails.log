@@ -1,200 +1,13 @@
-[2025-11-17 19:49:34,896] ERROR emails - Failed to sent email to ['minhazurrahman9026@gmail.com']: emails/auth/registration_otp.txt
-Traceback (most recent call last):
-  File "/Users/minhazurrahman/Desktop/Django/core/services/email/base.py", line 38, in _sent_email
-    plain_message = render_to_string(text_template, context)
-  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/template/loader.py", line 61, in render_to_string
-    template = get_template(template_name, using=using)
-  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/template/loader.py", line 19, in get_template
-    raise TemplateDoesNotExist(template_name, chain=chain)
-django.template.exceptions.TemplateDoesNotExist: emails/auth/registration_otp.txt
-[2025-11-17 19:53:08,696] INFO emails - [2025-11-17 19-53-08] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-11-19 14:30:24,056] INFO emails - [2025-11-19 14-30-24] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-11-19 14:45:21,090] INFO emails - [2025-11-19 14-45-21] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-11-19 18:10:00,746] INFO emails - [2025-11-19 18-10-00] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-11-29 18:36:46,761] INFO emails - [2025-11-29 18-36-46] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-11-29 20:09:36,127] INFO emails - [2025-11-29 20-09-36] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-12-03 18:31:27,155] INFO emails - [2025-12-03 18-31-27] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-12-03 18:33:39,316] INFO emails - [2025-12-03 18-33-39] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-12-03 18:34:20,160] INFO emails - [2025-12-03 18-34-20] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-12-03 18:35:34,504] INFO emails - [2025-12-03 18-35-34] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-12-03 18:43:51,229] INFO emails - [2025-12-03 18-43-51] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-12-03 18:47:48,483] INFO emails - [2025-12-03 18-47-48] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-12-03 18:52:14,340] INFO emails - [2025-12-03 18-52-14] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-12-03 18:54:00,953] INFO emails - [2025-12-03 18-54-00] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-12-04 18:15:36,890] INFO emails - [2025-12-04 18-15-36] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-12-04 18:21:48,965] INFO emails - [2025-12-04 18-21-48] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-12-05 16:15:55,746] INFO emails - [2025-12-05 16-15-55] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-12-06 08:04:41,937] INFO emails - [2025-12-06 08-04-41] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Verify Your Account - OTP Required
-[2025-12-07 11:19:37,547] ERROR emails - Failed to sent email to ['minhajurrohoman9016@gmail.com']: [Errno 101] Network is unreachable
-Traceback (most recent call last):
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/core/services/email/base.py", line 47, in _sent_email
-    email.send(
-    ~~~~~~~~~~^
-        fail_silently=False
-        ^^^^^^^^^^^^^^^^^^^
-    )  # False because of i want to notify email sent failed
-    ^
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/message.py", line 307, in send
-    return self.get_connection(fail_silently).send_messages([self])
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 128, in send_messages
-    new_conn_created = self.open()
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 86, in open
-    self.connection = self.connection_class(
-                      ~~~~~~~~~~~~~~~~~~~~~^
-        self.host, self.port, **connection_params
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "/usr/lib/python3.13/smtplib.py", line 255, in __init__
-    (code, msg) = self.connect(host, port)
-                  ~~~~~~~~~~~~^^^^^^^^^^^^
-  File "/usr/lib/python3.13/smtplib.py", line 341, in connect
-    self.sock = self._get_socket(host, port, self.timeout)
-                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.13/smtplib.py", line 312, in _get_socket
-    return socket.create_connection((host, port), timeout,
-           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-                                    self.source_address)
-                                    ^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.13/socket.py", line 864, in create_connection
-    raise exceptions[0]
-  File "/usr/lib/python3.13/socket.py", line 849, in create_connection
-    sock.connect(sa)
-    ~~~~~~~~~~~~^^^^
-OSError: [Errno 101] Network is unreachable
-[2025-12-07 16:24:20,355] INFO emails - [2025-12-07 16-24-20] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject New Verification Code
-[2025-12-07 16:28:00,066] INFO emails - [2025-12-07 16-28-00] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject New Verification Code
-[2025-12-07 16:28:48,135] INFO emails - [2025-12-07 16-28-48] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject New Verification Code
-[2025-12-07 16:48:56,987] INFO emails - [2025-12-07 16-48-56] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject New Verification Code
-[2025-12-07 16:50:25,952] INFO emails - [2025-12-07 16-50-25] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject New Verification Code
-[2025-12-07 17:07:33,124] INFO emails - [2025-12-07 17-07-33] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject New Verification Code
-[2025-12-07 17:09:36,627] INFO emails - [2025-12-07 17-09-36] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject New Verification Code
-[2025-12-08 09:28:21,756] INFO emails - [2025-12-08 09-28-21] Email sent successfully to ['rahat.official.info9016@gmail.com'] - Subject Verify Your Account
-[2025-12-08 09:30:20,402] INFO emails - [2025-12-08 09-30-20] Email sent successfully to ['rahat.official.info9016@gmail.com'] - Subject Verify Your Account
-[2025-12-08 09:32:30,419] INFO emails - [2025-12-08 09-32-30] Email sent successfully to ['minhazur@atilimited.net'] - Subject Verify Your Account
-[2025-12-08 09:41:44,647] INFO emails - [2025-12-08 09-41-44] Email sent successfully to ['minhazur@atilimited.net'] - Subject New Verification Code
-[2025-12-08 09:46:49,105] ERROR emails - Email authentication failed for ['minhazur@atilimited.net']: (535, b'Incorrect authentication data')
-Traceback (most recent call last):
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/core/services/email/base.py", line 47, in _sent_email
-    email.send(
-    ~~~~~~~~~~^
-        fail_silently=False
-        ^^^^^^^^^^^^^^^^^^^
-    )  # False because of i want to notify email sent failed
-    ^
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/message.py", line 307, in send
-    return self.get_connection(fail_silently).send_messages([self])
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 128, in send_messages
-    new_conn_created = self.open()
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 95, in open
-    self.connection.login(self.username, self.password)
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.13/smtplib.py", line 750, in login
-    raise last_exception
-  File "/usr/lib/python3.13/smtplib.py", line 739, in login
-    (code, resp) = self.auth(
-                   ~~~~~~~~~^
-        authmethod, getattr(self, method_name),
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        initial_response_ok=initial_response_ok)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.13/smtplib.py", line 662, in auth
-    raise SMTPAuthenticationError(code, resp)
-smtplib.SMTPAuthenticationError: (535, b'Incorrect authentication data')
-[2025-12-08 09:49:26,449] ERROR emails - Email authentication failed for ['minhazur@atilimited.net']: (535, b'Incorrect authentication data')
-Traceback (most recent call last):
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/core/services/email/base.py", line 47, in _sent_email
-    email.send(
-    ~~~~~~~~~~^
-        fail_silently=False
-        ^^^^^^^^^^^^^^^^^^^
-    )  # False because of i want to notify email sent failed
-    ^
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/message.py", line 307, in send
-    return self.get_connection(fail_silently).send_messages([self])
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 128, in send_messages
-    new_conn_created = self.open()
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 95, in open
-    self.connection.login(self.username, self.password)
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.13/smtplib.py", line 750, in login
-    raise last_exception
-  File "/usr/lib/python3.13/smtplib.py", line 739, in login
-    (code, resp) = self.auth(
-                   ~~~~~~~~~^
-        authmethod, getattr(self, method_name),
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        initial_response_ok=initial_response_ok)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.13/smtplib.py", line 662, in auth
-    raise SMTPAuthenticationError(code, resp)
-smtplib.SMTPAuthenticationError: (535, b'Incorrect authentication data')
-[2025-12-08 09:50:13,435] ERROR emails - Email authentication failed for ['rahat.official.info9016@gmail.com']: (535, b'Incorrect authentication data')
-Traceback (most recent call last):
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/core/services/email/base.py", line 47, in _sent_email
-    email.send(
-    ~~~~~~~~~~^
-        fail_silently=False
-        ^^^^^^^^^^^^^^^^^^^
-    )  # False because of i want to notify email sent failed
-    ^
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/message.py", line 307, in send
-    return self.get_connection(fail_silently).send_messages([self])
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 128, in send_messages
-    new_conn_created = self.open()
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 95, in open
-    self.connection.login(self.username, self.password)
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.13/smtplib.py", line 750, in login
-    raise last_exception
-  File "/usr/lib/python3.13/smtplib.py", line 739, in login
-    (code, resp) = self.auth(
-                   ~~~~~~~~~^
-        authmethod, getattr(self, method_name),
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        initial_response_ok=initial_response_ok)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.13/smtplib.py", line 662, in auth
-    raise SMTPAuthenticationError(code, resp)
-smtplib.SMTPAuthenticationError: (535, b'Incorrect authentication data')
-[2025-12-08 09:51:19,241] ERROR emails - Email authentication failed for ['rahat.official.info9016@gmail.com']: (535, b'Incorrect authentication data')
-Traceback (most recent call last):
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/core/services/email/base.py", line 47, in _sent_email
-    email.send(
-    ~~~~~~~~~~^
-        fail_silently=False
-        ^^^^^^^^^^^^^^^^^^^
-    )  # False because of i want to notify email sent failed
-    ^
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/message.py", line 307, in send
-    return self.get_connection(fail_silently).send_messages([self])
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 128, in send_messages
-    new_conn_created = self.open()
-  File "/home/minhaz/Desktop/ecommerce/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 95, in open
-    self.connection.login(self.username, self.password)
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.13/smtplib.py", line 750, in login
-    raise last_exception
-  File "/usr/lib/python3.13/smtplib.py", line 739, in login
-    (code, resp) = self.auth(
-                   ~~~~~~~~~^
-        authmethod, getattr(self, method_name),
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        initial_response_ok=initial_response_ok)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.13/smtplib.py", line 662, in auth
-    raise SMTPAuthenticationError(code, resp)
-smtplib.SMTPAuthenticationError: (535, b'Incorrect authentication data')
-[2025-12-08 09:55:16,321] INFO emails - [2025-12-08 09-55-16] Email sent successfully to ['rahat.official.info9016@gmail.com'] - Subject Verify Your Account
-[2025-12-08 10:37:14,533] INFO emails - [2025-12-08 10-37-14] Email sent successfully to ['rahat.official.info9016@gmail.com'] - Subject Verify Your Account
-[2025-12-08 11:18:21,916] INFO emails - [2025-12-08 11-18-21] Email sent successfully to ['rahat.official.info9016@gmail.com'] - Subject Verify Your Account
-[2025-12-08 11:23:20,430] INFO emails - [2025-12-08 11-23-20] Email sent successfully to ['rahat.official.info9016@gmail.com'] - Subject Your Verification Code
-[2025-12-09 18:30:44,145] ERROR emails - Email authentication failed for ['minhazurrahman9016@gmail.com']: (535, b'Incorrect authentication data')
+[2025-12-10 06:37:18,254] ERROR emails - 
+┌────────────────────────── ERROR LOG ──────────────────────────┐
+│ Module        : socket.py
+│ File          : /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/socket.py
+│ Line          : 977
+│ Function      : getaddrinfo
+│ Error Type    : gaierror
+│ Error Message : [Errno 8] nodename nor servname provided, or not known
+│ User Email    : None
+└────────────────────────────────────────────────────────────────┘
 Traceback (most recent call last):
   File "/Users/minhazurrahman/Desktop/Django/core/services/email/base.py", line 47, in _sent_email
     email.send(
@@ -208,20 +21,80 @@ Traceback (most recent call last):
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
   File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 128, in send_messages
     new_conn_created = self.open()
-  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 95, in open
-    self.connection.login(self.username, self.password)
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 750, in login
-    raise last_exception
-  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 739, in login
-    (code, resp) = self.auth(
-                   ~~~~~~~~~^
-        authmethod, getattr(self, method_name),
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        initial_response_ok=initial_response_ok)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 662, in auth
-    raise SMTPAuthenticationError(code, resp)
-smtplib.SMTPAuthenticationError: (535, b'Incorrect authentication data')
-[2025-12-09 18:32:16,791] INFO emails - [2025-12-09 18-32-16] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Your Verification Code
-[2025-12-09 18:40:02,758] INFO emails - [2025-12-09 18-40-02] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Your Verification Code
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ~~~~~~~~~~~~~~~~~~~~~^
+        self.host, self.port, **connection_params
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                                    self.source_address)
+                                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/socket.py", line 840, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+[2025-12-10 06:41:32,943] ERROR emails - Failed to sent email to ['minhazurrahman9016@gmail.com']: [Errno 8] nodename nor servname provided, or not known
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/Desktop/Django/core/services/email/base.py", line 49, in _sent_email
+    email.send(
+    ~~~~~~~~~~^
+        fail_silently=False
+        ^^^^^^^^^^^^^^^^^^^
+    )  # False because of i want to notify email sent failed
+    ^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/mail/message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+  File "/Users/minhazurrahman/.local/share/virtualenvs/Django-9-fzE2oh/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ~~~~~~~~~~~~~~~~~~~~~^
+        self.host, self.port, **connection_params
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                                    self.source_address)
+                                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/socket.py", line 840, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+[2025-12-10 06:52:40,665] INFO emails - [2025-12-10 06-52-40] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Your Verification Code
+[2025-12-10 11:13:53,118] INFO emails - [2025-12-10 11-13-53] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
+[2025-12-10 11:14:56,483] INFO emails - [2025-12-10 11-14-56] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
+[2025-12-10 11:15:32,771] INFO emails - [2025-12-10 11-15-32] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
+[2025-12-10 11:20:10,125] INFO emails - [2025-12-10 11-20-10] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
+[2025-12-10 11:47:03,898] INFO emails - [2025-12-10 11-47-03] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
+[2025-12-10 11:56:45,632] INFO emails - [2025-12-10 11-56-45] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
+[2025-12-10 11:57:29,470] INFO emails - [2025-12-10 11-57-29] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
+[2025-12-10 11:58:42,171] INFO emails - [2025-12-10 11-58-42] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
+[2025-12-10 12:02:05,821] INFO emails - [2025-12-10 12-02-05] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
+[2025-12-10 12:13:03,372] INFO emails - [2025-12-10 12-13-03] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
+[2025-12-10 13:46:38,040] INFO emails - [2025-12-10 13-46-38] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
+[2025-12-10 13:55:59,557] INFO emails - [2025-12-10 13-55-59] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code

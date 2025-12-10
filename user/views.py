@@ -37,17 +37,17 @@ class RegisterAPIView(APIView):
                 serializer.errors, "Invalid registered data."
             )
         try:
+            validated_data = serializer.validated_data
+            first_name = validated_data["first_name"]
+            last_name = validated_data["last_name"]
+            email = validated_data["email"]
+            password = validated_data["password"]
+            phone = validated_data.get("phone")
+
+            if User.objects.filter(email=email).exists():
+                return APIResponse.conflict("User with this email already exists.")
+
             with transaction.atomic():
-                validated_data = serializer.validated_data
-                first_name = validated_data["first_name"]
-                last_name = validated_data["last_name"]
-                email = validated_data["email"]
-                password = validated_data["password"]
-                phone = validated_data.get("phone")
-
-                if User.objects.filter(email=email).exists():
-                    return APIResponse.conflict("User with this email already exists.")
-
                 user = User.objects.create_user(  # type: ignore
                     email=email,
                     phone=phone,
@@ -57,11 +57,9 @@ class RegisterAPIView(APIView):
                 Profile.objects.create(
                     user=user, first_name=first_name, last_name=last_name
                 )
-                email_service = OTPEmailService()
-                otp_sent = email_service.sent_otp(email, user_name=first_name)
-                if not otp_sent:
-                    logger.error(f"Failed to send OTP to {user.email}")
-                    raise Exception("OTP sending failed")
+
+            email_service = OTPEmailService()
+            email_service.sent_otp(email, user_name=first_name)
 
             return APIResponse.created(
                 "User created successfully done. Please check your email to active your account",
@@ -127,72 +125,6 @@ class LoginAPIView(APIView):
             return APIResponse.server_error(str(e))
 
 
-class VerifyAccountAPIView(APIView):
-    permission_classes = [AllowAny]
-    serializer_class = VerifySerializer
-
-    def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-
-        if not serializer.is_valid():
-            return APIResponse.validation_error(serializer.errors, "Invalid data")
-        email = serializer.validated_data["email"]
-        otp = serializer.validated_data["otp"]
-        try:
-            user = User.objects.get(email=email)
-            otp_service = OTPEmailService()
-            success, message = otp_service.verify_otp(email, otp)
-
-            if not success:
-                return APIResponse.error(message)
-            
-            # OTP matched → activate the account
-            user.is_active = True
-            user.save()
-            
-            # Remove OTP from cache
-            otp_service.verify_account_remove_otp(email)
-            
-            return APIResponse.success("Your account has been verified")
-
-        except User.DoesNotExist:
-            return APIResponse.unauthorized("Invalid email")
-
-        except Exception as e:
-            logger.error(f"Verify Account: {str(e)}")
-            return APIResponse.server_error("Account not activated. Please try again.")
-
-
-class OTPVerifyAPIView(APIView):
-    permission_classes = [AllowAny]
-    serializer_class = VerifySerializer
-
-    def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-        if not serializer.is_valid():
-            return APIResponse.validation_error(serializer.errors, "Invalid OTP data.")
-
-        email = serializer.validated_data["email"]
-        otp = serializer.validated_data["otp"]
-
-        try:
-            User.objects.get(email=email)
-            otp_service = OTPEmailService()
-            is_success, message = otp_service.verify_otp(email, otp)
-            if is_success:
-                return APIResponse.success(message, data={"email": email})
-
-            # OTP response error
-            return APIResponse.error(message)
-
-        except User.DoesNotExist:
-            return APIResponse.unauthorized("Invalid email or password.")
-
-        except Exception as e:
-            logger.exception(f"OTP verification failed: {str(e)}")
-            return APIResponse.server_error(f"OTP verification failed. {str(e)}")
-
-
 class RefreshTokenAPIView(APIView):
     # 1. If refresh token not pass then show an error
     # 2. If token has valid date
@@ -241,12 +173,43 @@ class RefreshTokenAPIView(APIView):
             APIResponse.server_error(f"Token refresh failed")
 
 
+class VerifyAccountAPIView(APIView):
+    permission_classes = [AllowAny]
+    serializer_class = VerifySerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+
+        if not serializer.is_valid():
+            return APIResponse.validation_error(serializer.errors, "Invalid data")
+
+        email = serializer.validated_data["email"]
+        otp = serializer.validated_data["otp"]
+
+        try:
+            user = User.objects.get(email=email)
+            otp_service = OTPEmailService()
+            success, message = otp_service.verify_otp(email, otp)
+
+            if not success:
+                return APIResponse.error(message)
+
+            # OTP matched → activate the account
+            user.is_active = True
+            user.save()
+
+            return APIResponse.success("Your account has been verified")
+
+        except User.DoesNotExist:
+            return APIResponse.unauthorized("Please provide valid email.")
+
+        except Exception as e:
+            logger.error(f"Verify Account: {str(e)}")
+            return APIResponse.server_error("Account not activated. Please try again.")
+
+
 class ResendOTPAPIView(APIView):
-    """
-    Resend OTP for multiple purposes:
-    - registration
-    - send_otp (login, password reset, etc.)
-    """
+    """ """
 
     permission_classes = [AllowAny]
     serializer_class = ResendOTPSerializer
@@ -260,21 +223,6 @@ class ResendOTPAPIView(APIView):
             )
 
         email = serializer.validated_data["email"]
-        purpose = serializer.validated_data.get("purpose", "registration")
-
-        try:
-            user = User.objects.select_related("profile").get(email=email)
-
-        except User.DoesNotExist:
-            return APIResponse.not_found("Email not found")
-
-        """
-            Prevent re-sending registration OTP to already activated users.
-            Once the account is active, sending another registration OTP is unnecessary
-            and could indicate misuse or an invalid registration attempt.
-        """
-        if purpose == "registration" and user.is_active:
-            return APIResponse.error("Already account is activated.")
 
         otp_service = OTPEmailService()
         allowed, wait_time = otp_service.can_resend_otp(email)
@@ -285,10 +233,10 @@ class ResendOTPAPIView(APIView):
                 status=status.HTTP_429_TOO_MANY_REQUESTS,
             )
         try:
-            profile = getattr(user, "profile", None)
-            otp_sent = otp_service.sent_otp(email, purpose, profile)
+            otp_sent = otp_service.sent_otp(email)
+
             if not otp_sent:
-                logger.error(f"Failed to send OTP to {user.email}")
+                logger.error(f"Failed to send OTP")
                 raise Exception("OTP sending failed")
 
         except Exception as e:
@@ -296,3 +244,35 @@ class ResendOTPAPIView(APIView):
             return APIResponse.server_error("Resend OTP Failed.")
 
         return APIResponse.success("A new OTP has been sent successfully. ")
+
+
+class VerifyOTPAPIView(APIView):
+    permission_classes = [AllowAny]
+    serializer_class = VerifySerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+        if not serializer.is_valid():
+            return APIResponse.validation_error(serializer.errors, "Invalid OTP data.")
+
+        email = serializer.validated_data["email"]
+        otp = serializer.validated_data["otp"]
+        print(f"{email} - {otp}")
+        try:
+            user = User.objects.get(email=email)
+            otp_service = OTPEmailService()
+            is_success, message = otp_service.verify_otp(email, otp)
+            print("\nis_success ->", is_success)
+            print("\nmessage ->", message, "\n")
+
+            if not is_success:
+                return APIResponse.error(message)
+
+            return APIResponse.success(message, data={"email": email})
+
+        except User.DoesNotExist:
+            return APIResponse.unauthorized("Please provide valid email.")
+
+        except Exception as e:
+            logger.exception(f"OTP verification failed: {str(e)}")
+            return APIResponse.server_error(f"OTP verification failed. {str(e)}")

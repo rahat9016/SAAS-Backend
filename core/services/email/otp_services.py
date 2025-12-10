@@ -5,6 +5,7 @@ from django.utils import timezone
 from datetime import datetime
 from django.conf import settings
 from .base import BaseEmailService
+from core.utils import error_formatter
 
 otp_logger = logging.getLogger("otp")
 
@@ -36,6 +37,10 @@ class OTPEmailService(BaseEmailService):
         return True, None
 
     def sent_otp(self, email, user_name=None, extra_context=None):
+        """
+        1. Sent OTP to email
+        2. If email failed we kept log as table wise
+        """
         otp = self._generate_otp()
 
         context = {
@@ -44,27 +49,38 @@ class OTPEmailService(BaseEmailService):
             "user_name": user_name,
             **(extra_context or {}),
         }
+        try:
+            success = self._sent_email(
+                subject="Your Verification Code",
+                recipient_list=[email],
+                template_name="emails/auth/otp_template.html",
+                text_template="emails/auth/otp_template.txt",
+                context=context,
+            )
 
-        success = self._sent_email(
-            subject="Your Verification Code",
-            recipient_list=[email],
-            template_name="emails/auth/registration_otp.html",
-            text_template="emails/auth/registration_otp.txt",
-            context=context,
-        )
+            if success:
+                catch_key = self._get_otp_catch_key(email)
+                catch_data = {
+                    "otp": otp,
+                    "attempts": 0,
+                    "max_attempts": 3,
+                    "created_at": timezone.now().isoformat(),
+                }
+                cache.set(catch_key, catch_data)
+                otp_logger.info(f"OTP sent to {email}")
+            else:
+                otp_logger.error(
+                    f"OTP sending FAILED for {email}. Check email logs for underlying SMTP error.",
+                    exc_info=True,
+                )
+            return success
 
-        if success:
-            catch_key = self._get_otp_catch_key(email)
-            catch_data = {
-                "otp": otp,
-                "attempts": 0,
-                "max_attempts": 3,
-                "created_at": timezone.now().isoformat(),
-            }
-            cache.set(catch_key, catch_data)
-            otp_logger.info(f"OTP sent to {email}")
+        except Exception as e:
+            detailed_log = error_formatter.format_error_log(e, email=email)
+            print(detailed_log)
+            otp_logger.error(e)
 
-        return success
+            return False
 
     def verify_otp(self, email, user_otp):
         try:
@@ -83,21 +99,10 @@ class OTPEmailService(BaseEmailService):
                 cache.set(catch_key, stored_data, timeout=self.otp_timeout)
                 return False, "OTP doesn't match. Please try again."
 
+            cache.delete(catch_key)
             return True, "OTP verify successfully."
 
         except Exception as e:
             error_msg = f"OTP verification error for {email}, {str(e)}"
             otp_logger.error(error_msg)
             return False, "OTP verification failed. Please try again."
-    
-    def verify_account_remove_otp(self,  email):
-        try:
-            catch_key = self._get_otp_catch_key(email)
-            cache.delete(catch_key)
-            return True, "OTP removed successfully."
-        except Exception as e:
-            return False, "Can't removed OTP"
-            
-        
-
-    

@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Verify Your Account</title>
     <style>
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -29,7 +28,7 @@
       }
       .header h1 {
         margin: 0;
-        font-size: 28px;
+        font-size: 26px;
         font-weight: 600;
       }
       .content {
@@ -40,23 +39,16 @@
         margin: 30px 0;
       }
       .otp-code {
-        font-size: 42px;
+        font-size: 38px;
         font-weight: bold;
         letter-spacing: 8px;
         color: #2d3748;
         background: #f7fafc;
-        padding: 20px;
+        padding: 18px;
         border-radius: 8px;
         border: 2px dashed #cbd5e0;
         display: inline-block;
         margin: 20px 0;
-      }
-      .instructions {
-        background: #f8f9fa;
-        padding: 20px;
-        border-radius: 8px;
-        border-left: 4px solid #667eea;
-        margin: 25px 0;
       }
       .footer {
         background: #f8f9fa;
@@ -75,16 +67,6 @@
         display: inline-block;
         margin: 10px 0;
       }
-      .button {
-        display: inline-block;
-        background: #667eea;
-        color: white;
-        padding: 12px 30px;
-        text-decoration: none;
-        border-radius: 6px;
-        font-weight: 500;
-        margin: 15px 0;
-      }
       @media (max-width: 600px) {
         .container {
           margin: 10px;
@@ -94,44 +76,32 @@
           padding: 30px 20px;
         }
         .otp-code {
-          font-size: 32px;
+          font-size: 30px;
           letter-spacing: 6px;
-          padding: 15px;
+          padding: 14px;
         }
       }
     </style>
   </head>
+
   <body>
     <div class="container">
       <div class="header">
-        <h1>Welcome to {{ company_name }}! 🎉</h1>
-        <p>Complete your registration with the verification code below</p>
+        <h1>{{ company_name }}</h1>
+        <p>Your One-Time Password (OTP)</p>
       </div>
 
       <div class="content">
-        <h2 style="color: #2d3748; margin-top: 0">Verify Your Email Address</h2>
-
         <p>Hello there! 👋</p>
 
         <p>
-          Thank you for choosing {{ company_name }}! To complete your
-          registration and start shopping, please use the following One-Time
-          Password (OTP) to verify your email address:
+          Thank you for choosing <strong>{{ company_name }}</strong>! To
+          continue your request, please use the following One-Time Password
+          (OTP):
         </p>
 
         <div class="otp-container">
           <div class="otp-code">{{ otp }}</div>
-        </div>
-
-        <div class="instructions">
-          <h3 style="color: #2d3748; margin-top: 0">
-            📋 How to use this code:
-          </h3>
-          <ol style="text-align: left; margin: 15px 0">
-            <li>Return to the {{ company_name }} registration page</li>
-            <li>Enter the 6-digit code shown above</li>
-            <li>Click "Verify" to complete your registration</li>
-          </ol>
         </div>
 
         <div style="text-align: center">
@@ -141,25 +111,29 @@
         </div>
 
         <p>
-          <strong>Security Tip:</strong> Never share this code with anyone. {{
-          company_name }} will never ask for your verification code.
+          <strong>How to use this code:</strong><br />
+          1. Go back to the {{ company_name }} page<br />
+          2. Enter the 6-digit OTP shown above<br />
+          3. Click "Continue" to proceed
+        </p>
+
+        <p>
+          <strong>Security Tip:</strong> Never share this code with anyone.
+          {{ company_name }} will never ask for your verification code.
         </p>
       </div>
 
       <div class="footer">
         <p>
-          If you didn't create an account with {{ company_name }}, please ignore
-          this email.
+          If you didn’t request this action, you can safely ignore this email.
         </p>
         <p>
-          Need help? Contact our support team at
-          <a href="mailto:{{ support_email }}" style="color: #667eea"
-            >{{ support_email }}</a
-          >
+          Need help? Contact us at
+          <a href="mailto:{{ support_email }}" style="color: #667eea">
+            {{ support_email }}
+          </a>
         </p>
-        <p>
-          &copy; {{ now|date:"Y" }} {{ company_name }}. All rights reserved.
-        </p>
+        <p>&copy; {{ now|date:"Y" }} {{ company_name }}. All rights reserved.</p>
       </div>
     </div>
   </body>
