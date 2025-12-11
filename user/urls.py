@@ -6,6 +6,7 @@ from .views import (
     VerifyOTPAPIView,
     RefreshTokenAPIView,
     ResendOTPAPIView,
+    ChangePasswordAPIView
 )
 
 app_name = "users"
@@ -17,4 +18,5 @@ urlpatterns = [
     path("verify-account/", VerifyAccountAPIView.as_view(), name="verify_account"),
     path("resend-otp/", ResendOTPAPIView.as_view(), name="resend_otp"),
     path("verify-otp/", VerifyOTPAPIView.as_view(), name="verify_otp"),
+    path("change-password/", ChangePasswordAPIView.as_view(), name="change_password"),
 ]

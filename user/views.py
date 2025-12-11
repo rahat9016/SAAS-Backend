@@ -1,7 +1,7 @@
 from django.db import transaction
 from rest_framework import status
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
 from core.services.email.otp_services import OTPEmailService
@@ -14,6 +14,7 @@ from .serializer import (
     LoginSerializer,
     RefreshTokenSerializer,
     ResendOTPSerializer,
+    ChangePasswordSerializer,
 )
 from .models import User, Profile
 
@@ -276,3 +277,34 @@ class VerifyOTPAPIView(APIView):
         except Exception as e:
             logger.exception(f"OTP verification failed: {str(e)}")
             return APIResponse.server_error(f"OTP verification failed. {str(e)}")
+
+
+class ChangePasswordAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = ChangePasswordSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+
+        if not serializer.is_valid():
+            return APIResponse.validation_error(
+                serializer.errors, "Invalided change password data"
+            )
+            
+        user = request.user
+        current_password = serializer.validated_data['current_password']
+        new_password = serializer.validated_data['new_password']
+        
+        try:
+            if not user.check_password(current_password):
+                return APIResponse.unauthorized("Incorrect old password")
+            
+            user.set_password(new_password)
+            user.save()
+            
+            return APIResponse.success("Password changed successfully")
+        
+        except Exception as e:
+            logger.exception(f"Change password failed: {str(e)}")
+            return APIResponse.server_error(f"Change password failed. {str(e)}")
+        

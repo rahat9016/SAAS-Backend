@@ -47,8 +47,23 @@ class VerifySerializer(serializers.Serializer):
     otp = serializers.CharField(required=True, min_length=6, max_length=6)
     email = serializers.EmailField(required=True)
 
+
 class RefreshTokenSerializer(serializers.Serializer):
     refresh_token = serializers.CharField(required=True)
-    
+
+
 class ResendOTPSerializer(serializers.Serializer):
     email = serializers.EmailField(required=True)
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    current_password = serializers.CharField(write_only=True, min_length=6)
+    new_password = serializers.CharField(write_only=True, min_length=6)
+    confirm_password = serializers.CharField(write_only=True, min_length=6)
+
+    def validate(self, data):
+        if data["new_password"] != data["confirm_password"]:
+            raise serializers.ValidationError(
+                {"password": "New password and confirm password doesn't match."}
+            )
+        return data

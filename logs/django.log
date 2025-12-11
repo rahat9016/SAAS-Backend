@@ -317,3 +317,430 @@
 [2025-12-10 14:01:16,513] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/Django/user/views.py changed, reloading.
 [2025-12-10 14:01:16,698] INFO django.utils.autoreload - Watching for file changes with StatReloader
 [2025-12-10 14:01:24,945] WARNING django.server - "POST /api/auth/verify-otp/ HTTP/1.1" 400 76
+[2025-12-11 09:21:43,509] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:22:07,789] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:22:36,220] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2025-12-11 09:22:36,928] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 12926
+[2025-12-11 09:22:42,955] INFO django.server - "GET /admin HTTP/1.1" 301 0
+[2025-12-11 09:22:43,080] INFO django.server - "GET /admin/ HTTP/1.1" 200 10895
+[2025-12-11 09:22:43,134] INFO django.server - "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[2025-12-11 09:22:43,134] INFO django.server - "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+[2025-12-11 09:22:43,135] INFO django.server - "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+[2025-12-11 09:22:43,135] INFO django.server - "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+[2025-12-11 09:22:43,136] INFO django.server - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[2025-12-11 09:22:43,137] INFO django.server - "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[2025-12-11 09:22:43,148] INFO django.server - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[2025-12-11 09:22:43,206] INFO django.server - "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2025-12-11 09:22:43,211] INFO django.server - "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2025-12-11 09:22:43,212] INFO django.server - "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[2025-12-11 09:22:43,367] WARNING django.server - "GET /favicon.ico HTTP/1.1" 404 2689
+[2025-12-11 09:22:45,542] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10408
+[2025-12-11 09:22:45,592] INFO django.server - "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+[2025-12-11 09:22:45,597] INFO django.server - "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-12-11 09:22:45,605] INFO django.server - "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[2025-12-11 09:22:45,610] INFO django.server - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[2025-12-11 09:22:45,610] INFO django.server - "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2025-12-11 09:22:45,632] INFO django.server - "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[2025-12-11 09:22:45,647] INFO django.server - "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[2025-12-11 09:22:45,648] INFO django.server - "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[2025-12-11 09:22:45,654] INFO django.server - "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2025-12-11 09:22:45,682] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-12-11 09:22:45,706] INFO django.server - "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+[2025-12-11 09:22:45,718] INFO django.server - "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[2025-12-11 09:32:32,837] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:33:11,893] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:34:07,025] WARNING django.server - "POST /api/auth/register/ HTTP/1.1" 400 195
+[2025-12-11 09:34:12,222] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:34:37,073] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:34:39,982] WARNING django.server - "POST /api/auth/register/ HTTP/1.1" 400 195
+[2025-12-11 09:35:49,840] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/core/settings.py changed, reloading.
+[2025-12-11 09:35:50,336] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:35:52,590] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/core/settings.py changed, reloading.
+[2025-12-11 09:35:53,013] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:36:11,703] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:36:18,887] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:36:22,955] INFO django.server - "POST /api/auth/resend-otp/ HTTP/1.1" 200 80
+[2025-12-11 09:37:20,311] INFO django.server - "POST /api/auth/verify-otp/ HTTP/1.1" 200 119
+[2025-12-11 09:40:41,070] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:40:41,424] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:40:58,144] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:40:58,490] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:41:00,648] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:41:01,095] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:41:02,246] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:41:02,702] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:41:03,918] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:41:04,263] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:41:08,497] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:41:08,854] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:41:10,057] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:41:10,392] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:41:13,833] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:41:14,249] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:41:15,412] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:41:15,781] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:41:28,195] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:41:28,568] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:41:50,372] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:41:50,718] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:41:57,126] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:41:57,561] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:42:03,186] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:42:03,538] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:42:06,840] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:42:07,184] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:42:09,449] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:42:09,827] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:42:13,143] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:42:13,610] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:42:16,809] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:42:17,146] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:42:20,401] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:42:20,744] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:44:01,208] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:44:01,596] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:44:04,768] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:44:05,114] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:44:07,350] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:44:07,694] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:44:10,013] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:44:10,361] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:44:13,672] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:44:14,056] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:44:21,398] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:44:21,786] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:44:30,150] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:44:30,493] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:44:36,768] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:44:37,123] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:44:47,665] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:44:48,036] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:44:50,216] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:44:50,586] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:44:52,724] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:44:53,070] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:45:02,493] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:45:02,937] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:45:09,350] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:45:09,703] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:45:11,955] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:45:12,489] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:45:14,934] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:45:15,289] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:45:23,613] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:45:23,953] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:45:25,079] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:45:25,424] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:45:34,765] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:45:35,112] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:45:39,386] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:45:39,726] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:45:53,230] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:45:53,576] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:45:56,740] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:45:57,079] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:45:59,329] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:45:59,671] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:46:12,283] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:46:12,710] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:46:21,194] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:46:21,686] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:46:23,852] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:46:24,192] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:46:30,483] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:46:30,951] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:46:33,202] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:46:33,557] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:46:37,839] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:46:38,439] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:46:42,860] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:46:43,246] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:46:47,664] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:46:48,038] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:46:50,341] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:46:50,704] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:46:55,995] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:46:56,331] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:47:09,956] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:47:10,350] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:47:11,575] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:47:11,913] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:47:14,158] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:47:14,520] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:47:19,920] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:47:20,396] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:48:16,513] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:48:16,871] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:48:23,237] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:48:23,593] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:48:27,077] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:48:27,431] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:48:31,673] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:48:32,022] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:49:27,675] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:49:28,073] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:49:31,260] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:49:31,733] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:49:42,163] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:49:42,621] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:49:44,902] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:49:45,417] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:49:47,579] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:49:47,959] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:49:52,156] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:49:52,495] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:50:06,060] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:50:06,473] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:50:11,839] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:50:12,197] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:50:13,499] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:50:13,914] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:50:21,256] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:50:21,632] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:50:28,204] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:50:28,632] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:50:33,971] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:50:34,340] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:50:36,635] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:50:36,973] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:50:40,244] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:50:40,597] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:50:43,957] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:50:44,304] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:50:50,778] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 09:50:51,138] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:51:53,482] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:51:53,924] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:51:57,134] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:51:57,702] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:52:03,059] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:52:03,409] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:52:06,610] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:52:06,986] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:52:12,249] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:52:12,682] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:52:13,812] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:52:14,160] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:52:21,460] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:52:21,798] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:52:28,047] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:52:28,389] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:52:30,611] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:52:31,148] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:52:33,508] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:52:33,857] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:53:20,511] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:53:20,873] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:53:23,139] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:53:23,572] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:53:25,876] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:53:26,237] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:53:35,697] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:53:36,052] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:53:46,569] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:53:47,006] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:53:50,340] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:53:50,759] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:53:55,115] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:53:55,456] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:53:56,699] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:53:57,042] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:54:01,389] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:54:01,804] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:54:03,047] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:54:03,373] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:54:05,631] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:54:06,064] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:54:10,411] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:54:10,744] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:54:11,979] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:54:12,310] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:54:57,045] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:54:57,572] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:54:58,696] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:54:59,092] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:55:01,249] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:55:01,611] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:55:03,747] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:55:04,076] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:55:06,247] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:55:06,626] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:55:15,964] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:55:16,305] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:55:25,839] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:55:26,212] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:55:30,570] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:55:30,926] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:55:34,206] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:55:34,557] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:55:37,848] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:55:38,192] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:55:40,357] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:55:40,700] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:55:45,946] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:55:46,343] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:55:49,570] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:55:49,921] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:55:51,110] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:55:51,466] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:55:56,750] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:55:57,113] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:56:01,360] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:56:01,757] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:56:03,023] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:56:03,359] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:56:14,797] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:56:15,222] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:56:21,644] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:56:22,073] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:56:27,453] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:56:27,863] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:56:33,118] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:56:33,557] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:56:35,709] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:56:36,044] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:56:42,346] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:56:42,732] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:56:47,965] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:56:48,435] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:56:51,635] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:56:51,969] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:56:53,331] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:56:53,668] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:56:55,002] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:56:55,446] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:57:03,823] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:57:04,173] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:58:35,354] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:58:35,699] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:58:44,158] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:58:44,553] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:58:46,808] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:58:47,142] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:58:48,380] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:58:48,745] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:58:56,052] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:58:56,400] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:58:59,755] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:59:00,204] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:59:04,544] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:59:04,979] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:59:07,115] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:59:07,477] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:59:18,043] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:59:18,386] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:59:33,003] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:59:33,504] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:59:44,047] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:59:44,395] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 09:59:52,881] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 09:59:53,224] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:00:19,164] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:00:19,507] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:00:21,685] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:00:22,070] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:00:29,487] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:00:29,849] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:00:38,367] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:00:38,721] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:01:41,898] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:01:42,254] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:01:45,455] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:01:45,926] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:01:50,138] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:01:50,559] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:02:44,569] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 10:02:44,926] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:04:37,817] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:04:38,237] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:04:48,842] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:04:49,194] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:04:51,614] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:04:51,957] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:04:56,278] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:04:56,628] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:05:05,104] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:05:05,445] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:05:09,792] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:05:10,192] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:05:13,533] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:05:13,895] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:05:41,995] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/urls.py changed, reloading.
+[2025-12-11 10:05:42,403] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:05:55,059] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/urls.py changed, reloading.
+[2025-12-11 10:05:55,524] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:05:56,765] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/urls.py changed, reloading.
+[2025-12-11 10:05:57,100] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:05:58,341] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/urls.py changed, reloading.
+[2025-12-11 10:05:58,682] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:06:02,047] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/urls.py changed, reloading.
+[2025-12-11 10:06:02,389] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:06:05,658] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/urls.py changed, reloading.
+[2025-12-11 10:06:06,045] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:06:11,412] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/urls.py changed, reloading.
+[2025-12-11 10:06:11,759] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:06:18,162] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/urls.py changed, reloading.
+[2025-12-11 10:06:18,510] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:06:21,809] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/urls.py changed, reloading.
+[2025-12-11 10:06:22,191] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:06:38,475] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2025-12-11 10:06:38,748] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2025-12-11 10:06:52,055] WARNING django.server - "POST /api/auth/change-password/ HTTP/1.1" 401 58
+[2025-12-11 10:08:02,680] WARNING django.server - "POST /api/auth/login/ HTTP/1.1" 401 69
+[2025-12-11 10:08:29,437] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 848
+[2025-12-11 10:08:44,334] INFO django.server - "POST /api/auth/change-password/ HTTP/1.1" 200 71
+[2025-12-11 10:09:25,733] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:09:26,080] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:09:29,563] WARNING django.server - "POST /api/auth/change-password/ HTTP/1.1" 401 172
+[2025-12-11 10:09:55,529] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 848
+[2025-12-11 10:10:07,976] INFO django.server - "POST /api/auth/change-password/ HTTP/1.1" 200 71
+[2025-12-11 10:10:24,087] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:10:24,520] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:10:26,501] INFO django.server - "POST /api/auth/change-password/ HTTP/1.1" 200 71
+[2025-12-11 10:10:35,231] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:10:35,598] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:10:37,173] INFO django.server - "POST /api/auth/change-password/ HTTP/1.1" 200 71
+[2025-12-11 10:10:51,481] WARNING django.server - "POST /api/auth/change-password/ HTTP/1.1" 400 221
+[2025-12-11 10:11:40,090] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:11:40,454] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:11:46,824] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:11:47,244] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:11:55,696] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:11:56,053] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:12:05,450] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:12:05,806] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:12:11,206] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:12:11,556] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:12:13,827] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:12:14,180] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:12:16,475] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:12:16,826] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:12:27,341] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:12:27,814] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:12:29,217] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:12:29,619] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:12:32,914] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:12:33,341] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:12:36,646] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:12:36,996] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:12:47,522] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/views.py changed, reloading.
+[2025-12-11 10:12:48,102] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 10:13:59,655] WARNING django.server - "POST /api/auth/change-password/ HTTP/1.1" 401 172
+[2025-12-11 10:14:10,726] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 848
+[2025-12-11 10:14:26,155] WARNING django.server - "POST /api/auth/change-password/ HTTP/1.1" 401 65
+[2025-12-11 10:15:06,883] INFO django.server - "POST /api/auth/change-password/ HTTP/1.1" 200 71
+[2025-12-11 10:15:10,289] WARNING django.server - "POST /api/auth/change-password/ HTTP/1.1" 401 65
+[2025-12-11 10:15:23,222] WARNING django.server - "POST /api/auth/login/ HTTP/1.1" 401 63
+[2025-12-11 10:15:29,753] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 848
+[2025-12-11 11:34:38,775] WARNING django.server - "POST /api/auth/change-password/ HTTP/1.1" 401 172
+[2025-12-11 11:34:58,220] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 848
+[2025-12-11 11:35:12,055] WARNING django.server - "POST /api/auth/change-password/ HTTP/1.1" 400 156
+[2025-12-11 11:35:24,676] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 11:35:25,078] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 11:35:26,302] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 11:35:26,629] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 11:35:29,898] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 11:35:30,243] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 11:35:37,732] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
+[2025-12-11 11:35:38,071] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2025-12-11 11:35:41,807] WARNING django.server - "POST /api/auth/change-password/ HTTP/1.1" 400 148
