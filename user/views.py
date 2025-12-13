@@ -15,6 +15,7 @@ from .serializer import (
     RefreshTokenSerializer,
     ResendOTPSerializer,
     ChangePasswordSerializer,
+    ForgotPasswordSerializers,
 )
 from .models import User, Profile
 
@@ -290,21 +291,24 @@ class ChangePasswordAPIView(APIView):
             return APIResponse.validation_error(
                 serializer.errors, "Invalided change password data"
             )
-            
+
         user = request.user
-        current_password = serializer.validated_data['current_password']
-        new_password = serializer.validated_data['new_password']
-        
+        current_password = serializer.validated_data["current_password"]
+        new_password = serializer.validated_data["new_password"]
+
         try:
             if not user.check_password(current_password):
                 return APIResponse.unauthorized("Incorrect old password")
-            
+
             user.set_password(new_password)
             user.save()
-            
+
             return APIResponse.success("Password changed successfully")
-        
+
         except Exception as e:
             logger.exception(f"Change password failed: {str(e)}")
             return APIResponse.server_error(f"Change password failed. {str(e)}")
-        
+
+
+class ForgotPasswordAPIView(APIView):
+    serializer_class = ForgotPasswordSerializers
