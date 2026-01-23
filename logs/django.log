@@ -744,3 +744,200 @@
 [2025-12-11 11:35:37,732] INFO django.utils.autoreload - /home/minhaz/Desktop/ecommerce/SAAS-Backend/user/serializer.py changed, reloading.
 [2025-12-11 11:35:38,071] INFO django.utils.autoreload - Watching for file changes with StatReloader
 [2025-12-11 11:35:41,807] WARNING django.server - "POST /api/auth/change-password/ HTTP/1.1" 400 148
+[2026-01-23 09:55:55,227] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 09:56:09,542] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 09:56:14,542] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-23 09:56:14,827] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-23 09:56:20,161] INFO django.server - "GET /admin HTTP/1.1" 301 0
+[2026-01-23 09:56:20,166] INFO django.server - "GET /admin/ HTTP/1.1" 302 0
+[2026-01-23 09:56:20,184] INFO django.server - "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4170
+[2026-01-23 09:56:20,217] INFO django.server - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[2026-01-23 09:56:20,218] INFO django.server - "GET /static/admin/css/login.css HTTP/1.1" 200 951
+[2026-01-23 09:56:20,218] INFO django.server - "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[2026-01-23 09:56:20,222] INFO django.server - "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+[2026-01-23 09:56:20,222] INFO django.server - "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+[2026-01-23 09:56:20,222] INFO django.server - "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+[2026-01-23 09:56:20,226] INFO django.server - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[2026-01-23 09:56:20,302] WARNING django.server - "GET /favicon.ico HTTP/1.1" 404 2689
+[2026-01-23 09:56:27,995] INFO django.server - "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4345
+[2026-01-23 09:56:28,011] INFO django.server - "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[2026-01-23 09:56:28,013] INFO django.server - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[2026-01-23 09:56:28,013] INFO django.server - "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[2026-01-23 09:56:28,014] INFO django.server - "GET /static/admin/css/login.css HTTP/1.1" 304 0
+[2026-01-23 09:56:28,014] INFO django.server - "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[2026-01-23 09:56:28,015] INFO django.server - "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[2026-01-23 09:56:28,047] INFO django.server - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[2026-01-23 09:56:58,556] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 09:57:03,220] INFO django.server - "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2026-01-23 09:57:03,256] INFO django.server - "GET /admin/ HTTP/1.1" 200 7735
+[2026-01-23 09:57:03,286] INFO django.server - "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[2026-01-23 09:57:03,287] INFO django.server - "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[2026-01-23 09:57:03,287] INFO django.server - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[2026-01-23 09:57:03,289] INFO django.server - "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[2026-01-23 09:57:03,294] INFO django.server - "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[2026-01-23 09:57:03,295] INFO django.server - "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[2026-01-23 09:57:03,314] INFO django.server - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[2026-01-23 09:57:03,318] INFO django.server - "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2026-01-23 09:57:03,319] INFO django.server - "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2026-01-23 09:57:05,291] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10749
+[2026-01-23 09:57:05,314] INFO django.server - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[2026-01-23 09:57:05,316] INFO django.server - "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2026-01-23 09:57:05,317] INFO django.server - "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+[2026-01-23 09:57:05,320] INFO django.server - "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[2026-01-23 09:57:05,321] INFO django.server - "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[2026-01-23 09:57:05,322] INFO django.server - "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[2026-01-23 09:57:05,324] INFO django.server - "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[2026-01-23 09:57:05,331] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-23 09:57:05,334] INFO django.server - "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2026-01-23 09:57:05,336] INFO django.server - "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2026-01-23 09:57:05,339] INFO django.server - "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+[2026-01-23 09:57:05,352] INFO django.server - "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[2026-01-23 09:57:07,556] INFO django.server - "GET /admin/user/user/11e5adba-64b6-46ec-be16-ec6573b7b938/change/ HTTP/1.1" 200 20331
+[2026-01-23 09:57:07,574] INFO django.server - "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+[2026-01-23 09:57:07,575] INFO django.server - "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2026-01-23 09:57:07,577] INFO django.server - "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+[2026-01-23 09:57:07,579] INFO django.server - "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+[2026-01-23 09:57:07,582] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-23 09:57:07,595] INFO django.server - "GET /static/admin/css/widgets.css HTTP/1.1" 200 11973
+[2026-01-23 09:57:07,596] INFO django.server - "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2026-01-23 09:57:07,658] INFO django.server - "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+[2026-01-23 09:57:07,659] INFO django.server - "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+[2026-01-23 10:13:50,218] INFO django.server - "GET /admin/ HTTP/1.1" 302 0
+[2026-01-23 10:13:50,244] INFO django.server - "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4170
+[2026-01-23 10:13:55,689] INFO django.server - "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2026-01-23 10:13:55,713] INFO django.server - "GET /admin/ HTTP/1.1" 200 7735
+[2026-01-23 10:13:57,905] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10749
+[2026-01-23 10:13:57,924] INFO django.server - "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+[2026-01-23 10:13:57,925] INFO django.server - "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2026-01-23 10:13:57,937] INFO django.server - "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[2026-01-23 10:13:57,943] INFO django.server - "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[2026-01-23 10:13:57,946] INFO django.server - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[2026-01-23 10:13:57,946] INFO django.server - "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[2026-01-23 10:13:57,948] INFO django.server - "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[2026-01-23 10:13:57,951] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-23 10:13:57,959] INFO django.server - "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2026-01-23 10:13:57,963] INFO django.server - "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2026-01-23 10:13:57,969] INFO django.server - "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+[2026-01-23 10:13:57,983] INFO django.server - "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[2026-01-23 10:14:01,887] INFO django.server - "POST /admin/user/user/ HTTP/1.1" 200 9207
+[2026-01-23 10:14:01,899] INFO django.server - "GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+[2026-01-23 10:14:02,903] INFO django.server - "POST /admin/user/user/ HTTP/1.1" 302 0
+[2026-01-23 10:14:02,916] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 302 0
+[2026-01-23 10:14:02,930] INFO django.server - "GET /admin/login/?next=/admin/user/user/ HTTP/1.1" 200 4325
+[2026-01-23 10:14:03,006] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 10:14:03,053] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 10:14:09,681] INFO django.server - "POST /admin/login/?next=/admin/user/user/ HTTP/1.1" 200 4365
+[2026-01-23 10:14:18,923] INFO django.server - "POST /admin/login/?next=/admin/user/user/ HTTP/1.1" 302 0
+[2026-01-23 10:14:18,945] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10035
+[2026-01-23 10:14:18,982] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-23 10:17:44,898] INFO django.server - "POST /api/auth/register/ HTTP/1.1" 201 238
+[2026-01-23 10:18:34,332] WARNING django.server - "POST /api/auth/register/ HTTP/1.1" 400 140
+[2026-01-23 10:23:09,461] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10407
+[2026-01-23 10:23:09,482] INFO django.server - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[2026-01-23 10:23:09,484] INFO django.server - "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[2026-01-23 10:23:09,484] INFO django.server - "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[2026-01-23 10:23:09,487] INFO django.server - "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[2026-01-23 10:23:09,487] INFO django.server - "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[2026-01-23 10:23:09,487] INFO django.server - "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[2026-01-23 10:23:09,489] INFO django.server - "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[2026-01-23 10:23:09,490] INFO django.server - "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[2026-01-23 10:23:09,490] INFO django.server - "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[2026-01-23 10:23:09,498] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-23 10:23:09,658] INFO django.server - "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+[2026-01-23 10:23:09,666] INFO django.server - "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[2026-01-23 10:52:45,761] INFO django.server - "POST /admin/user/user/ HTTP/1.1" 200 9001
+[2026-01-23 10:52:45,778] INFO django.server - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[2026-01-23 10:52:45,779] INFO django.server - "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[2026-01-23 10:52:45,780] INFO django.server - "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[2026-01-23 10:52:45,784] INFO django.server - "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[2026-01-23 10:52:45,785] INFO django.server - "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[2026-01-23 10:52:45,787] INFO django.server - "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[2026-01-23 10:52:45,787] INFO django.server - "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[2026-01-23 10:52:45,788] INFO django.server - "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[2026-01-23 10:52:45,810] INFO django.server - "GET /static/admin/js/cancel.js HTTP/1.1" 304 0
+[2026-01-23 10:52:46,873] INFO django.server - "POST /admin/user/user/ HTTP/1.1" 302 0
+[2026-01-23 10:52:46,884] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10169
+[2026-01-23 10:52:46,898] INFO django.server - "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[2026-01-23 10:52:46,907] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-23 10:52:46,919] INFO django.server - "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+[2026-01-23 10:52:46,924] INFO django.server - "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[2026-01-23 10:52:46,928] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 10:52:46,954] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 10:52:53,070] INFO django.server - "POST /api/auth/register/ HTTP/1.1" 201 238
+[2026-01-23 10:53:33,788] INFO django.server - "POST /api/auth/verify-account/ HTTP/1.1" 200 72
+[2026-01-23 10:54:59,896] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/core/settings.py changed, reloading.
+[2026-01-23 10:56:12,452] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 10:56:52,481] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10407
+[2026-01-23 10:56:52,501] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-23 10:56:58,306] INFO django.server - "POST /admin/user/user/ HTTP/1.1" 200 9001
+[2026-01-23 10:56:59,142] INFO django.server - "POST /admin/user/user/ HTTP/1.1" 302 0
+[2026-01-23 10:56:59,160] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10169
+[2026-01-23 10:56:59,178] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-23 10:56:59,204] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 10:56:59,232] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 10:57:04,244] WARNING django.server - "POST /api/auth/verify-account/ HTTP/1.1" 401 70
+[2026-01-23 10:58:53,222] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 11:00:19,336] INFO django.server - "POST /api/auth/register/ HTTP/1.1" 201 238
+[2026-01-23 11:00:26,469] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 11:00:35,212] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 11:02:05,857] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 11:02:18,360] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 11:05:39,122] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/core/settings.py changed, reloading.
+[2026-01-23 11:13:44,344] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 11:13:59,703] ERROR django.server - "POST /api/auth/resend-otp/ HTTP/1.1" 500 61
+[2026-01-23 11:14:21,802] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 11:16:29,441] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 11:16:41,992] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 11:24:59,474] ERROR django.server - "POST /api/auth/resend-otp/ HTTP/1.1" 500 61
+[2026-01-23 11:25:39,003] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-23 11:25:39,375] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 11:25:45,711] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-23 11:25:45,960] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 11:26:13,643] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-23 11:26:13,898] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 11:27:02,096] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/core/services/email/otp_services.py changed, reloading.
+[2026-01-23 11:27:02,359] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 11:27:09,665] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/core/services/email/otp_services.py changed, reloading.
+[2026-01-23 11:27:10,063] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 11:27:16,377] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/core/services/email/otp_services.py changed, reloading.
+[2026-01-23 11:27:16,638] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 11:27:23,061] INFO django.server - "POST /api/auth/resend-otp/ HTTP/1.1" 200 80
+[2026-01-23 11:28:26,085] INFO django.server - "POST /api/auth/verify-otp/ HTTP/1.1" 200 114
+[2026-01-23 11:28:36,140] WARNING django.server - "POST /api/auth/verify-account/ HTTP/1.1" 400 76
+[2026-01-23 11:28:43,765] INFO django.server - "POST /api/auth/resend-otp/ HTTP/1.1" 200 80
+[2026-01-23 11:28:56,524] INFO django.server - "POST /api/auth/verify-account/ HTTP/1.1" 200 72
+[2026-01-23 11:29:12,263] WARNING django.server - "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 404 1895
+[2026-01-23 11:29:14,528] INFO django.server - "POST /admin/logout/ HTTP/1.1" 200 3568
+[2026-01-23 11:29:16,132] INFO django.server - "GET /admin/ HTTP/1.1" 302 0
+[2026-01-23 11:29:16,143] INFO django.server - "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4170
+[2026-01-23 11:29:24,147] INFO django.server - "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4358
+[2026-01-23 11:29:35,257] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 847
+[2026-01-23 11:33:55,970] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 822
+[2026-01-23 11:34:09,860] INFO django.server - "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2026-01-23 11:34:09,880] INFO django.server - "GET /admin/ HTTP/1.1" 200 11011
+[2026-01-23 11:34:09,950] INFO django.server - "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[2026-01-23 11:34:11,950] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10407
+[2026-01-23 11:34:11,964] INFO django.server - "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[2026-01-23 11:34:11,965] INFO django.server - "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[2026-01-23 11:34:11,966] INFO django.server - "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[2026-01-23 11:34:11,971] INFO django.server - "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[2026-01-23 11:34:11,972] INFO django.server - "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[2026-01-23 11:34:11,977] INFO django.server - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[2026-01-23 11:34:11,977] INFO django.server - "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[2026-01-23 11:34:11,978] INFO django.server - "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[2026-01-23 11:34:11,978] INFO django.server - "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[2026-01-23 11:34:11,983] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-23 11:34:11,991] INFO django.server - "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+[2026-01-23 11:34:11,997] INFO django.server - "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[2026-01-23 11:34:18,516] WARNING django.server - "POST /api/auth/register/ HTTP/1.1" 400 195
+[2026-01-23 11:35:10,208] INFO django.server - "POST /api/auth/register/ HTTP/1.1" 201 229
+[2026-01-23 11:35:23,759] WARNING django.server - "POST /api/auth/verify-account/ HTTP/1.1" 400 76
+[2026-01-23 11:35:42,267] INFO django.server - "POST /api/auth/verify-account/ HTTP/1.1" 200 72
+[2026-01-23 11:35:54,386] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 838
+[2026-01-23 11:36:01,120] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10768
+[2026-01-23 11:36:01,136] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-23 11:37:08,516] WARNING django.server - "POST /api/auth/refresh-token/ HTTP/1.1" 400 73
+[2026-01-23 11:37:14,163] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 838
+[2026-01-23 11:37:25,422] INFO django.server - "POST /api/auth/refresh-token/ HTTP/1.1" 200 379
+[2026-01-23 11:37:54,789] WARNING django.server - "POST /api/auth/change-password/ HTTP/1.1" 401 172
+[2026-01-23 11:38:21,135] INFO django.server - "POST /api/auth/change-password/ HTTP/1.1" 200 71

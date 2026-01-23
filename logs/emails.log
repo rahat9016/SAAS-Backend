@@ -99,3 +99,95 @@ socket.gaierror: [Errno 8] nodename nor servname provided, or not known
 [2025-12-10 13:46:38,040] INFO emails - [2025-12-10 13-46-38] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
 [2025-12-10 13:55:59,557] INFO emails - [2025-12-10 13-55-59] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
 [2025-12-11 09:36:22,950] INFO emails - [2025-12-11 09-36-22] Email sent successfully to ['rahat.official.info9016@gmail.com'] - Subject Your Verification Code
+[2026-01-23 10:17:44,894] INFO emails - [2026-01-23 10-17-44] Email sent successfully to ['minhazurrahman9016@gmail.com'] - Subject Your Verification Code
+[2026-01-23 10:52:53,067] INFO emails - [2026-01-23 10-52-53] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
+[2026-01-23 11:00:19,330] ERROR emails - Email authentication failed for ['minhazurrahman9026@gmail.com']: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-8231871d51esm1906253b3a.38 - gsmtp')
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/core/services/email/base.py", line 51, in _sent_email
+    email.send(
+    ~~~~~~~~~~^
+        fail_silently=False
+        ^^^^^^^^^^^^^^^^^^^
+    )  # False because of i want to notify email sent failed
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django/core/mail/message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 95, in open
+    self.connection.login(self.username, self.password)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 750, in login
+    raise last_exception
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 739, in login
+    (code, resp) = self.auth(
+                   ~~~~~~~~~^
+        authmethod, getattr(self, method_name),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        initial_response_ok=initial_response_ok)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 662, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-8231871d51esm1906253b3a.38 - gsmtp')
+[2026-01-23 11:13:59,696] ERROR emails - Email authentication failed for ['minhazurrahman9026@gmail.com']: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-8231873ec59sm1956982b3a.53 - gsmtp')
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/core/services/email/base.py", line 51, in _sent_email
+    email.send(
+    ~~~~~~~~~~^
+        fail_silently=False
+        ^^^^^^^^^^^^^^^^^^^
+    )  # False because of i want to notify email sent failed
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django/core/mail/message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 95, in open
+    self.connection.login(self.username, self.password)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 750, in login
+    raise last_exception
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 739, in login
+    (code, resp) = self.auth(
+                   ~~~~~~~~~^
+        authmethod, getattr(self, method_name),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        initial_response_ok=initial_response_ok)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 662, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-8231873ec59sm1956982b3a.53 - gsmtp')
+[2026-01-23 11:24:59,470] ERROR emails - Email authentication failed for ['minhazurrahman9026@gmail.com']: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-2a802dcfaf7sm18171205ad.34 - gsmtp')
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/core/services/email/base.py", line 51, in _sent_email
+    email.send(
+    ~~~~~~~~~~^
+        fail_silently=False
+        ^^^^^^^^^^^^^^^^^^^
+    )  # False because of i want to notify email sent failed
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django/core/mail/message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django/core/mail/backends/smtp.py", line 95, in open
+    self.connection.login(self.username, self.password)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 750, in login
+    raise last_exception
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 739, in login
+    (code, resp) = self.auth(
+                   ~~~~~~~~~^
+        authmethod, getattr(self, method_name),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        initial_response_ok=initial_response_ok)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/smtplib.py", line 662, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-2a802dcfaf7sm18171205ad.34 - gsmtp')
+[2026-01-23 11:27:23,059] INFO emails - [2026-01-23 11-27-23] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
+[2026-01-23 11:28:43,763] INFO emails - [2026-01-23 11-28-43] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
+[2026-01-23 11:35:10,206] INFO emails - [2026-01-23 11-35-10] Email sent successfully to ['tecgensoftdev@gmail.com'] - Subject Your Verification Code

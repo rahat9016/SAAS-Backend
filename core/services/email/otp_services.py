@@ -77,7 +77,7 @@ class OTPEmailService(BaseEmailService):
 
         except Exception as e:
             detailed_log = error_formatter.format_error_log(e, email=email)
-            print(detailed_log)
+            print("OTP SERVICE",e)
             otp_logger.error(e)
 
             return False

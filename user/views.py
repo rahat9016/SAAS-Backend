@@ -172,7 +172,7 @@ class RefreshTokenAPIView(APIView):
             return APIResponse.error("Refresh token has been expired")
         except Exception as e:
             logger.exception(f"Token refresh failed: {str(e)}")
-            APIResponse.server_error(f"Token refresh failed")
+            APIResponse.server_error("Token refresh failed")
 
 
 class VerifyAccountAPIView(APIView):
@@ -238,7 +238,7 @@ class ResendOTPAPIView(APIView):
             otp_sent = otp_service.sent_otp(email)
 
             if not otp_sent:
-                logger.error(f"Failed to send OTP")
+                logger.error("Failed to send OTP")
                 raise Exception("OTP sending failed")
 
         except Exception as e:
@@ -261,7 +261,7 @@ class VerifyOTPAPIView(APIView):
         otp = serializer.validated_data["otp"]
         print(f"{email} - {otp}")
         try:
-            user = User.objects.get(email=email)
+            User.objects.get(email=email)
             otp_service = OTPEmailService()
             is_success, message = otp_service.verify_otp(email, otp)
             print("\nis_success ->", is_success)

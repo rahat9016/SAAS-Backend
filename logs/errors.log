@@ -1,0 +1,4 @@
+ERROR 2026-01-23 11:13:59,703 log 61935 6170734592 Internal Server Error: /api/auth/resend-otp/
+ERROR 2026-01-23 11:13:59,703 basehttp 61935 6170734592 "POST /api/auth/resend-otp/ HTTP/1.1" 500 61
+ERROR 2026-01-23 11:24:59,474 log 61935 6187560960 Internal Server Error: /api/auth/resend-otp/
+ERROR 2026-01-23 11:24:59,474 basehttp 61935 6187560960 "POST /api/auth/resend-otp/ HTTP/1.1" 500 61

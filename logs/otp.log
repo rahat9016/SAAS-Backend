@@ -16,3 +16,14 @@ NoneType: None
 [2025-12-10 13:46:38,043] INFO otp - OTP sent to minhazurrahman9026@gmail.com
 [2025-12-10 13:55:59,561] INFO otp - OTP sent to minhazurrahman9026@gmail.com
 [2025-12-11 09:36:22,953] INFO otp - OTP sent to rahat.official.info9016@gmail.com
+[2026-01-23 10:17:44,897] INFO otp - OTP sent to minhazurrahman9016@gmail.com
+[2026-01-23 10:52:53,069] INFO otp - OTP sent to minhazurrahman9026@gmail.com
+[2026-01-23 11:00:19,335] ERROR otp - OTP sending FAILED for minhazurrahman9026@gmail.com. Check email logs for underlying SMTP error.
+NoneType: None
+[2026-01-23 11:13:59,701] ERROR otp - OTP sending FAILED for minhazurrahman9026@gmail.com. Check email logs for underlying SMTP error.
+NoneType: None
+[2026-01-23 11:24:59,473] ERROR otp - OTP sending FAILED for minhazurrahman9026@gmail.com. Check email logs for underlying SMTP error.
+NoneType: None
+[2026-01-23 11:27:23,060] INFO otp - OTP sent to minhazurrahman9026@gmail.com
+[2026-01-23 11:28:43,765] INFO otp - OTP sent to minhazurrahman9026@gmail.com
+[2026-01-23 11:35:10,208] INFO otp - OTP sent to tecgensoftdev@gmail.com
