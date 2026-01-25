@@ -1,11 +1,9 @@
+from django.utils.translation import gettext as _
+from phonenumber_field.serializerfields import PhoneNumberField
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
-from phonenumber_field.serializerfields import PhoneNumberField
-from django.contrib.auth import get_user_model, authenticate
-from django.utils.translation import gettext as _
-from .models import User
 
-User = get_user_model()
+from .models import Profile, User
 
 
 class UserRegisterSerializer(serializers.Serializer):
@@ -69,13 +67,21 @@ class ChangePasswordSerializer(serializers.Serializer):
         return data
 
 
-class ForgotPasswordSerializers(serializers.Serializer):
-    new_password = serializers.CharField(write_only=True)
-    confirm_password = serializers.CharField(write_only=True)
+class ProfileSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(source="username", read_only=True)
+    profile_picture = serializers.CharField(read_only=True)
 
-    def validate(self, data):
-        if data["new_password"] != data["confirm_password"]:
-            raise serializers.ValidationError(
-                {"password": "New password and confirm password doesn't match."}
-            )
-        return data
+    class Meta:
+        model = Profile
+        fields = ["id", "username", "first_name", "last_name", "profile_picture"]
+        read_only_fields = ["id", "profile_picture"]
+
+
+class UserSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer(source="profile", required=False)
+    email = serializers.EmailField(read_only=True)
+
+    class Meta:
+        model = User
+        fields = ["id", "email", "phone", "role", "created_at", "updated_at", "profile"]
+        read_only_fields = ["email", "created_at", "updated_at"]

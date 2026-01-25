@@ -191,3 +191,4 @@ smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepte
 [2026-01-23 11:27:23,059] INFO emails - [2026-01-23 11-27-23] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
 [2026-01-23 11:28:43,763] INFO emails - [2026-01-23 11-28-43] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code
 [2026-01-23 11:35:10,206] INFO emails - [2026-01-23 11-35-10] Email sent successfully to ['tecgensoftdev@gmail.com'] - Subject Your Verification Code
+[2026-01-24 04:13:25,037] INFO emails - [2026-01-24 04-13-25] Email sent successfully to ['minhazurrahman9026@gmail.com'] - Subject Your Verification Code

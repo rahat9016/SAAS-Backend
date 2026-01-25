@@ -1,25 +1,25 @@
+import logging
+
+from django.contrib.auth import authenticate
 from django.db import transaction
 from rest_framework import status
-from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.views import APIView
 from rest_framework_simplejwt.exceptions import TokenError
+from rest_framework_simplejwt.tokens import RefreshToken
+
 from core.services.email.otp_services import OTPEmailService
 from core.utils.response import APIResponse
-from django.utils.translation import gettext as _
-from django.contrib.auth import authenticate
+
+from .models import Profile, User
 from .serializer import (
-    UserRegisterSerializer,
-    VerifySerializer,
+    ChangePasswordSerializer,
     LoginSerializer,
     RefreshTokenSerializer,
     ResendOTPSerializer,
-    ChangePasswordSerializer,
-    ForgotPasswordSerializers,
+    UserRegisterSerializer,
+    VerifySerializer,
 )
-from .models import User, Profile
-
-import logging
 
 logger = logging.getLogger(__name__)
 
@@ -310,5 +310,4 @@ class ChangePasswordAPIView(APIView):
             return APIResponse.server_error(f"Change password failed. {str(e)}")
 
 
-class ForgotPasswordAPIView(APIView):
-    serializer_class = ForgotPasswordSerializers
+

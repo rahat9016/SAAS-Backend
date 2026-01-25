@@ -941,3 +941,109 @@
 [2026-01-23 11:37:25,422] INFO django.server - "POST /api/auth/refresh-token/ HTTP/1.1" 200 379
 [2026-01-23 11:37:54,789] WARNING django.server - "POST /api/auth/change-password/ HTTP/1.1" 401 172
 [2026-01-23 11:38:21,135] INFO django.server - "POST /api/auth/change-password/ HTTP/1.1" 200 71
+[2026-01-23 12:24:41,462] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/urls.py changed, reloading.
+[2026-01-23 12:24:41,813] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 12:24:47,039] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/urls.py changed, reloading.
+[2026-01-23 12:24:47,265] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 12:24:57,599] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-23 12:24:57,878] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 12:25:02,093] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-23 12:25:02,306] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 12:25:04,456] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-23 12:25:04,700] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-23 13:53:24,576] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-23 13:53:24,915] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 04:07:54,643] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 04:07:59,564] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-24 04:08:00,116] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-24 04:08:23,044] INFO django.server - "GET /admin/ HTTP/1.1" 200 11011
+[2026-01-24 04:08:23,089] INFO django.server - "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+[2026-01-24 04:08:23,089] INFO django.server - "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[2026-01-24 04:08:23,092] INFO django.server - "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[2026-01-24 04:08:23,092] INFO django.server - "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+[2026-01-24 04:08:23,092] INFO django.server - "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+[2026-01-24 04:08:23,092] INFO django.server - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[2026-01-24 04:08:23,200] INFO django.server - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[2026-01-24 04:08:23,205] INFO django.server - "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+[2026-01-24 04:08:23,205] INFO django.server - "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2026-01-24 04:08:23,205] INFO django.server - "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2026-01-24 04:08:23,397] WARNING django.server - "GET /favicon.ico HTTP/1.1" 404 2689
+[2026-01-24 04:11:30,953] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10768
+[2026-01-24 04:11:30,990] INFO django.server - "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[2026-01-24 04:11:30,994] INFO django.server - "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[2026-01-24 04:11:30,996] INFO django.server - "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[2026-01-24 04:11:30,997] INFO django.server - "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[2026-01-24 04:11:31,000] INFO django.server - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[2026-01-24 04:11:31,000] INFO django.server - "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[2026-01-24 04:11:31,001] INFO django.server - "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[2026-01-24 04:11:31,007] INFO django.server - "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2026-01-24 04:11:31,009] INFO django.server - "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2026-01-24 04:11:31,013] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-24 04:11:31,107] INFO django.server - "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+[2026-01-24 04:11:31,120] INFO django.server - "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[2026-01-24 04:11:38,774] INFO django.server - "POST /admin/user/user/ HTTP/1.1" 200 9001
+[2026-01-24 04:11:38,824] INFO django.server - "GET /static/admin/js/cancel.js HTTP/1.1" 304 0
+[2026-01-24 04:11:39,744] INFO django.server - "POST /admin/user/user/ HTTP/1.1" 302 0
+[2026-01-24 04:11:39,764] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10531
+[2026-01-24 04:11:39,794] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-24 04:11:39,813] INFO django.server - "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[2026-01-24 04:13:15,045] WARNING django.server - "POST /api/auth/register/ HTTP/1.1" 400 140
+[2026-01-24 04:13:25,041] INFO django.server - "POST /api/auth/register/ HTTP/1.1" 201 234
+[2026-01-24 04:14:40,198] INFO django.server - "POST /api/auth/verify-account/ HTTP/1.1" 200 72
+[2026-01-24 04:14:42,899] WARNING django.server - "POST /api/auth/verify-account/ HTTP/1.1" 400 76
+[2026-01-24 05:13:26,907] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10768
+[2026-01-24 05:13:26,940] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-24 05:13:31,643] INFO django.server - "GET /admin/user/user/9ae57a6e-226d-4ae6-8172-f84888e0da4b/change/ HTTP/1.1" 200 20345
+[2026-01-24 05:13:31,680] INFO django.server - "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+[2026-01-24 05:13:31,683] INFO django.server - "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+[2026-01-24 05:13:31,683] INFO django.server - "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2026-01-24 05:13:31,685] INFO django.server - "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+[2026-01-24 05:13:31,688] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-24 05:13:31,703] INFO django.server - "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2026-01-24 05:13:31,703] INFO django.server - "GET /static/admin/css/widgets.css HTTP/1.1" 200 11973
+[2026-01-24 05:13:31,752] INFO django.server - "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+[2026-01-24 05:13:31,752] INFO django.server - "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+[2026-01-24 05:13:35,332] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 10768
+[2026-01-24 05:13:35,358] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-24 05:46:49,864] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:46:50,237] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:46:55,437] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:46:55,608] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:46:56,669] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:46:56,831] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:47:06,111] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:47:06,311] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:47:11,502] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:47:11,694] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:47:15,855] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:47:16,036] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:47:18,134] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:47:18,323] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:47:25,550] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:47:25,730] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:47:27,821] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:47:28,001] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:57:36,634] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:57:36,928] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:57:40,089] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:57:40,302] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:58:40,144] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:58:40,432] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:58:45,617] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:58:45,807] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:58:47,922] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:58:48,124] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:58:52,242] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:58:52,425] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:58:54,520] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:58:54,708] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:58:58,860] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:58:59,050] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:59:01,202] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:59:01,372] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:59:06,564] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:59:06,759] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:59:19,157] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:59:19,346] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-24 05:59:23,546] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-24 05:59:23,732] INFO django.utils.autoreload - Watching for file changes with StatReloader

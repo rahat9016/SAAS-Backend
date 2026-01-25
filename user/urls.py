@@ -1,13 +1,13 @@
 from django.urls import path
+
 from .views import (
-    RegisterAPIView,
+    ChangePasswordAPIView,
     LoginAPIView,
+    RefreshTokenAPIView,
+    RegisterAPIView,
+    ResendOTPAPIView,
     VerifyAccountAPIView,
     VerifyOTPAPIView,
-    RefreshTokenAPIView,
-    ResendOTPAPIView,
-    ChangePasswordAPIView,
-    ForgotPasswordAPIView
 )
 
 app_name = "users"
@@ -20,5 +20,4 @@ urlpatterns = [
     path("resend-otp/", ResendOTPAPIView.as_view(), name="resend_otp"),
     path("verify-otp/", VerifyOTPAPIView.as_view(), name="verify_otp"),
     path("change-password/", ChangePasswordAPIView.as_view(), name="change_password"),
-    path("forgot-password/:<email>", ForgotPasswordAPIView.as_view(), name="forgot_password"),
 ]
