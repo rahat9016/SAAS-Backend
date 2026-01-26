@@ -1,16 +1,22 @@
-version: "3.9"
+version: "3.8"
 
 services:
+  app:
+    build: .
+    container_name: tecgen_soft
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000 --timeout 120
   postgres:
     image: postgres:16
-    container_name: saas_postgres
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: saas_backend
-      POSTGRES_USER: minhazurrahman
-      POSTGRES_PASSWORD: rahat9016
-    ports:
-      - "5433:5432"
+    container_name: tecgen_soft_postgres
+    restart: always
+    env_file:
+      - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
