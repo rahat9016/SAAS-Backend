@@ -1047,3 +1047,35 @@
 [2026-01-24 05:59:19,346] INFO django.utils.autoreload - Watching for file changes with StatReloader
 [2026-01-24 05:59:23,546] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
 [2026-01-24 05:59:23,732] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-28 12:38:05,397] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-28 12:39:52,418] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-28 12:40:02,943] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-28 12:40:06,319] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-28 12:40:16,027] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-28 12:43:38,440] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-28 12:43:43,812] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-28 12:45:18,980] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-28 12:45:58,086] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-28 12:46:23,546] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-28 12:46:58,053] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-28 12:46:58,387] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-28 12:47:00,290] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-28 12:47:00,404] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-28 12:47:00,953] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-28 12:47:01,039] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-28 12:47:01,656] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-28 12:47:01,759] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-28 12:47:02,299] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-28 12:47:02,428] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-28 12:47:02,873] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-28 12:47:02,983] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-28 12:47:03,095] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-28 12:47:03,185] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-28 12:47:03,261] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-28 12:47:03,345] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-28 12:47:03,429] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-28 12:47:03,512] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-28 12:47:46,536] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-28 12:47:46,679] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-28 12:54:48,515] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-28 12:54:48,806] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411

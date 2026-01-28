@@ -1,0 +1,45 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Django stuff
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.mo
+
+# Media and static files (if you collect them in production, they’ll be in Docker build context)
+media/
+staticfiles/
+
+# Environment files
+.env
+.env.*
+
+# Node modules (if using frontend builds)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Git
+.git/
+.gitignore
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Docker / Compose output
+docker-compose.override.yml
