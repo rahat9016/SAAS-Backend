@@ -3,7 +3,7 @@ from phonenumber_field.serializerfields import PhoneNumberField
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 
-from .models import Profile, User
+from .models import User
 
 
 class UserRegisterSerializer(serializers.Serializer):
@@ -67,21 +67,28 @@ class ChangePasswordSerializer(serializers.Serializer):
         return data
 
 
-class ProfileSerializer(serializers.ModelSerializer):
-    username = serializers.CharField(source="username", read_only=True)
-    profile_picture = serializers.CharField(read_only=True)
-
-    class Meta:
-        model = Profile
-        fields = ["id", "username", "first_name", "last_name", "profile_picture"]
-        read_only_fields = ["id", "profile_picture"]
-
-
-class UserSerializer(serializers.ModelSerializer):
-    profile = ProfileSerializer(source="profile", required=False)
-    email = serializers.EmailField(read_only=True)
+class UserProfileSerializer(serializers.ModelSerializer):
+    first_name = serializers.CharField(source="profile.first_name", required=False)
+    last_name = serializers.CharField(source="profile.last_name", required=False)
+    username = serializers.CharField(source="profile.username", read_only=True)
+    profile_picture = serializers.ImageField(
+        source="profile.profile_picture", read_only=True
+    )
 
     class Meta:
         model = User
-        fields = ["id", "email", "phone", "role", "created_at", "updated_at", "profile"]
-        read_only_fields = ["email", "created_at", "updated_at"]
+        fields = [
+            "id",
+            "email",
+            "phone",
+            "role",
+            "is_active",
+            "created_at",
+            "updated_at",
+            "first_name",
+            "last_name",
+            "profile_picture",
+            "username",
+        ]
+
+    read_only_fields = ["id", "email", "username", "created_at", "profile_picture"]

@@ -1079,3 +1079,247 @@
 [2026-01-28 12:47:46,679] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
 [2026-01-28 12:54:48,515] INFO django.server - "GET / HTTP/1.1" 200 4656
 [2026-01-28 12:54:48,806] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-28 16:32:59,587] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-28 16:33:40,446] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-28 16:35:15,424] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:31:59,423] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:32:02,348] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-29 01:32:03,090] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-29 01:32:35,854] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/models.py changed, reloading.
+[2026-01-29 01:32:36,134] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:32:49,604] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/models.py changed, reloading.
+[2026-01-29 01:32:49,778] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:32:50,938] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/models.py changed, reloading.
+[2026-01-29 01:32:51,126] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:47:17,150] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:47:17,442] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:52:41,967] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:52:42,275] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:52:48,522] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:52:48,737] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:52:50,830] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:52:51,032] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:52:58,235] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:52:58,421] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:53:04,653] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:53:04,837] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:53:14,153] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:53:14,345] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:53:17,459] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:53:17,662] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:53:34,135] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:53:34,312] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:53:37,444] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:53:37,646] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:53:42,811] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:53:42,998] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:53:46,112] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:53:46,305] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:53:51,530] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:53:51,739] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:53:55,894] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:53:56,096] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:54:01,342] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:54:01,547] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:54:10,921] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:54:11,125] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:54:18,396] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:54:18,601] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:54:23,823] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:54:24,026] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:54:31,316] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:54:31,517] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:54:32,638] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:54:32,807] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:54:34,894] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:54:35,085] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:54:37,231] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:54:37,425] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:54:49,856] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:54:50,112] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:54:52,220] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:54:52,403] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:54:53,524] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:54:53,701] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:54:57,901] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:54:58,093] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:55:01,269] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:55:01,462] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:55:03,583] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:55:03,768] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:55:05,908] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:55:06,083] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:55:11,299] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:55:11,483] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:55:13,576] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:55:13,760] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:55:15,903] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:55:16,083] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:55:24,370] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:55:24,581] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:55:52,370] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:55:52,565] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:55:55,694] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:55:55,871] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:55:56,986] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:55:57,153] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:56:00,325] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:56:00,496] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:56:01,610] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:56:01,774] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:56:20,470] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:56:20,685] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:56:28,954] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:56:29,128] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:56:31,224] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:56:31,419] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:56:34,555] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:56:34,746] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:56:35,863] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:56:36,023] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:57:01,930] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:57:02,122] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:57:22,795] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:57:23,004] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:57:25,127] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:57:25,316] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:57:38,722] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:57:38,937] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:58:07,835] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:58:08,031] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:58:11,206] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:58:11,394] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:58:18,644] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:58:18,844] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:58:25,106] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:58:25,309] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:58:30,557] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:58:30,753] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:58:41,134] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:58:41,326] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:58:43,433] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:58:43,639] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:58:52,963] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:58:53,158] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:58:57,357] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:58:57,562] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:59:32,797] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:59:32,999] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:59:45,484] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:59:45,680] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:59:50,846] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:59:51,012] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:59:54,119] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:59:54,294] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 01:59:55,375] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 01:59:55,571] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:00:01,833] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:00:02,061] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:00:10,391] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:00:10,598] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:00:13,704] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:00:13,921] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:00:14,985] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:00:15,180] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:00:18,293] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:00:18,478] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:00:19,603] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:00:19,765] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:00:20,872] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:00:21,040] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:00:27,279] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:00:27,482] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:00:30,604] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:00:30,836] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:04:21,101] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:04:21,425] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:04:24,613] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:04:24,837] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:04:29,054] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:04:29,272] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:04:30,395] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:04:30,570] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:05:06,671] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:05:06,867] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:05:09,001] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:05:09,193] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:05:13,377] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:05:13,552] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:05:14,672] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:05:14,836] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:05:33,427] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:05:33,757] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:05:42,083] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:05:42,319] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:06:47,417] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:06:47,629] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:06:52,836] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:06:53,006] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:06:54,132] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:06:54,292] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:06:59,493] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:06:59,694] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:07:03,892] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:07:04,079] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:07:07,255] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:07:07,458] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:07:14,726] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:07:14,917] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:07:17,059] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:07:17,262] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:07:31,745] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:07:31,937] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:07:39,185] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:07:39,399] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:08:02,127] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:08:02,339] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:08:04,478] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:08:04,685] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:08:05,805] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:08:05,972] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:08:14,285] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:08:14,478] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:08:21,702] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:08:21,898] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:08:27,078] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:08:27,277] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:08:28,391] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:08:28,562] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:08:31,734] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:08:31,912] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:08:34,066] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:08:34,276] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:08:35,374] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:08:35,586] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:08:37,730] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:08:37,912] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:08:44,184] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:08:44,392] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:08:46,511] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:08:46,686] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:08:56,025] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:08:56,242] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:09:03,506] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:09:03,747] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:09:24,423] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:09:24,607] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:09:25,744] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:09:25,932] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:09:29,079] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:09:29,277] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:09:40,684] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:09:40,895] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:09:54,394] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:09:54,702] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:09:56,873] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:09:57,074] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:09:59,224] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:09:59,461] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:10:04,694] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:10:04,894] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:10:06,987] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:10:07,189] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:10:08,331] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:10:08,519] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 02:10:11,698] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-01-29 02:10:11,942] INFO django.utils.autoreload - Watching for file changes with StatReloader

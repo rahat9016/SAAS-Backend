@@ -65,7 +65,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 class Profile(models.Model):
     """
-    User Profile model extending the core User model with additional personal information.
+    User Profile model   extending the core User model with additional personal information.
     Maintains a one-to-one relationship with the User model for separated authentication and profile data.
     """
 
