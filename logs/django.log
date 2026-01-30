@@ -1323,3 +1323,6 @@
 [2026-01-29 02:10:08,519] INFO django.utils.autoreload - Watching for file changes with StatReloader
 [2026-01-29 02:10:11,698] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
 [2026-01-29 02:10:11,942] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 15:07:39,998] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-29 15:07:41,859] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-29 15:07:42,293] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
