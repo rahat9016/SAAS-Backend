@@ -137,3 +137,7 @@ Traceback (most recent call last):
     raise RuntimeError(
 RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to 127.0.0.1:8000/api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
 ERROR 2026-01-31 11:49:23,344 basehttp 13093 138356079965888 "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+ERROR 2026-01-31 14:37:54,138 log 22203 136193019905728 Internal Server Error: /api/auth/auth/google/
+ERROR 2026-01-31 14:37:54,139 basehttp 22203 136193019905728 "POST /api/auth/auth/google/ HTTP/1.1" 500 122
+ERROR 2026-01-31 14:55:37,953 log 24444 129255944132288 Internal Server Error: /api/auth/auth/google/
+ERROR 2026-01-31 14:55:37,954 basehttp 24444 129255944132288 "POST /api/auth/auth/google/ HTTP/1.1" 500 81
