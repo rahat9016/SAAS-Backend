@@ -2,3 +2,138 @@ ERROR 2026-01-23 11:13:59,703 log 61935 6170734592 Internal Server Error: /api/a
 ERROR 2026-01-23 11:13:59,703 basehttp 61935 6170734592 "POST /api/auth/resend-otp/ HTTP/1.1" 500 61
 ERROR 2026-01-23 11:24:59,474 log 61935 6187560960 Internal Server Error: /api/auth/resend-otp/
 ERROR 2026-01-23 11:24:59,474 basehttp 61935 6187560960 "POST /api/auth/resend-otp/ HTTP/1.1" 500 61
+ERROR 2026-01-31 11:43:27,643 log 13093 138356079965888 Internal Server Error: /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a
+Traceback (most recent call last):
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to 127.0.0.1:8000/api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-01-31 11:43:27,644 basehttp 13093 138356079965888 "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+ERROR 2026-01-31 11:44:26,743 log 13093 138356079965888 Internal Server Error: /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a
+Traceback (most recent call last):
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to 127.0.0.1:8000/api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-01-31 11:44:26,744 basehttp 13093 138356079965888 "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+ERROR 2026-01-31 11:45:04,998 log 13093 138356079965888 Internal Server Error: /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a
+Traceback (most recent call last):
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to 127.0.0.1:8000/api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-01-31 11:45:04,999 basehttp 13093 138356079965888 "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+ERROR 2026-01-31 11:45:54,843 log 13093 138356079965888 Internal Server Error: /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a
+Traceback (most recent call last):
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to 127.0.0.1:8000/api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-01-31 11:45:54,844 basehttp 13093 138356079965888 "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+ERROR 2026-01-31 11:46:16,408 log 13093 138356079965888 Internal Server Error: /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a
+Traceback (most recent call last):
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PUT, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PUT data. Change your form to point to 127.0.0.1:8000/api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-01-31 11:46:16,409 basehttp 13093 138356079965888 "PUT /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78901
+ERROR 2026-01-31 11:47:13,777 log 13093 138356079965888 Internal Server Error: /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a
+Traceback (most recent call last):
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to 127.0.0.1:8000/api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-01-31 11:47:13,777 basehttp 13093 138356079965888 "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+ERROR 2026-01-31 11:48:01,533 log 13093 138356079965888 Internal Server Error: /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a
+Traceback (most recent call last):
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to 127.0.0.1:8000/api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-01-31 11:48:01,533 basehttp 13093 138356079965888 "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+ERROR 2026-01-31 11:48:11,170 log 13093 138356079965888 Internal Server Error: /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a
+Traceback (most recent call last):
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to 127.0.0.1:8000/api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-01-31 11:48:11,171 basehttp 13093 138356079965888 "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+ERROR 2026-01-31 11:49:23,344 log 13093 138356079965888 Internal Server Error: /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a
+Traceback (most recent call last):
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rabbi/SAAS-Backend/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to 127.0.0.1:8000/api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-01-31 11:49:23,344 basehttp 13093 138356079965888 "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
