@@ -8,6 +8,7 @@ from .views import (
     ResendOTPAPIView,
     VerifyAccountAPIView,
     VerifyOTPAPIView,
+    GoogleSignInAPIView
 )
 
 app_name = "users"
@@ -20,4 +21,5 @@ urlpatterns = [
     path("resend-otp/", ResendOTPAPIView.as_view(), name="resend_otp"),
     path("verify-otp/", VerifyOTPAPIView.as_view(), name="verify_otp"),
     path("change-password/", ChangePasswordAPIView.as_view(), name="change_password"),
+    path("auth/google/", GoogleSignInAPIView.as_view(), name="google-signin")
 ]
