@@ -41,3 +41,11 @@ if settings.DEBUG:
         settings.STATIC_URL,
         document_root=settings.STATIC_ROOT
     )
+
+
+
+"""
+1. LOGIN WITH GOOGLE  (GOOGLE CLOUD)
+2. USER FIRST NAME, LAST NAME, EMAIL, (OWN DATABASE STORE)
+3. RETURN (ACCESS, REFRESH TOKEN) (BASIC INFORMATION)
+"""

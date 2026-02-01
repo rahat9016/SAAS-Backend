@@ -50,7 +50,7 @@ class RegisterAPIView(APIView):
                 return APIResponse.conflict("User with this email already exists.")
 
             with transaction.atomic():
-                user = User.objects.create_user(  # type: ignore
+                user = User.objects.create_user(
                     email=email,
                     phone=phone,
                     password=password,
