@@ -27,6 +27,6 @@ urlpatterns = [
     path("verify-otp/", VerifyOTPAPIView.as_view(), name="verify_otp"),
     path("change-password/", ChangePasswordAPIView.as_view(), name="change_password"),
     path("", include(router.urls)),
-    path("auth/google/", GoogleSignInAPIView.as_view(), name="google-signin")
+    path("auth/google/", GoogleSignInAPIView.as_view(), name="google-signin"),
     path("", include(router.urls))
 ]
