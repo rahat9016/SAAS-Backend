@@ -1683,3 +1683,12 @@
 [2026-01-31 15:18:45,191] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
 [2026-01-31 15:18:45,593] INFO django.utils.autoreload - Watching for file changes with StatReloader
 [2026-01-31 15:18:47,494] INFO django.server - "POST /api/auth/auth/google/ HTTP/1.1" 200 763
+[2026-02-02 14:27:57,939] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-02 14:28:00,483] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-02-02 14:28:00,665] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 36320
+[2026-02-02 14:28:06,808] ERROR django.server - "GET /api/category/categories/ HTTP/1.1" 500 231
+[2026-02-02 14:28:50,416] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-02 14:29:02,210] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-02 14:29:04,017] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-02-02 14:29:04,130] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 36320
+[2026-02-02 14:29:08,503] INFO django.server - "GET /api/category/categories/ HTTP/1.1" 200 86

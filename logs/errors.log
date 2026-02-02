@@ -141,3 +141,5 @@ ERROR 2026-01-31 14:37:54,138 log 22203 136193019905728 Internal Server Error: /
 ERROR 2026-01-31 14:37:54,139 basehttp 22203 136193019905728 "POST /api/auth/auth/google/ HTTP/1.1" 500 122
 ERROR 2026-01-31 14:55:37,953 log 24444 129255944132288 Internal Server Error: /api/auth/auth/google/
 ERROR 2026-01-31 14:55:37,954 basehttp 24444 129255944132288 "POST /api/auth/auth/google/ HTTP/1.1" 500 81
+ERROR 2026-02-02 14:28:06,807 log 4477 6196195328 Internal Server Error: /api/category/categories/
+ERROR 2026-02-02 14:28:06,808 basehttp 4477 6196195328 "GET /api/category/categories/ HTTP/1.1" 500 231
