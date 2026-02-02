@@ -29,3 +29,5 @@ rpds-py==0.27.1
 sqlparse==0.5.3
 typing_extensions==4.15.0
 uritemplate==4.2.0
+google-auth==2.48.0
+requests==2.32.5

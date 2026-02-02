@@ -13,6 +13,10 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from core.services.email.otp_services import OTPEmailService
 from core.utils.response import APIResponse
 
+from google.oauth2 import id_token
+from google.auth.transport import requests as google_requests
+from django.contrib.auth import get_user_model
+from django.conf import settings
 from .models import Profile, User
 from .serializer import (
     ChangePasswordSerializer,
@@ -25,7 +29,65 @@ from .serializer import (
 )
 from .permisiions import IsAdminOrSelf
 
+
+User = get_user_model()
+
 logger = logging.getLogger(__name__)
+
+
+
+class GoogleSignInAPIView(APIView):
+
+    def post(self, request):
+        token = request.data.get("token")
+        if not token:
+            return APIResponse.validation_error(
+                errors={"token": ["Google token is required"]}
+            )
+        try:
+            idinfo = id_token.verify_oauth2_token(
+                token,
+                google_requests.Request(),
+                settings.GOOGLE_CLIENT_ID
+            )
+            email = idinfo.get("email")
+            if not email:
+                return APIResponse.validation_error(
+                    errors={"email": ["Email not found in Google token"]}
+                )
+            user, created = User.objects.get_or_create(
+                email=email,
+                defaults={
+                    "is_active": True
+                }
+            )
+            refresh = RefreshToken.for_user(user)
+            return APIResponse.success(
+                message="Google sign-in successful",
+                data={
+                    "user": {
+                        "id": str(user.id),
+                        "email": user.email,
+                    },
+                    "tokens": {
+                        "access": str(refresh.access_token),
+                        "refresh": str(refresh),
+                    }
+                },
+                status=status.HTTP_200_OK
+            )
+        except ValueError:
+            return APIResponse.validation_error(
+                errors={"token": ["Invalid or expired Google token"]}
+            )
+
+        except Exception as e:
+            # 7️⃣ Any unexpected error
+            return APIResponse.server_error(
+                message="Google sign-in failed",
+                data=str(e)
+            )
+
 
 
 class RegisterAPIView(APIView):
