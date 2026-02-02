@@ -25,9 +25,19 @@ from .serializer import (
     ResendOTPSerializer,
     UserRegisterSerializer,
     VerifySerializer,
-    UserProfileSerializer
+    UserProfileSerializer,
+    ForgotPasswordSerializer,
+    ResetPasswordSerializer
 )
 from .permisiions import IsAdminOrSelf
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes
+from rest_framework.response import Response
+from core.services.email.base import BaseEmailService
+
+
+
 
 User = get_user_model()
 logger = logging.getLogger(__name__)
@@ -407,3 +417,87 @@ class UserProfileModeViewSet(ModelViewSet):
         return super().list(request, *args, **kwargs)
 
 
+
+class ForgotPasswordAPIView(APIView):
+    def post(self, request):
+        serializer = ForgotPasswordSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        email = serializer.validated_data["email"]
+
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            return Response(
+                {"error": "Wrong email, user not found"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        uid = urlsafe_base64_encode(force_bytes(user.id))
+        token = PasswordResetTokenGenerator().make_token(user)
+
+        reset_api_link = f"http://127.0.0.1:8000/api/auth/auth/reset-password/{uid}/{token}/"
+
+        # Inline HTML email
+        email_html = f"""
+        <p>Hello {user.email},</p>
+
+        <p>You requested a password reset.</p>
+
+        <p>Click the button below or link to reset your password:</p>
+
+        <p><a href="{reset_api_link}" style="
+            display:inline-block;
+            padding:10px 20px;
+            background-color:#007BFF;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+            font-weight:bold;
+        ">Click Here</a></p>
+
+    
+
+        <p>If you didn't request this, ignore this email.</p>
+        """
+
+        BaseEmailService()._sent_email_raw(
+            subject="Password Reset Request",
+            recipient_list=[user.email],
+            html_message=email_html
+        )
+
+        return Response(
+            {"message": "Password reset email sent"},
+            status=status.HTTP_200_OK,
+        )
+
+
+
+class ResetPasswordAPIView(APIView):
+    def post(self, request, uidb64, token):
+        serializer = ResetPasswordSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        try:
+            uid = urlsafe_base64_decode(uidb64).decode()
+            user = User.objects.get(id=uid)
+        except Exception:
+            return Response(
+                {"error": "Invalid reset link"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        token_generator = PasswordResetTokenGenerator()
+        if not token_generator.check_token(user, token):
+            return Response(
+                {"error": "Token invalid or expired"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        user.set_password(serializer.validated_data["new_password"])
+        user.is_active = True
+        user.save()
+
+        return Response(
+            {"message": "Password reset successful"},
+            status=status.HTTP_200_OK,
+        )

@@ -92,3 +92,18 @@ class UserProfileSerializer(serializers.ModelSerializer):
         ]
 
     read_only_fields = ["id", "email", "username", "created_at", "profile_picture"]
+
+
+
+class ForgotPasswordSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+
+class ResetPasswordSerializer(serializers.Serializer):
+    new_password = serializers.CharField(write_only=True,min_length=6)
+    confirm_password = serializers.CharField()
+
+    def validate(self, data):
+        if data["new_password"] != data["confirm_password"]:
+            raise serializers.ValidationError("Passwords do not match")
+        return data
