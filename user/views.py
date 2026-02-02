@@ -5,7 +5,9 @@ from django.db import transaction
 from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
+from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.exceptions import TokenError
+from rest_framework.exceptions import PermissionDenied
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from core.services.email.otp_services import OTPEmailService
@@ -19,7 +21,9 @@ from .serializer import (
     ResendOTPSerializer,
     UserRegisterSerializer,
     VerifySerializer,
+    UserProfileSerializer
 )
+from .permisiions import IsAdminOrSelf
 
 logger = logging.getLogger(__name__)
 
@@ -132,7 +136,7 @@ class RefreshTokenAPIView(APIView):
     # 2. If token has valid date
     # 3. do generate new access token
     # 4. If token hasn't valid time show and error. Token expired
-    # 5. if any how case failed show error. token not generated.
+    # 5. if anyhow case failed show error. token not generated.
     serializer_class = RefreshTokenSerializer
 
     def post(self, request):
@@ -309,5 +313,37 @@ class ChangePasswordAPIView(APIView):
             logger.exception(f"Change password failed: {str(e)}")
             return APIResponse.server_error(f"Change password failed. {str(e)}")
 
+
+
+
+class UserProfileModeViewSet(ModelViewSet):
+    """
+        Allowed actions:
+        - GET    /users/        (admin only)
+        - GET    /users/{id}/   (admin or self)
+        - PATCH  /users/{id}/   (admin or self)
+    """
+    serializer_class = UserProfileSerializer
+    queryset = User.objects.select_related('profile')
+    permission_classes = [IsAuthenticated, IsAdminOrSelf]
+    http_method_names = ["get", "patch"]
+
+    def get_queryset(self):
+        """
+            Admin → all users
+            Normal user → only self
+        """
+
+        user = self.request.user
+        if user.is_staff or getattr(user, "role", None) == "admin":
+            return self.queryset.all()
+
+        return self.queryset.filter(id=user.id)
+
+    def list(self, request, *args, **kwargs):
+        user = self.request.user
+        if not (user.is_staff or getattr(user, "role", None) == "admin"):
+            raise PermissionDenied("You do not have permission to access this resource.")
+        return super().list(request, *args, **kwargs)
 
 
