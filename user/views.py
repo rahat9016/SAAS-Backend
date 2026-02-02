@@ -29,12 +29,7 @@ from .serializer import (
 )
 from .permisiions import IsAdminOrSelf
 
-
 User = get_user_model()
-
-
-User = get_user_model()
-
 logger = logging.getLogger(__name__)
 
 
