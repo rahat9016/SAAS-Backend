@@ -1,14 +1,16 @@
 import logging
-from django.core.mail import EmailMultiAlternatives
+from datetime import datetime
+from smtplib import SMTPAuthenticationError
+
+from decouple import config
 from django.conf import settings
+from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
-from smtplib import SMTPAuthenticationError
-from datetime import datetime
-from decouple import config
+
+from core.utils.error_formatter import format_error_log
 
 email_logger = logging.getLogger("emails")
-from core.utils.error_formatter import format_error_log
 
 
 class BaseEmailService:

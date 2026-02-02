@@ -1,5 +1,5 @@
-from django.urls import path
-
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 from .views import (
     ChangePasswordAPIView,
     LoginAPIView,
@@ -8,12 +8,18 @@ from .views import (
     ResendOTPAPIView,
     VerifyAccountAPIView,
     VerifyOTPAPIView,
+    UserProfileModeViewSet,
     GoogleSignInAPIView
 )
 
 app_name = "users"
 
+router = DefaultRouter()
+router.register(r"users", UserProfileModeViewSet, basename="users")
+
 urlpatterns = [
+    # ---------- Auth APIs ----------
+    path("", include(router.urls)),
     path("register/", RegisterAPIView.as_view(), name="register"),
     path("login/", LoginAPIView.as_view(), name="login"),
     path("refresh-token/", RefreshTokenAPIView.as_view(), name="refresh_token"),
@@ -21,5 +27,6 @@ urlpatterns = [
     path("resend-otp/", ResendOTPAPIView.as_view(), name="resend_otp"),
     path("verify-otp/", VerifyOTPAPIView.as_view(), name="verify_otp"),
     path("change-password/", ChangePasswordAPIView.as_view(), name="change_password"),
+    path("", include(router.urls)),
     path("auth/google/", GoogleSignInAPIView.as_view(), name="google-signin")
 ]
