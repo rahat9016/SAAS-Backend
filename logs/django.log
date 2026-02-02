@@ -2274,3 +2274,9 @@
 [2026-02-02 14:29:04,017] INFO django.server - "GET / HTTP/1.1" 200 4656
 [2026-02-02 14:29:04,130] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 36320
 [2026-02-02 14:29:08,503] INFO django.server - "GET /api/category/categories/ HTTP/1.1" 200 86
+[2026-02-02 15:04:43,904] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-02 15:05:43,046] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-02 15:05:46,526] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-02-02 15:05:46,743] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 45156
+[2026-02-02 15:06:50,267] INFO django.server - "GET /api/category/categories/ HTTP/1.1" 200 86
+[2026-02-02 15:09:32,792] WARNING django.server - "GET /api/user/profile/ HTTP/1.1" 404 3033
