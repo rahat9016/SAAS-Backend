@@ -12,7 +12,7 @@ from .views import (
     GoogleSignInAPIView,
     ForgotPasswordAPIView,
     ResetPasswordAPIView,
-    AddressViewSet
+    AddressViewSet,
 )
 
 app_name = "users"
