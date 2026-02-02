@@ -1326,6 +1326,372 @@
 [2026-01-29 15:07:39,998] INFO django.utils.autoreload - Watching for file changes with StatReloader
 [2026-01-29 15:07:41,859] INFO django.server - "GET / HTTP/1.1" 200 4656
 [2026-01-29 15:07:42,293] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-30 17:38:49,164] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-30 17:39:18,347] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-30 17:39:18,543] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-30 17:39:54,717] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-30 17:39:57,143] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-30 17:39:57,298] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411
+[2026-01-30 17:40:44,762] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/core/urls.py changed, reloading.
+[2026-01-30 17:40:45,044] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-30 17:41:50,450] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-30 17:42:38,207] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/urls.py changed, reloading.
+[2026-01-30 17:42:38,472] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-30 17:42:41,245] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-30 17:42:41,406] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 32296
+[2026-01-30 17:44:47,406] INFO django.server - "GET /admin/ HTTP/1.1" 200 7727
+[2026-01-30 17:44:47,432] INFO django.server - "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[2026-01-30 17:44:47,433] INFO django.server - "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[2026-01-30 17:44:47,434] INFO django.server - "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[2026-01-30 17:44:47,435] INFO django.server - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[2026-01-30 17:44:47,435] INFO django.server - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[2026-01-30 17:44:47,435] INFO django.server - "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[2026-01-30 17:44:47,435] INFO django.server - "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[2026-01-30 17:44:47,497] INFO django.server - "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2026-01-30 17:44:47,497] INFO django.server - "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2026-01-30 17:47:37,301] WARNING django.server - "POST /api/category/categories/ HTTP/1.1" 401 58
+[2026-01-30 17:52:24,378] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-30 17:52:24,644] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-30 17:52:27,679] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-30 17:52:27,799] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 32368
+[2026-01-30 17:52:55,407] WARNING django.server - "POST /api/category/categories/ HTTP/1.1" 401 58
+[2026-01-30 17:53:09,127] WARNING django.server - "POST /api/auth/login/ HTTP/1.1" 401 69
+[2026-01-30 18:01:33,585] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-30 18:01:33,845] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-30 18:01:36,184] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-30 18:01:36,294] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 32440
+[2026-01-30 18:02:02,449] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-30 18:02:02,804] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-30 18:02:36,437] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/admin.py changed, reloading.
+[2026-01-30 18:02:36,717] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-30 18:03:16,478] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/admin.py changed, reloading.
+[2026-01-30 18:03:16,811] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-30 18:03:20,394] INFO django.server - "GET /admin/ HTTP/1.1" 200 9438
+[2026-01-30 18:03:23,649] INFO django.server - "GET /admin/catalog/category/add/ HTTP/1.1" 200 14853
+[2026-01-30 18:03:23,676] INFO django.server - "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+[2026-01-30 18:03:23,681] INFO django.server - "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[2026-01-30 18:03:23,682] INFO django.server - "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[2026-01-30 18:03:23,683] INFO django.server - "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[2026-01-30 18:03:23,683] INFO django.server - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[2026-01-30 18:03:23,684] INFO django.server - "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[2026-01-30 18:03:23,685] INFO django.server - "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[2026-01-30 18:03:23,685] INFO django.server - "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[2026-01-30 18:03:23,687] INFO django.server - "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[2026-01-30 18:03:23,698] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-30 18:03:23,698] INFO django.server - "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[2026-01-30 18:03:23,719] INFO django.server - "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[2026-01-30 18:03:23,724] INFO django.server - "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[2026-01-30 18:03:23,725] INFO django.server - "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[2026-01-30 18:04:12,248] INFO django.server - "POST /admin/catalog/category/add/ HTTP/1.1" 302 0
+[2026-01-30 18:04:12,286] INFO django.server - "GET /admin/catalog/category/ HTTP/1.1" 200 12390
+[2026-01-30 18:04:12,366] INFO django.server - "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[2026-01-30 18:04:12,368] INFO django.server - "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+[2026-01-30 18:04:12,382] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-30 18:04:12,384] INFO django.server - "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[2026-01-30 18:04:12,405] INFO django.server - "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[2026-01-30 18:04:12,405] INFO django.server - "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[2026-01-30 18:04:12,405] INFO django.server - "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+[2026-01-30 18:04:19,794] INFO django.server - "GET /admin/catalog/subcategory/add/ HTTP/1.1" 200 14226
+[2026-01-30 18:04:19,835] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-30 18:04:19,837] INFO django.server - "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[2026-01-30 18:04:19,838] INFO django.server - "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[2026-01-30 18:04:32,394] INFO django.server - "POST /admin/catalog/subcategory/add/ HTTP/1.1" 302 0
+[2026-01-30 18:04:32,432] INFO django.server - "GET /admin/catalog/subcategory/ HTTP/1.1" 200 13384
+[2026-01-30 18:04:32,513] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-30 18:06:47,704] INFO django.server - "GET /admin/catalog/category/add/ HTTP/1.1" 200 14853
+[2026-01-30 18:06:47,753] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-30 18:07:01,272] WARNING django.server - "POST /api/categories/ HTTP/1.1" 404 3028
+[2026-01-30 18:10:34,505] WARNING django.server - "POST /api/category/categories/ HTTP/1.1" 401 58
+[2026-01-30 18:12:32,934] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-30 18:12:33,233] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-30 18:12:36,341] INFO django.server - "POST /api/category/categories/ HTTP/1.1" 201 118
+[2026-01-30 18:12:42,302] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-30 18:12:42,435] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 32440
+[2026-01-30 18:19:52,996] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-30 18:19:53,251] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-30 18:20:18,925] INFO django.server - "GET /api/category/categories/06ced2cd-b5b1-42a0-85f9-6de4cf328b72/ HTTP/1.1" 200 118
+[2026-01-30 18:27:33,537] INFO django.server - "GET /admin/catalog/category/add/ HTTP/1.1" 200 14853
+[2026-01-30 18:27:33,585] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-30 18:28:23,481] INFO django.server - "POST /admin/catalog/category/add/ HTTP/1.1" 302 0
+[2026-01-30 18:28:23,515] INFO django.server - "GET /admin/catalog/category/ HTTP/1.1" 200 13186
+[2026-01-30 18:28:23,600] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-30 18:28:36,708] INFO django.server - "GET /api/category/categories/99c38a22-2266-45f0-b72f-bbe8f5a43582/ HTTP/1.1" 200 143
+[2026-01-30 18:30:17,882] WARNING django.server - "POST /api/category/sub-categories/ HTTP/1.1" 400 183
+[2026-01-30 18:30:39,462] WARNING django.server - "POST /api/category/sub-categories/ HTTP/1.1" 400 183
+[2026-01-30 18:31:28,334] WARNING django.server - "POST /api/category/sub-categories/ HTTP/1.1" 400 84
+[2026-01-30 18:31:38,582] WARNING django.server - "POST /api/category/sub-categories/ HTTP/1.1" 400 84
+[2026-01-30 18:31:47,914] WARNING django.server - "POST /api/category/sub-categories/ HTTP/1.1" 400 84
+[2026-01-30 18:32:00,329] WARNING django.server - "POST /api/category/sub-categories/ HTTP/1.1" 400 84
+[2026-01-31 03:56:41,413] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 03:56:49,241] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-31 03:56:49,705] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 32440
+[2026-01-31 03:57:00,405] INFO django.server - "GET /admin/ HTTP/1.1" 200 10628
+[2026-01-31 03:57:00,500] INFO django.server - "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[2026-01-31 03:57:00,500] INFO django.server - "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[2026-01-31 03:57:00,504] INFO django.server - "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[2026-01-31 03:57:00,505] INFO django.server - "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[2026-01-31 03:57:00,505] INFO django.server - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[2026-01-31 03:57:00,505] INFO django.server - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[2026-01-31 03:57:00,507] INFO django.server - "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[2026-01-31 03:57:00,575] INFO django.server - "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2026-01-31 03:57:00,576] INFO django.server - "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2026-01-31 03:58:03,789] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-31 03:58:04,418] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 03:58:43,264] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-31 03:58:43,803] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 03:58:45,894] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-31 03:58:46,359] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 32465
+[2026-01-31 03:59:30,290] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-31 03:59:30,924] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 03:59:31,647] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-31 03:59:31,915] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 32505
+[2026-01-31 04:04:49,727] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-31 04:04:50,256] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 04:05:02,134] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-31 04:05:02,635] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 04:05:09,136] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-31 04:05:09,483] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 31625
+[2026-01-31 04:09:14,135] INFO django.server - "POST /api/category/categories/ HTTP/1.1" 201 160
+[2026-01-31 04:09:31,756] INFO django.server - "GET /admin/catalog/category/ HTTP/1.1" 200 13339
+[2026-01-31 04:09:31,903] INFO django.server - "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[2026-01-31 04:09:31,914] INFO django.server - "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[2026-01-31 04:09:31,924] INFO django.server - "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[2026-01-31 04:09:31,925] INFO django.server - "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[2026-01-31 04:09:31,928] INFO django.server - "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[2026-01-31 04:09:31,937] INFO django.server - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[2026-01-31 04:09:31,938] INFO django.server - "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[2026-01-31 04:09:31,946] INFO django.server - "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[2026-01-31 04:09:31,946] INFO django.server - "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[2026-01-31 04:09:31,949] INFO django.server - "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+[2026-01-31 04:09:31,995] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 04:09:32,022] INFO django.server - "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[2026-01-31 04:09:32,061] INFO django.server - "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[2026-01-31 04:09:32,062] INFO django.server - "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+[2026-01-31 04:34:28,150] INFO django.server - "GET /admin/auth/group/ HTTP/1.1" 200 10374
+[2026-01-31 04:34:28,349] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 04:34:29,580] INFO django.server - "GET /admin/auth/ HTTP/1.1" 200 5558
+[2026-01-31 04:34:31,233] INFO django.server - "GET /admin/auth/group/ HTTP/1.1" 200 10374
+[2026-01-31 04:34:31,413] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 09:08:23,263] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/urls.py changed, reloading.
+[2026-01-31 09:08:23,593] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 09:08:53,378] INFO django.server - "GET /api/category/categories/ HTTP/1.1" 200 517
+[2026-01-31 09:09:25,422] WARNING django.server - "POST /api/auth/login/ HTTP/1.1" 401 69
+[2026-01-31 09:09:51,939] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 797
+[2026-01-31 09:22:12,756] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-31 09:22:13,057] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 09:22:23,293] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-31 09:22:23,579] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 09:22:40,970] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-31 09:22:41,254] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 09:22:45,927] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-31 09:22:46,054] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 31610
+[2026-01-31 09:23:10,899] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-31 09:23:11,155] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 09:23:12,433] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-31 09:23:12,552] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 31630
+[2026-01-31 09:23:16,933] INFO django.server - "GET /api/category/categories/ HTTP/1.1" 200 601
+[2026-01-31 09:23:39,695] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-31 09:23:39,970] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 09:24:00,550] INFO django.server - "GET /api/category/categories/a717aaff-4111-4fcc-ad82-150cdce36843/ HTTP/1.1" 200 234
+[2026-01-31 09:24:25,579] WARNING django.server - "GET /category/icons/Nike_Sneakers_szOxDhn.jpeg HTTP/1.1" 404 3105
+[2026-01-31 09:25:16,082] INFO django.server - "DELETE /api/category/categories/99c38a22-2266-45f0-b72f-bbe8f5a43582/ HTTP/1.1" 204 71
+[2026-01-31 09:25:22,487] WARNING django.server - "DELETE /api/category/categories/99c38a22-2266-45f0-b72f-bbe8f5a43582/ HTTP/1.1" 404 49
+[2026-01-31 09:25:31,439] INFO django.server - "GET /api/category/categories/ HTTP/1.1" 200 457
+[2026-01-31 09:25:42,492] INFO django.server - "DELETE /api/category/categories/a717aaff-4111-4fcc-ad82-150cdce36843/ HTTP/1.1" 204 71
+[2026-01-31 09:26:02,501] INFO django.server - "GET /api/category/categories/ HTTP/1.1" 200 296
+[2026-01-31 09:27:19,825] INFO django.server - "GET /api/category/categories/ HTTP/1.1" 200 296
+[2026-01-31 09:28:30,538] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-31 09:28:30,651] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 31630
+[2026-01-31 09:29:07,750] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-31 09:29:07,995] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 09:29:09,924] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-31 09:29:10,042] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 32067
+[2026-01-31 09:29:28,285] WARNING django.server - "POST /api/category/categories/ HTTP/1.1" 400 108
+[2026-01-31 09:32:05,661] WARNING django.server - "POST /api/category/categories/ HTTP/1.1" 400 154
+[2026-01-31 09:32:45,329] WARNING django.server - "POST /api/category/categories/ HTTP/1.1" 400 108
+[2026-01-31 09:32:51,103] WARNING django.server - "POST /api/category/categories/ HTTP/1.1" 400 154
+[2026-01-31 10:12:44,679] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/urls.py changed, reloading.
+[2026-01-31 10:12:44,941] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 10:12:47,578] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-31 10:12:47,713] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 36443
+[2026-01-31 10:14:55,222] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/views.py changed, reloading.
+[2026-01-31 10:14:55,526] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 10:14:56,973] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-01-31 10:14:57,118] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 35791
+[2026-01-31 10:15:56,671] INFO django.server - "POST /api/category/categories/ HTTP/1.1" 201 239
+[2026-01-31 10:16:08,778] INFO django.server - "GET /admin/auth/group/ HTTP/1.1" 200 10374
+[2026-01-31 10:16:08,813] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 10:16:11,091] INFO django.server - "GET /admin/catalog/category/ HTTP/1.1" 200 12946
+[2026-01-31 10:16:11,133] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 10:26:46,170] INFO django.server - "POST /api/category/categories/ HTTP/1.1" 201 169
+[2026-01-31 10:26:51,831] INFO django.server - "GET /admin/catalog/category/ HTTP/1.1" 200 13339
+[2026-01-31 10:26:51,868] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 10:27:33,007] INFO django.server - "POST /api/category/categories/ HTTP/1.1" 201 242
+[2026-01-31 10:27:36,611] INFO django.server - "GET /admin/catalog/category/ HTTP/1.1" 200 13730
+[2026-01-31 10:27:36,648] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 10:29:01,129] INFO django.server - "GET /api/category/categories/ HTTP/1.1" 200 712
+[2026-01-31 10:31:12,840] WARNING django.server - "POST /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/ HTTP/1.1" 405 41
+[2026-01-31 10:31:20,098] INFO django.server - "GET /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/ HTTP/1.1" 200 234
+[2026-01-31 10:32:44,991] INFO django.server - "GET /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/?name=shoe HTTP/1.1" 200 234
+[2026-01-31 10:33:13,786] INFO django.server - "PATCH /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/?name=shoe HTTP/1.1" 200 239
+[2026-01-31 10:33:20,626] INFO django.server - "GET /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/ HTTP/1.1" 200 234
+[2026-01-31 10:33:21,620] INFO django.server - "GET /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/ HTTP/1.1" 200 234
+[2026-01-31 10:33:59,406] INFO django.server - "PATCH /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/?name=shoe HTTP/1.1" 200 238
+[2026-01-31 10:34:03,476] INFO django.server - "GET /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/ HTTP/1.1" 200 233
+[2026-01-31 10:34:09,298] INFO django.server - "GET /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/ HTTP/1.1" 200 233
+[2026-01-31 10:34:22,661] INFO django.server - "PATCH /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/?name=shoe HTTP/1.1" 200 232
+[2026-01-31 10:34:28,626] INFO django.server - "GET /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/ HTTP/1.1" 200 227
+[2026-01-31 10:34:48,693] INFO django.server - "PATCH /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/?name=shoe HTTP/1.1" 200 239
+[2026-01-31 10:35:21,981] INFO django.server - "DELETE /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/ HTTP/1.1" 204 71
+[2026-01-31 10:35:25,114] WARNING django.server - "PATCH /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/ HTTP/1.1" 404 49
+[2026-01-31 10:35:31,908] WARNING django.server - "GET /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/ HTTP/1.1" 404 49
+[2026-01-31 10:36:09,441] WARNING django.server - "POST /api/auth/login/ HTTP/1.1" 401 69
+[2026-01-31 10:39:23,227] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/core/settings.py changed, reloading.
+[2026-01-31 10:39:23,505] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 10:39:26,403] WARNING django.server - "GET /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/ HTTP/1.1" 404 61
+[2026-01-31 10:44:26,789] WARNING django.server - "PATCH /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/ HTTP/1.1" 404 61
+[2026-01-31 10:44:30,504] WARNING django.server - "GET /api/category/categories/07d6fdf8-27a2-4486-9101-f06592a97c0f/ HTTP/1.1" 404 61
+[2026-01-31 11:37:18,580] INFO django.server - "POST /api/category/sub-categories/ HTTP/1.1" 201 262
+[2026-01-31 11:38:08,110] INFO django.server - "GET /api/category/sub-categories/ HTTP/1.1" 200 425
+[2026-01-31 11:40:06,207] INFO django.server - "GET /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 301 0
+[2026-01-31 11:40:06,223] INFO django.server - "GET /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ HTTP/1.1" 200 257
+[2026-01-31 11:40:09,984] INFO django.server - "GET /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370 HTTP/1.1" 301 0
+[2026-01-31 11:40:09,986] WARNING django.server - "GET /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370/ HTTP/1.1" 404 61
+[2026-01-31 11:40:13,569] INFO django.server - "GET /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 301 0
+[2026-01-31 11:40:13,584] INFO django.server - "GET /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ HTTP/1.1" 200 257
+[2026-01-31 11:43:27,644] ERROR django.server - "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+[2026-01-31 11:44:17,339] INFO django.server - "GET /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 301 0
+[2026-01-31 11:44:17,355] INFO django.server - "GET /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ HTTP/1.1" 200 257
+[2026-01-31 11:44:26,744] ERROR django.server - "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+[2026-01-31 11:45:04,999] ERROR django.server - "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+[2026-01-31 11:45:54,844] ERROR django.server - "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+[2026-01-31 11:46:16,409] ERROR django.server - "PUT /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78901
+[2026-01-31 11:47:13,777] ERROR django.server - "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+[2026-01-31 11:47:31,513] INFO django.server - "GET /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 301 0
+[2026-01-31 11:47:31,528] INFO django.server - "GET /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ HTTP/1.1" 200 257
+[2026-01-31 11:47:37,786] INFO django.server - "GET /admin/catalog/subcategory/ HTTP/1.1" 200 13913
+[2026-01-31 11:47:37,827] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 11:47:37,891] INFO django.server - "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[2026-01-31 11:48:01,533] ERROR django.server - "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+[2026-01-31 11:48:11,171] ERROR django.server - "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+[2026-01-31 11:48:54,022] INFO django.server - "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ HTTP/1.1" 200 192
+[2026-01-31 11:49:04,171] INFO django.server - "GET /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 301 0
+[2026-01-31 11:49:04,187] INFO django.server - "GET /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ HTTP/1.1" 200 187
+[2026-01-31 11:49:23,344] ERROR django.server - "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a HTTP/1.1" 500 78931
+[2026-01-31 11:49:41,385] INFO django.server - "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ HTTP/1.1" 200 193
+[2026-01-31 11:49:54,811] INFO django.server - "PATCH /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ HTTP/1.1" 200 200
+[2026-01-31 11:49:58,447] INFO django.server - "GET /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ HTTP/1.1" 200 195
+[2026-01-31 11:50:44,605] INFO django.server - "DELETE /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ HTTP/1.1" 204 75
+[2026-01-31 11:50:45,788] WARNING django.server - "DELETE /api/category/sub-categories/3c6e19c9-fbcb-4e53-bbc3-dd3c35c7370a/ HTTP/1.1" 404 61
+[2026-01-31 11:57:43,467] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/catalog/urls.py changed, reloading.
+[2026-01-31 11:57:43,778] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:26:22,561] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:26:26,551] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 11353
+[2026-01-31 14:26:26,580] INFO django.server - "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[2026-01-31 14:26:26,581] INFO django.server - "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[2026-01-31 14:26:26,583] INFO django.server - "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[2026-01-31 14:26:26,585] INFO django.server - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[2026-01-31 14:26:26,586] INFO django.server - "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[2026-01-31 14:26:26,586] INFO django.server - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[2026-01-31 14:26:26,586] INFO django.server - "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[2026-01-31 14:26:26,586] INFO django.server - "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[2026-01-31 14:26:26,588] INFO django.server - "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[2026-01-31 14:26:26,589] INFO django.server - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[2026-01-31 14:26:26,599] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 14:26:26,621] INFO django.server - "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[2026-01-31 14:26:26,627] INFO django.server - "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[2026-01-31 14:26:26,628] INFO django.server - "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[2026-01-31 14:26:26,632] INFO django.server - "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+[2026-01-31 14:26:26,635] INFO django.server - "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[2026-01-31 14:26:26,640] INFO django.server - "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[2026-01-31 14:26:26,695] INFO django.server - "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2026-01-31 14:26:26,695] INFO django.server - "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[2026-01-31 14:26:28,281] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 11353
+[2026-01-31 14:26:28,310] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 14:26:30,011] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 11353
+[2026-01-31 14:26:30,042] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 14:26:33,230] INFO django.server - "GET /admin/user/user/add/ HTTP/1.1" 200 20724
+[2026-01-31 14:26:33,258] INFO django.server - "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[2026-01-31 14:26:33,259] INFO django.server - "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+[2026-01-31 14:26:33,260] INFO django.server - "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+[2026-01-31 14:26:33,260] INFO django.server - "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[2026-01-31 14:26:33,261] INFO django.server - "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[2026-01-31 14:26:33,270] INFO django.server - "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[2026-01-31 14:26:33,273] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 14:26:33,383] INFO django.server - "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+[2026-01-31 14:26:33,383] INFO django.server - "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+[2026-01-31 14:29:54,088] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 14:29:54,425] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:30:46,430] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 14:30:46,768] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:32:27,925] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:33:01,707] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/urls.py changed, reloading.
+[2026-01-31 14:33:01,988] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:35:43,423] WARNING django.server - "POST /auth/google/ HTTP/1.1" 404 3019
+[2026-01-31 14:36:39,963] WARNING django.server - "POST /api/auth/auth/google/ HTTP/1.1" 400 34
+[2026-01-31 14:37:54,139] ERROR django.server - "POST /api/auth/auth/google/ HTTP/1.1" 500 122
+[2026-01-31 14:39:05,266] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 14:39:05,564] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:39:08,301] WARNING django.server - "POST /api/auth/auth/google/ HTTP/1.1" 400 34
+[2026-01-31 14:39:36,292] WARNING django.server - "POST /api/auth/auth/google/ HTTP/1.1" 400 34
+[2026-01-31 14:39:41,889] WARNING django.server - "POST /api/auth/auth/google/ HTTP/1.1" 400 34
+[2026-01-31 14:40:12,000] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 14:40:12,290] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:40:36,088] INFO django.server - "POST /api/auth/auth/google/ HTTP/1.1" 200 724
+[2026-01-31 14:40:52,709] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 11727
+[2026-01-31 14:40:52,747] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 14:48:48,662] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 14:48:49,013] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:51:15,487] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/core/settings.py changed, reloading.
+[2026-01-31 14:51:15,804] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:51:58,786] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 14:51:59,087] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:52:18,691] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 14:52:18,981] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:55:15,826] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 14:55:16,110] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:55:37,954] ERROR django.server - "POST /api/auth/auth/google/ HTTP/1.1" 500 81
+[2026-01-31 14:55:52,946] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 14:55:53,241] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:56:28,019] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 14:56:28,309] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:57:30,515] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 14:57:30,786] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:58:49,208] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 14:58:49,492] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 14:59:46,996] INFO django.server - "POST /api/auth/auth/google/ HTTP/1.1" 200 744
+[2026-01-31 14:59:56,550] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 12092
+[2026-01-31 14:59:56,598] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 15:01:15,317] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 15:01:15,601] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 15:02:45,284] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/urls.py changed, reloading.
+[2026-01-31 15:02:45,584] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 15:03:58,897] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 15:03:59,197] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 15:04:01,988] INFO django.server - "POST /api/auth/auth/google/ HTTP/1.1" 200 757
+[2026-01-31 15:04:09,625] WARNING django.server - "POST /api/auth/auth/google/ HTTP/1.1" 400 115
+[2026-01-31 15:04:17,814] INFO django.server - "POST /api/auth/auth/google/ HTTP/1.1" 200 757
+[2026-01-31 15:04:26,084] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 12092
+[2026-01-31 15:04:26,116] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 15:16:35,304] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 15:16:35,594] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 15:16:56,826] INFO django.server - "POST /api/auth/auth/google/ HTTP/1.1" 200 763
+[2026-01-31 15:17:13,277] WARNING django.server - "POST /api/auth/auth/google/ HTTP/1.1" 400 115
+[2026-01-31 15:17:18,837] INFO django.server - "POST /api/auth/auth/google/ HTTP/1.1" 200 763
+[2026-01-31 15:17:21,235] INFO django.server - "GET /admin/user/user/ HTTP/1.1" 200 12469
+[2026-01-31 15:17:21,272] INFO django.server - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 15:18:45,191] INFO django.utils.autoreload - /home/rabbi/SAAS-Backend/user/views.py changed, reloading.
+[2026-01-31 15:18:45,593] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-01-31 15:18:47,494] INFO django.server - "POST /api/auth/auth/google/ HTTP/1.1" 200 763
+[2026-02-02 14:27:57,939] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-02 14:28:00,483] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-02-02 14:28:00,665] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 36320
+[2026-02-02 14:28:06,808] ERROR django.server - "GET /api/category/categories/ HTTP/1.1" 500 231
+[2026-02-02 14:28:50,416] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-02 14:29:02,210] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-02 14:29:04,017] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-02-02 14:29:04,130] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 36320
+[2026-02-02 14:29:08,503] INFO django.server - "GET /api/category/categories/ HTTP/1.1" 200 86
 [2026-01-31 04:05:59,951] INFO django.utils.autoreload - Watching for file changes with StatReloader
 [2026-01-31 04:06:04,559] INFO django.server - "GET / HTTP/1.1" 200 4656
 [2026-01-31 04:06:05,081] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 15411

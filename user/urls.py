@@ -8,8 +8,8 @@ from .views import (
     ResendOTPAPIView,
     VerifyAccountAPIView,
     VerifyOTPAPIView,
-    UserProfileModeViewSet,
-    GoogleSignInAPIView
+    GoogleSignInAPIView,
+    UserProfileModeViewSet
 )
 
 app_name = "users"
