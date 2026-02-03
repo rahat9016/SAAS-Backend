@@ -17,7 +17,7 @@ from google.oauth2 import id_token
 from google.auth.transport import requests as google_requests
 from django.contrib.auth import get_user_model
 from django.conf import settings
-from .models import Profile, User
+from .models import Profile
 from .serializer import (
     ChangePasswordSerializer,
     LoginSerializer,
@@ -389,21 +389,21 @@ class UserProfileModeViewSet(ModelViewSet):
     http_method_names = ["get", "patch"]
 
     def get_queryset(self):
-        """
-            Admin → all users
-            Normal user → only self
-        """
+        return self.queryset
 
-        user = self.request.user
-        if user.is_staff or getattr(user, "role", None) == "admin":
-            return self.queryset.all()
+    def retrieve(self, request, *args, **kwargs):
 
-        return self.queryset.filter(id=user.id)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return APIResponse.success("User details fetched successfully", serializer.data)
 
     def list(self, request, *args, **kwargs):
         user = self.request.user
         if not (user.is_staff or getattr(user, "role", None) == "admin"):
             raise PermissionDenied("You do not have permission to access this resource.")
-        return super().list(request, *args, **kwargs)
+
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return APIResponse.success("User list fetched successfully.", data=serializer.data)
 
 
