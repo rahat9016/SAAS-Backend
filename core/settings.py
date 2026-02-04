@@ -111,7 +111,7 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')  # Because MAIL_ENCRYPTION=tls
 # DEFAULT_FROM_EMAIL = config("EMAIL_HOST_USER")
 
 GOOGLE_CLIENT_ID = config("GOOGLE_CLIENT_ID")
-
+RESET_LINK=config("RESET_LINK")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

@@ -3,7 +3,7 @@ from phonenumber_field.serializerfields import PhoneNumberField
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 
-from .models import User
+from .models import User,Address
 
 
 class UserRegisterSerializer(serializers.Serializer):
@@ -107,3 +107,24 @@ class ResetPasswordSerializer(serializers.Serializer):
         if data["new_password"] != data["confirm_password"]:
             raise serializers.ValidationError("Passwords do not match")
         return data
+
+
+class AddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = "__all__"
+        read_only_fields = ["id", "user", "created_at", "updated_at"]
+
+    def create(self, validated_data):
+        user = self.context['request'].user
+        Address.objects.filter(user=user).update(is_default=False)
+        validated_data['user'] = user
+        validated_data['is_default'] = True
+        address = Address.objects.create(**validated_data)
+        return address
+
+    def update(self, instance, validated_data):
+        user = self.context['request'].user
+        if validated_data.get("is_default", False):
+            Address.objects.filter(user=user).exclude(id=instance.id).update(is_default=False)
+        return super().update(instance, validated_data)

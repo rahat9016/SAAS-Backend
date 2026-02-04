@@ -11,13 +11,15 @@ from .views import (
     UserProfileModeViewSet,
     GoogleSignInAPIView,
     ForgotPasswordAPIView,
-    ResetPasswordAPIView
+    ResetPasswordAPIView,
+    AddressViewSet
 )
 
 app_name = "users"
 
 router = DefaultRouter()
 router.register(r"users", UserProfileModeViewSet, basename="users")
+router.register(r'addresses', AddressViewSet, basename='address')
 
 urlpatterns = [
     # ---------- Auth APIs ----------
