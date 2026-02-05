@@ -519,7 +519,7 @@ class ResetPasswordAPIView(GenericAPIView):
         )
 
 
-@extend_schema(tags=["Category"])
+@extend_schema(tags=["Address"])
 class AddressViewSet(ModelViewSet):
     serializer_class = AddressSerializer
     permission_classes = [IsAuthenticated]

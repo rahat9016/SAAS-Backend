@@ -3,11 +3,37 @@ from .models import Category, SubCategory
 from PIL import Image
 import os
 
-ALLOWED_FORMATS = ["PNG", "SVG"]
+ALLOWED_EXTENSIONS = [".png", ".svg"]
 MIN_WIDTH = 32
 MIN_HEIGHT = 32
 MAX_WIDTH = 256
 MAX_HEIGHT = 256
+
+
+def validate_icon_file(value):
+    if not value:
+        return value
+
+    ext = os.path.splitext(value.name)[1].lower()
+    if ext not in ALLOWED_EXTENSIONS:
+        raise serializers.ValidationError("Icon must be PNG or SVG format.")
+
+    if ext == ".png":
+        img = Image.open(value)
+        width, height = img.size
+
+        if width < MIN_WIDTH or height < MIN_HEIGHT:
+            raise serializers.ValidationError(
+                f"Icon is too small. Minimum size is {MIN_WIDTH}x{MIN_HEIGHT}px."
+            )
+
+        if width > MAX_WIDTH or height > MAX_HEIGHT:
+            raise serializers.ValidationError(
+                f"Icon is too large. Maximum size is {MAX_WIDTH}x{MAX_HEIGHT}px."
+            )
+
+    return value
+
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,25 +41,7 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def validate_icon(self, value):
-        if not value:
-            return value
-
-        ext = os.path.splitext(value.name)[1].lower()
-        if ext not in [".png", ".svg"]:
-            raise serializers.ValidationError("Icon must be PNG or SVG format.")
-
-        if ext == ".png":
-            img = Image.open(value)
-            width, height = img.size
-            if width < MIN_WIDTH or height < MIN_HEIGHT:
-                raise serializers.ValidationError(
-                    f"Icon is too small. Minimum size is {MIN_WIDTH}x{MIN_HEIGHT}px."
-                )
-            if width > MAX_WIDTH or height > MAX_HEIGHT:
-                raise serializers.ValidationError(
-                    f"Icon is too large. Maximum size is {MAX_WIDTH}x{MAX_HEIGHT}px."
-                )
-        return value
+        return validate_icon_file(value)
 
 
 class SubCategorySerializer(serializers.ModelSerializer):
@@ -45,23 +53,10 @@ class SubCategorySerializer(serializers.ModelSerializer):
         model = SubCategory
         fields = "__all__"
 
-    def validate_icon(self, value):
+    def validate_parent_category(self, value):
         if not value:
-            return value
-
-        ext = os.path.splitext(value.name)[1].lower()
-        if ext not in [".png", ".svg"]:
-            raise serializers.ValidationError("Icon must be PNG or SVG format.")
-
-        if ext == ".png":
-            img = Image.open(value)
-            width, height = img.size
-            if width < MIN_WIDTH or height < MIN_HEIGHT:
-                raise serializers.ValidationError(
-                    f"Icon is too small. Minimum size is {MIN_WIDTH}x{MIN_HEIGHT}px."
-                )
-            if width > MAX_WIDTH or height > MAX_HEIGHT:
-                raise serializers.ValidationError(
-                    f"Icon is too large. Maximum size is {MAX_WIDTH}x{MAX_HEIGHT}px."
-                )
+            raise serializers.ValidationError("Parent category is required.")
         return value
+
+    def validate_icon(self, value):
+        return validate_icon_file(value)
