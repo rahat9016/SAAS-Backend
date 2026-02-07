@@ -60,3 +60,21 @@ class SubCategorySerializer(serializers.ModelSerializer):
 
     def validate_icon(self, value):
         return validate_icon_file(value)
+
+
+
+class SubCategoryTreeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SubCategory
+        fields = ["id", "name", "description", "icon"]
+
+
+class CategoryTreeSerializer(serializers.ModelSerializer):
+    subcategories = SubCategoryTreeSerializer(
+        many=True,
+        read_only=True
+    )
+
+    class Meta:
+        model = Category
+        fields = ["id", "name", "description", "icon", "subcategories"]
