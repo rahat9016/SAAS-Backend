@@ -68,13 +68,25 @@ class ChangePasswordSerializer(serializers.Serializer):
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    email = serializers.EmailField(read_only=True)
+    is_active = serializers.BooleanField(read_only=True)
     first_name = serializers.CharField(source="profile.first_name", required=False)
     last_name = serializers.CharField(source="profile.last_name", required=False)
     username = serializers.CharField(source="profile.username", read_only=True)
     profile_picture = serializers.ImageField(
         source="profile.profile_picture", read_only=True
     )
-
+    phone = PhoneNumberField(
+        region="BD",
+        required=False,
+        validators=[
+            UniqueValidator(
+                queryset=User.objects.all(),
+                message=_("A user already registered with this phone number."),
+            )
+        ],
+    )
     class Meta:
         model = User
         fields = [
@@ -92,6 +104,27 @@ class UserProfileSerializer(serializers.ModelSerializer):
         ]
 
     read_only_fields = ["id", "email", "username", "created_at", "profile_picture"]
+
+    def update(self, instance, validated_data):
+        profile_data = validated_data.pop('profile', {})
+
+        # User fields
+        for key, value in validated_data.items():
+            setattr(instance, key, value)
+
+        instance.save()
+
+        # Profile fields
+        profile = getattr(instance, "profile", None)
+        for key, value in profile_data.items():
+            setattr(profile, key, value)
+
+        profile.save()
+
+        return instance
+
+
+
 
 
 
