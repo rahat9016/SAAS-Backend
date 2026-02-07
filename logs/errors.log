@@ -143,3 +143,138 @@ ERROR 2026-01-31 14:55:37,953 log 24444 129255944132288 Internal Server Error: /
 ERROR 2026-01-31 14:55:37,954 basehttp 24444 129255944132288 "POST /api/auth/auth/google/ HTTP/1.1" 500 81
 ERROR 2026-02-02 14:28:06,807 log 4477 6196195328 Internal Server Error: /api/category/categories/
 ERROR 2026-02-02 14:28:06,808 basehttp 4477 6196195328 "GET /api/category/categories/ HTTP/1.1" 500 231
+ERROR 2026-02-05 14:46:55,399 log 2234 6206582784 Internal Server Error: /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-02-05 14:46:55,401 basehttp 2234 6206582784 "POST /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71678
+ERROR 2026-02-05 14:46:55,419 log 2234 6206582784 Internal Server Error: /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-02-05 14:46:55,420 basehttp 2234 6206582784 "POST /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71678
+ERROR 2026-02-05 14:47:59,238 log 2234 6206582784 Internal Server Error: /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-02-05 14:47:59,239 basehttp 2234 6206582784 "PATCH /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71691
+ERROR 2026-02-05 14:48:50,129 log 2234 6206582784 Internal Server Error: /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-02-05 14:48:50,131 basehttp 2234 6206582784 "PATCH /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e HTTP/1.1" 500 71675
+ERROR 2026-02-05 14:49:51,689 log 2457 6132772864 Internal Server Error: /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-02-05 14:49:51,690 basehttp 2457 6132772864 "PATCH /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71691
+ERROR 2026-02-05 14:56:51,283 log 2546 6197506048 Internal Server Error: /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-02-05 14:56:51,284 basehttp 2546 6197506048 "PATCH /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71691
+ERROR 2026-02-05 14:56:53,166 log 2546 6197506048 Internal Server Error: /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-02-05 14:56:53,167 basehttp 2546 6197506048 "PATCH /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71691
+ERROR 2026-02-05 14:58:23,906 log 2568 6137294848 Internal Server Error: /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-02-05 14:58:23,908 basehttp 2568 6137294848 "PATCH /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71691
+ERROR 2026-02-05 15:05:07,030 log 2700 6165786624 Internal Server Error: /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4
+Traceback (most recent call last):
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/.venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-02-05 15:05:07,031 basehttp 2700 6165786624 "PATCH /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71691

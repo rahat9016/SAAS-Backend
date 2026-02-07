@@ -1,5 +1,3 @@
-import logging
-
 from django.contrib.auth import authenticate
 from django.db import transaction
 from rest_framework import status
@@ -7,9 +5,8 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.exceptions import TokenError
-from rest_framework.exceptions import PermissionDenied
+from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework_simplejwt.tokens import RefreshToken
-
 from core.services.email.otp_services import OTPEmailService
 from core.utils.response import APIResponse
 
@@ -30,7 +27,6 @@ from .serializer import (
 from .permisiions import IsAdminOrSelf
 
 User = get_user_model()
-logger = logging.getLogger(__name__)
 
 
 
@@ -87,7 +83,6 @@ class GoogleSignInAPIView(APIView):
             )
 
 
-
 class RegisterAPIView(APIView):
     """
     Register User
@@ -133,9 +128,10 @@ class RegisterAPIView(APIView):
             )
 
         except Exception as e:
-            logger.error(
-                f"Registration failed for {request.data.get('email')}: {str(e)}"
-            )
+            print(e)
+            # logger.error(
+            #     f"Registration failed for {request.data.get('email')}: {str(e)}"
+            # )
             return APIResponse.error("User registration failed.")
 
 
@@ -187,7 +183,9 @@ class LoginAPIView(APIView):
             return APIResponse.unauthorized("Invalid email or password.")
 
         except Exception as e:
-            logger.exception(f"Login failed: {str(e)}")
+            print(e)
+            return APIResponse.server_error("Login failed.")
+            # logger.exception(f"Login failed: {str(e)}")
             return APIResponse.server_error(str(e))
 
 
@@ -232,10 +230,14 @@ class RefreshTokenAPIView(APIView):
                 return APIResponse.not_found("User not found for this token")
 
         except TokenError as e:
-            logger.error(f"Token validation failed: {str(e)}")
+            print(e)
+            return APIResponse.server_error(str(e))
+            # logger.error(f"Token validation failed: {str(e)}")
             return APIResponse.error("Refresh token has been expired")
         except Exception as e:
-            logger.exception(f"Token refresh failed: {str(e)}")
+            # logger.exception(f"Token refresh failed: {str(e)}")
+            print(e)
+            return APIResponse.server_error("Refresh token failed.")
             APIResponse.server_error("Token refresh failed")
 
 
@@ -270,7 +272,9 @@ class VerifyAccountAPIView(APIView):
             return APIResponse.unauthorized("Please provide valid email.")
 
         except Exception as e:
-            logger.error(f"Verify Account: {str(e)}")
+            # logger.error(f"Verify Account: {str(e)}")
+            print(e)
+            return APIResponse.server_error(str(e))
             return APIResponse.server_error("Account not activated. Please try again.")
 
 
@@ -302,11 +306,12 @@ class ResendOTPAPIView(APIView):
             otp_sent = otp_service.sent_otp(email)
 
             if not otp_sent:
-                logger.error("Failed to send OTP")
+                # logger.error("Failed to send OTP")
                 raise Exception("OTP sending failed")
 
         except Exception as e:
-            logger.exception(f"Resend OTP Failed: {str(e)}")
+            # logger.exception(f"Resend OTP Failed: {str(e)}")
+            print(e)
             return APIResponse.server_error("Resend OTP Failed.")
 
         return APIResponse.success("A new OTP has been sent successfully. ")
@@ -340,7 +345,8 @@ class VerifyOTPAPIView(APIView):
             return APIResponse.unauthorized("Please provide valid email.")
 
         except Exception as e:
-            logger.exception(f"OTP verification failed: {str(e)}")
+            print(f"Verify OTP Failed: {str(e)}")
+            # logger.exception(f"OTP verification failed: {str(e)}")
             return APIResponse.server_error(f"OTP verification failed. {str(e)}")
 
 
@@ -370,9 +376,8 @@ class ChangePasswordAPIView(APIView):
             return APIResponse.success("Password changed successfully")
 
         except Exception as e:
-            logger.exception(f"Change password failed: {str(e)}")
+            # logger.exception(f"Change password failed: {str(e)}")
             return APIResponse.server_error(f"Change password failed. {str(e)}")
-
 
 
 
@@ -407,3 +412,18 @@ class UserProfileModeViewSet(ModelViewSet):
         return APIResponse.success("User list fetched successfully.", data=serializer.data)
 
 
+    def update(self, request, *args, **kwargs):
+        try:
+            instance = self.get_object()
+            serializer = self.get_serializer(instance, data= request.data, partial=True)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return APIResponse.success("User details updated successfully.", data=serializer.data)
+
+        except ValidationError as e:
+            print("ValidationError",e)
+            return APIResponse.validation_error(e.detail)
+
+        except Exception as e:
+            print("Exception", str(e))
+            return APIResponse.server_error(str(e))

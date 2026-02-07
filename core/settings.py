@@ -138,11 +138,13 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "EXCEPTION_HANDLER": "core.utils.exception_handler.custom_exception_handler",
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 10,
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=1),
-    "REFRESH_TOKEN_LIFETIME": timedelta(seconds=30),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
+    "REFRESH_TOKEN_LIFETIME": timedelta(minutes=300),
 }
 
 SPECTACULAR_SETTINGS = {
@@ -164,91 +166,91 @@ USE_I18N = True
 USE_TZ = True
 
 # Logging Configuration
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "formatters": {
-        "verbose": {
-            "format": "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
-            "style": "{",
-        },
-        "simple": {
-            "format": "{levelname} {asctime} {message}",
-            "style": "{",
-        },
-        "detailed": {
-            "format": "[{asctime}] {levelname} {name} - {message}",
-            "style": "{",
-        },
-    },
-    "filters": {
-        "require_debug_true": {
-            "()": "django.utils.log.RequireDebugTrue",
-        },
-        "require_debug_false": {
-            "()": "django.utils.log.RequireDebugFalse",
-        },
-    },
-    "handlers": {
-        "console": {
-            "level": "INFO",
-            "filters": ["require_debug_true"],
-            "class": "logging.StreamHandler",
-            "formatter": "simple",
-        },
-        "file": {
-            "level": "INFO",
-            "class": "logging.FileHandler",
-            "filename": BASE_DIR / "logs" / "django.log",
-            "formatter": "detailed",
-        },
-        "error_file": {
-            "level": "ERROR",
-            "class": "logging.FileHandler",
-            "filename": BASE_DIR / "logs" / "errors.log",
-            "formatter": "verbose",
-        },
-        "email_file": {
-            "level": "INFO",
-            "class": "logging.FileHandler",
-            "filename": BASE_DIR / "logs" / "emails.log",
-            "formatter": "detailed",
-        },
-        "otp_file": {
-            "level": "INFO",
-            "class": "logging.FileHandler",
-            "filename": BASE_DIR / "logs" / "otp.log",
-            "formatter": "detailed",
-        },
-    },
-    "loggers": {
-        "django": {
-            "handlers": ["console", "file", "error_file"],
-            "level": "INFO",
-            "propagate": True,
-        },
-        "django.request": {
-            "handlers": ["error_file"],
-            "level": "ERROR",
-            "propagate": False,
-        },
-        "emails": {
-            "handlers": ["email_file", "console"],
-            "level": "INFO",
-            "propagate": False,
-        },
-        "otp": {
-            "handlers": ["otp_file", "console"],
-            "level": "INFO",
-            "propagate": False,
-        },
-        "users": {
-            "handlers": ["file", "console"],
-            "level": "INFO",
-            "propagate": False,
-        },
-    },
-}
+# LOGGING = {
+#     "version": 1,
+#     "disable_existing_loggers": False,
+#     "formatters": {
+#         "verbose": {
+#             "format": "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
+#             "style": "{",
+#         },
+#         "simple": {
+#             "format": "{levelname} {asctime} {message}",
+#             "style": "{",
+#         },
+#         "detailed": {
+#             "format": "[{asctime}] {levelname} {name} - {message}",
+#             "style": "{",
+#         },
+#     },
+#     "filters": {
+#         "require_debug_true": {
+#             "()": "django.utils.log.RequireDebugTrue",
+#         },
+#         "require_debug_false": {
+#             "()": "django.utils.log.RequireDebugFalse",
+#         },
+#     },
+#     "handlers": {
+#         "console": {
+#             "level": "INFO",
+#             "filters": ["require_debug_true"],
+#             "class": "logging.StreamHandler",
+#             "formatter": "simple",
+#         },
+#         "file": {
+#             "level": "INFO",
+#             "class": "logging.FileHandler",
+#             "filename": BASE_DIR / "logs" / "django.log",
+#             "formatter": "detailed",
+#         },
+#         "error_file": {
+#             "level": "ERROR",
+#             "class": "logging.FileHandler",
+#             "filename": BASE_DIR / "logs" / "errors.log",
+#             "formatter": "verbose",
+#         },
+#         "email_file": {
+#             "level": "INFO",
+#             "class": "logging.FileHandler",
+#             "filename": BASE_DIR / "logs" / "emails.log",
+#             "formatter": "detailed",
+#         },
+#         "otp_file": {
+#             "level": "INFO",
+#             "class": "logging.FileHandler",
+#             "filename": BASE_DIR / "logs" / "otp.log",
+#             "formatter": "detailed",
+#         },
+#     },
+#     "loggers": {
+#         "django": {
+#             "handlers": ["console", "file", "error_file"],
+#             "level": "INFO",
+#             "propagate": True,
+#         },
+#         "django.request": {
+#             "handlers": ["error_file"],
+#             "level": "ERROR",
+#             "propagate": False,
+#         },
+#         "emails": {
+#             "handlers": ["email_file", "console"],
+#             "level": "INFO",
+#             "propagate": False,
+#         },
+#         "otp": {
+#             "handlers": ["otp_file", "console"],
+#             "level": "INFO",
+#             "propagate": False,
+#         },
+#         "users": {
+#             "handlers": ["file", "console"],
+#             "level": "INFO",
+#             "propagate": False,
+#         },
+#     },
+# }
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 

@@ -2977,3 +2977,80 @@
 [2026-02-03 02:35:10,432] INFO django.utils.autoreload - Watching for file changes with StatReloader
 [2026-02-03 02:35:18,136] INFO django.utils.autoreload - Watching for file changes with StatReloader
 [2026-02-03 02:37:16,517] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-04 05:14:30,391] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-04 05:14:35,012] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-02-04 05:14:35,245] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 45156
+[2026-02-04 05:39:18,057] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/core/settings.py changed, reloading.
+[2026-02-04 05:39:18,405] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-04 05:39:37,261] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/core/settings.py changed, reloading.
+[2026-02-04 05:39:37,534] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-04 05:39:41,860] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/core/settings.py changed, reloading.
+[2026-02-04 05:39:42,057] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-04 05:46:02,023] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-04 05:46:07,055] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-02-04 05:46:07,249] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 49386
+[2026-02-04 06:08:35,349] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/views.py changed, reloading.
+[2026-02-04 06:08:36,041] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-04 07:06:00,782] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 843
+[2026-02-04 07:06:48,491] WARNING django.server - "GET /api/users HTTP/1.1" 404 3009
+[2026-02-05 02:21:34,107] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-05 02:21:40,286] WARNING django.server - "GET /api/users HTTP/1.1" 404 3009
+[2026-02-05 02:21:59,161] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 843
+[2026-02-05 02:22:30,807] WARNING django.server - "GET /api/users HTTP/1.1" 404 3009
+[2026-02-05 02:22:40,600] INFO django.server - "GET /api/auth/users HTTP/1.1" 301 0
+[2026-02-05 02:22:40,616] WARNING django.server - "GET /api/auth/users/ HTTP/1.1" 403 60
+[2026-02-05 02:22:53,915] INFO django.server - "GET /api/auth/users HTTP/1.1" 301 0
+[2026-02-05 02:22:53,921] WARNING django.server - "GET /api/auth/users/ HTTP/1.1" 401 66
+[2026-02-05 02:23:29,544] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 822
+[2026-02-05 02:23:42,716] INFO django.server - "GET /api/auth/users HTTP/1.1" 301 0
+[2026-02-05 02:23:42,739] INFO django.server - "GET /api/auth/users/ HTTP/1.1" 200 1029
+[2026-02-05 02:24:27,718] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-02-05 02:24:27,978] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 49386
+[2026-02-05 02:25:08,242] INFO django.server - "GET /api/category/categories/ HTTP/1.1" 200 86
+[2026-02-05 02:26:08,884] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-02-05 02:26:09,022] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 49386
+[2026-02-05 02:26:51,789] INFO django.server - "POST /api/category/categories/ HTTP/1.1" 201 174
+[2026-02-05 02:27:05,546] INFO django.server - "GET /api/category/categories/ HTTP/1.1" 200 181
+[2026-02-05 02:27:57,764] INFO django.server - "PATCH /api/category/categories/ec0308c8-fbb0-421f-838c-d8c7778c33eb/ HTTP/1.1" 200 178
+[2026-02-05 02:28:03,560] INFO django.server - "GET /api/category/categories/ HTTP/1.1" 200 185
+[2026-02-05 02:28:45,001] INFO django.server - "POST /api/category/sub-categories/ HTTP/1.1" 201 200
+[2026-02-05 14:05:50,562] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-05 14:05:52,901] INFO django.server - "GET / HTTP/1.1" 200 4656
+[2026-02-05 14:05:53,105] INFO django.server - "GET /api/schema/ HTTP/1.1" 200 49386
+[2026-02-05 14:24:09,336] WARNING django.server - "POST /api/auth/login/ HTTP/1.1" 401 69
+[2026-02-05 14:24:22,651] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 822
+[2026-02-05 14:24:55,845] INFO django.server - "GET /api/auth/users/ HTTP/1.1" 200 1029
+[2026-02-05 14:35:39,907] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-02-05 14:35:40,320] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-05 14:36:22,643] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-02-05 14:36:23,077] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-05 14:37:45,974] INFO django.server - "GET /api/auth/users/20 HTTP/1.1" 301 0
+[2026-02-05 14:37:45,981] WARNING django.server - "GET /api/auth/users/20/ HTTP/1.1" 401 66
+[2026-02-05 14:45:33,953] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 822
+[2026-02-05 14:45:38,225] INFO django.server - "POST /api/auth/login/ HTTP/1.1" 200 822
+[2026-02-05 14:45:58,380] INFO django.server - "GET /api/auth/users/20 HTTP/1.1" 301 0
+[2026-02-05 14:45:58,395] WARNING django.server - "GET /api/auth/users/20/ HTTP/1.1" 404 61
+[2026-02-05 14:46:09,507] INFO django.server - "GET /api/auth/users HTTP/1.1" 301 0
+[2026-02-05 14:46:09,534] INFO django.server - "GET /api/auth/users/ HTTP/1.1" 200 1029
+[2026-02-05 14:46:19,190] INFO django.server - "GET /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 301 0
+[2026-02-05 14:46:19,208] INFO django.server - "GET /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4/ HTTP/1.1" 200 400
+[2026-02-05 14:46:55,401] ERROR django.server - "POST /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71678
+[2026-02-05 14:46:55,420] ERROR django.server - "POST /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71678
+[2026-02-05 14:47:59,239] ERROR django.server - "PATCH /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71691
+[2026-02-05 14:48:50,131] ERROR django.server - "PATCH /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e HTTP/1.1" 500 71675
+[2026-02-05 14:49:45,425] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/views.py changed, reloading.
+[2026-02-05 14:49:45,777] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-05 14:49:51,690] ERROR django.server - "PATCH /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71691
+[2026-02-05 14:56:42,367] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/serializer.py changed, reloading.
+[2026-02-05 14:56:42,690] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-05 14:56:51,284] ERROR django.server - "PATCH /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71691
+[2026-02-05 14:56:53,167] ERROR django.server - "PATCH /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71691
+[2026-02-05 14:58:21,183] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/views.py changed, reloading.
+[2026-02-05 14:58:21,510] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-05 14:58:23,908] ERROR django.server - "PATCH /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71691
+[2026-02-05 15:03:26,722] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/views.py changed, reloading.
+[2026-02-05 15:03:27,042] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-05 15:05:00,173] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/user/views.py changed, reloading.
+[2026-02-05 15:05:00,547] INFO django.utils.autoreload - Watching for file changes with StatReloader
+[2026-02-05 15:05:07,031] ERROR django.server - "PATCH /api/auth/users/03a61151-109a-4c61-8623-bcfcea54d2e4 HTTP/1.1" 500 71691
+[2026-02-05 15:06:06,913] INFO django.utils.autoreload - /Users/minhazurrahman/Desktop/SAAS/SAAS-Backend/core/settings.py changed, reloading.
