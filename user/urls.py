@@ -9,13 +9,17 @@ from .views import (
     VerifyAccountAPIView,
     VerifyOTPAPIView,
     UserProfileModeViewSet,
-    GoogleSignInAPIView
+    GoogleSignInAPIView,
+    ForgotPasswordAPIView,
+    ResetPasswordAPIView,
+    AddressViewSet
 )
 
 app_name = "users"
 
 router = DefaultRouter()
 router.register(r"users", UserProfileModeViewSet, basename="users")
+router.register(r'addresses', AddressViewSet, basename='address')
 
 urlpatterns = [
     # ---------- Auth APIs ----------
@@ -27,5 +31,7 @@ urlpatterns = [
     path("resend-otp/", ResendOTPAPIView.as_view(), name="resend_otp"),
     path("verify-otp/", VerifyOTPAPIView.as_view(), name="verify_otp"),
     path("change-password/", ChangePasswordAPIView.as_view(), name="change_password"),
-    path("auth/google/", GoogleSignInAPIView.as_view(), name="google-signin")
+    path("auth/google/", GoogleSignInAPIView.as_view(), name="google-signin"),
+    path("auth/forgot-password/", ForgotPasswordAPIView.as_view()),
+    path("auth/reset-password/<uidb64>/<token>/", ResetPasswordAPIView.as_view()),
 ]

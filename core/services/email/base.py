@@ -80,3 +80,24 @@ class BaseEmailService:
         }
         base_context.update(kwargs)
         return base_context
+
+    def _sent_email_raw(self, subject, recipient_list, html_message):
+        from django.core.mail import EmailMultiAlternatives
+        from datetime import datetime
+
+        try:
+            email = EmailMultiAlternatives(
+                subject=subject,
+                body="Please view this email in HTML",  # fallback plain text
+                from_email=self.from_email,
+                to=recipient_list
+            )
+            email.attach_alternative(html_message, "text/html")
+            email.send(fail_silently=False)
+
+            print(f"[{datetime.now()}] Email sent to {recipient_list}")
+            return True
+        except Exception as e:
+            print(f"Failed to send email: {str(e)}")
+            return False
+

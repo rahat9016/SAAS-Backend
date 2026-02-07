@@ -1,12 +1,12 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import status
-
+from rest_framework.views import APIView
 from .models import Category, SubCategory
-from .serializers import CategorySerializer, SubCategorySerializer
+from .serializers import CategorySerializer, SubCategorySerializer, CategoryTreeSerializer
 from core.utils.response import APIResponse
 
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 
 from drf_spectacular.utils import extend_schema
 
@@ -15,7 +15,7 @@ class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     parser_classes = [MultiPartParser, FormParser]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
@@ -72,7 +72,7 @@ class SubCategoryViewSet(ModelViewSet):
     queryset = SubCategory.objects.all()
     serializer_class = SubCategorySerializer
     parser_classes = [MultiPartParser, FormParser]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def list(self, request, *args, **kwargs):
         serializer = self.get_serializer(self.get_queryset(), many=True)
@@ -120,4 +120,24 @@ class SubCategoryViewSet(ModelViewSet):
             message="Sub-category deleted successfully",
             data=None,
             status=status.HTTP_204_NO_CONTENT
+        )
+
+
+@extend_schema(tags=["Category"])
+class CategoryTreeAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        queryset = Category.objects.prefetch_related("subcategories")
+        serializer = CategoryTreeSerializer(queryset, many=True)
+
+        if not serializer.data:
+            return APIResponse.success(
+                message="No categories found",
+                data=[]
+            )
+
+        return APIResponse.success(
+            message="Category tree fetched successfully",
+            data=serializer.data
         )
