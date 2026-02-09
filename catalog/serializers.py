@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from .models import Category, SubCategory
+from .models import Category, SubCategory, Brand
 from PIL import Image
 import os
 
-ALLOWED_EXTENSIONS = [".png", ".svg"]
+ALLOWED_EXTENSIONS = [".png", ".svg",".jpg"]
 MIN_WIDTH = 32
 MIN_HEIGHT = 32
 MAX_WIDTH = 256
@@ -18,9 +18,12 @@ def validate_icon_file(value):
     if ext not in ALLOWED_EXTENSIONS:
         raise serializers.ValidationError("Icon must be PNG or SVG format.")
 
-    if ext == ".png":
-        img = Image.open(value)
-        width, height = img.size
+    if ext == [".png", ".jpg"]:
+        try:
+            img = Image.open(value)
+            width, height = img.size
+        except Exception:
+            raise serializers.ValidationError("Invalid image file.")
 
         if width < MIN_WIDTH or height < MIN_HEIGHT:
             raise serializers.ValidationError(
@@ -78,3 +81,13 @@ class CategoryTreeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ["id", "name", "description", "icon", "subcategories"]
+
+
+
+class BrandSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Brand
+        fields = "__all__"
+
+    def validate_icon(self, value):
+        return validate_icon_file(value)

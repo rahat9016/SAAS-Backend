@@ -41,3 +41,16 @@ class SubCategory(models.Model):
     def __str__(self):
         return self.name
 
+
+class Brand(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=255, unique=True)
+    description = models.TextField(blank=True, null=True)
+    icon = models.ImageField(upload_to="Brand/icons/")
+
+    class Meta:
+        db_table = "Brand"
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name

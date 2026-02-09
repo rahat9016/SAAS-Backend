@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, SubCategory
+from .models import Category, SubCategory,Brand
 
 
 @admin.register(Category)
@@ -23,5 +23,13 @@ class SubCategoryAdmin(admin.ModelAdmin):
     list_display = ("name", "parent_category", "id")
     list_filter = ("parent_category",)
     search_fields = ("name", "parent_category__name")
+    ordering = ("name",)
+    list_per_page = 20
+
+
+@admin.register(Brand)
+class BrandAdmin(admin.ModelAdmin):
+    list_display = ("name", "id","description")
+    search_fields = ("name",)
     ordering = ("name",)
     list_per_page = 20
