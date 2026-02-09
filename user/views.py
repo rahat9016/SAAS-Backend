@@ -45,84 +45,64 @@ User = get_user_model()
 logger = logging.getLogger(__name__)
 
 
+class GoogleSignInAPIView(GenericAPIView):
 
-class GoogleSignInAPIView(APIView):
-
-    def post(self, request):
+    def post(self, request, *args, **kwargs):
         token = request.data.get("token")
         if not token:
             return APIResponse.validation_error(
                 errors={"token": ["Google token is required"]}
             )
+        idinfo = id_token.verify_oauth2_token(
+            token,
+            google_requests.Request(),
+            settings.GOOGLE_CLIENT_ID
+        )
+        email = idinfo.get("email")
+        first_name = idinfo.get("given_name", "")
+        last_name = idinfo.get("family_name", "")
 
-        try:
-            idinfo = id_token.verify_oauth2_token(
-                token,
-                google_requests.Request(),
-                settings.GOOGLE_CLIENT_ID
-            )
-
-            email = idinfo.get("email")
-            first_name = idinfo.get("given_name", "")
-            last_name = idinfo.get("family_name", "")
-
-            if not email:
-                return APIResponse.validation_error(
-                    errors={"email": ["Email not found in Google token"]}
-                )
-
-            user, created = User.objects.get_or_create(
-                email=email,
-                defaults={
-                    "is_active": True
-                }
-            )
-
-            if created:
-                Profile.objects.create(
-                    user=user,
-                    first_name=first_name or "Google",
-                    last_name=last_name or "User"
-                )
-
-            refresh = RefreshToken.for_user(user)
-
-            profile = getattr(user, "profile", None)
-            profile_data = {}
-            if profile:
-                profile_data = {
-                    "first_name": profile.first_name,
-                    "last_name": profile.last_name,
-                    "profile_picture": profile.profile_picture.url if profile.profile_picture else None,
-                    "username": profile.username
-                }
-
-            return APIResponse.success(
-                message="Google sign-in successful",
-                data={
-                    "user": {
-                        "id": str(user.id),
-                        "email": user.email,
-                        "role": user.role,
-                    },
-                    "profile": profile_data,
-                    "tokens": {
-                        "access": str(refresh.access_token),
-                        "refresh": str(refresh),
-                    }
-                },
-                status=status.HTTP_200_OK
-            )
-
-        except ValueError:
+        if not email:
             return APIResponse.validation_error(
-                errors={"token": ["Invalid or expired Google token"]}
+                errors={"email": ["Email not found in Google token"]}
             )
-        except Exception as e:
-            return APIResponse.server_error(
-                message="Google sign-in failed",
-                data=str(e)
+        user, created = User.objects.get_or_create(
+            email=email,
+            defaults={"is_active": True}
+        )
+        if created:
+            Profile.objects.create(
+                user=user,
+                first_name=first_name or "Google",
+                last_name=last_name or "User"
             )
+        refresh = RefreshToken.for_user(user)
+        profile = getattr(user, "profile", None)
+        profile_data = {}
+        if profile:
+            profile_data = {
+                "first_name": profile.first_name,
+                "last_name": profile.last_name,
+                "profile_picture": profile.profile_picture.url if profile.profile_picture else None,
+                "username": profile.username
+            }
+        return APIResponse.success(
+            message="Google sign-in successful",
+            data={
+                "user": {
+                    "id": str(user.id),
+                    "email": user.email,
+                    "role": user.role,
+                },
+                "profile": profile_data,
+                "tokens": {
+                    "access": str(refresh.access_token),
+                    "refresh": str(refresh),
+                }
+            },
+            status=status.HTTP_200_OK
+        )
+
 
 
 

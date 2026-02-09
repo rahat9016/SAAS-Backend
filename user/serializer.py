@@ -117,9 +117,14 @@ class AddressSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user = self.context['request'].user
-        Address.objects.filter(user=user).update(is_default=False)
+
+        # Check if user already has any addresses
+        has_addresses = Address.objects.filter(user=user).exists()
+
         validated_data['user'] = user
-        validated_data['is_default'] = True
+        # Make it default only if no addresses exist
+        validated_data['is_default'] = not has_addresses
+
         address = Address.objects.create(**validated_data)
         return address
 
