@@ -12,12 +12,13 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 from core.services.email.otp_services import OTPEmailService
 from core.utils.response import APIResponse
-
+from django.template.loader import render_to_string
+from rest_framework.generics import GenericAPIView
 from google.oauth2 import id_token
 from google.auth.transport import requests as google_requests
 from django.contrib.auth import get_user_model
 from django.conf import settings
-from .models import Profile, User
+from .models import Profile, User, Address
 from .serializer import (
     ChangePasswordSerializer,
     LoginSerializer,
@@ -25,66 +26,83 @@ from .serializer import (
     ResendOTPSerializer,
     UserRegisterSerializer,
     VerifySerializer,
-    UserProfileSerializer
+    UserProfileSerializer,
+    ForgotPasswordSerializer,
+    ResetPasswordSerializer,
+    AddressSerializer
 )
 from .permisiions import IsAdminOrSelf
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes
+from rest_framework.response import Response
+from core.services.email.base import BaseEmailService
+from drf_spectacular.utils import extend_schema
+
+
 
 User = get_user_model()
 logger = logging.getLogger(__name__)
 
 
+class GoogleSignInAPIView(GenericAPIView):
 
-class GoogleSignInAPIView(APIView):
-
-    def post(self, request):
+    def post(self, request, *args, **kwargs):
         token = request.data.get("token")
         if not token:
             return APIResponse.validation_error(
                 errors={"token": ["Google token is required"]}
             )
-        try:
-            idinfo = id_token.verify_oauth2_token(
-                token,
-                google_requests.Request(),
-                settings.GOOGLE_CLIENT_ID
-            )
-            email = idinfo.get("email")
-            if not email:
-                return APIResponse.validation_error(
-                    errors={"email": ["Email not found in Google token"]}
-                )
-            user, created = User.objects.get_or_create(
-                email=email,
-                defaults={
-                    "is_active": True
-                }
-            )
-            refresh = RefreshToken.for_user(user)
-            return APIResponse.success(
-                message="Google sign-in successful",
-                data={
-                    "user": {
-                        "id": str(user.id),
-                        "email": user.email,
-                    },
-                    "tokens": {
-                        "access": str(refresh.access_token),
-                        "refresh": str(refresh),
-                    }
-                },
-                status=status.HTTP_200_OK
-            )
-        except ValueError:
-            return APIResponse.validation_error(
-                errors={"token": ["Invalid or expired Google token"]}
-            )
+        idinfo = id_token.verify_oauth2_token(
+            token,
+            google_requests.Request(),
+            settings.GOOGLE_CLIENT_ID
+        )
+        email = idinfo.get("email")
+        first_name = idinfo.get("given_name", "")
+        last_name = idinfo.get("family_name", "")
 
-        except Exception as e:
-            # 7️⃣ Any unexpected error
-            return APIResponse.server_error(
-                message="Google sign-in failed",
-                data=str(e)
+        if not email:
+            return APIResponse.validation_error(
+                errors={"email": ["Email not found in Google token"]}
             )
+        user, created = User.objects.get_or_create(
+            email=email,
+            defaults={"is_active": True}
+        )
+        if created:
+            Profile.objects.create(
+                user=user,
+                first_name=first_name or "Google",
+                last_name=last_name or "User"
+            )
+        refresh = RefreshToken.for_user(user)
+        profile = getattr(user, "profile", None)
+        profile_data = {}
+        if profile:
+            profile_data = {
+                "first_name": profile.first_name,
+                "last_name": profile.last_name,
+                "profile_picture": profile.profile_picture.url if profile.profile_picture else None,
+                "username": profile.username
+            }
+        return APIResponse.success(
+            message="Google sign-in successful",
+            data={
+                "user": {
+                    "id": str(user.id),
+                    "email": user.email,
+                    "role": user.role,
+                },
+                "profile": profile_data,
+                "tokens": {
+                    "access": str(refresh.access_token),
+                    "refresh": str(refresh),
+                }
+            },
+            status=status.HTTP_200_OK
+        )
+
 
 
 
@@ -407,3 +425,113 @@ class UserProfileModeViewSet(ModelViewSet):
         return super().list(request, *args, **kwargs)
 
 
+class ForgotPasswordAPIView(GenericAPIView):
+    serializer_class = ForgotPasswordSerializer
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        email = serializer.validated_data["email"]
+
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            return Response(
+                {"error": "Wrong email, user not found"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        uid = urlsafe_base64_encode(force_bytes(user.id))
+        token = PasswordResetTokenGenerator().make_token(user)
+
+        reset_link = f"{settings.RESET_LINK}/{uid}/{token}/"
+
+        html_message = render_to_string(
+            "emails/password_reset_email.html",
+            {
+                "email": user.email,
+                "reset_link": reset_link,
+            },
+        )
+
+        BaseEmailService()._sent_email_raw(
+            subject="Password Reset Request",
+            recipient_list=[user.email],
+            html_message=html_message,
+        )
+
+        return Response(
+            {"message": "Password reset email sent"},
+            status=status.HTTP_200_OK,
+        )
+
+
+class ResetPasswordAPIView(GenericAPIView):
+    serializer_class = ResetPasswordSerializer
+
+    def post(self, request, uidb64, token):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        try:
+            uid = urlsafe_base64_decode(uidb64).decode()
+            user = User.objects.get(id=uid)
+        except Exception:
+            return Response(
+                {"error": "Invalid reset link"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        token_generator = PasswordResetTokenGenerator()
+        if not token_generator.check_token(user, token):
+            return Response(
+                {"error": "Token invalid or expired"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        user.set_password(serializer.validated_data["new_password"])
+        user.is_active = True
+        user.save()
+
+        return Response(
+            {"message": "Password reset successful"},
+            status=status.HTTP_200_OK,
+        )
+
+
+@extend_schema(tags=["Address"])
+class AddressViewSet(ModelViewSet):
+    serializer_class = AddressSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Address.objects.filter(user=self.request.user)
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return APIResponse.success(data=serializer.data, message="User addresses retrieved successfully")
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return APIResponse.success(data=serializer.data, message="Address retrieved successfully")
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        return APIResponse.created(data=serializer.data, message="Address created successfully")
+
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+        return APIResponse.success(data=serializer.data, message="Address updated successfully")
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return APIResponse.success(message="Address deleted successfully")

@@ -3,7 +3,7 @@ from phonenumber_field.serializerfields import PhoneNumberField
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 
-from .models import User
+from .models import User,Address
 
 
 class UserRegisterSerializer(serializers.Serializer):
@@ -92,3 +92,44 @@ class UserProfileSerializer(serializers.ModelSerializer):
         ]
 
     read_only_fields = ["id", "email", "username", "created_at", "profile_picture"]
+
+
+
+class ForgotPasswordSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+
+class ResetPasswordSerializer(serializers.Serializer):
+    new_password = serializers.CharField(write_only=True,min_length=6)
+    confirm_password = serializers.CharField()
+
+    def validate(self, data):
+        if data["new_password"] != data["confirm_password"]:
+            raise serializers.ValidationError("Passwords do not match")
+        return data
+
+
+class AddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = "__all__"
+        read_only_fields = ["id", "user", "created_at", "updated_at"]
+
+    def create(self, validated_data):
+        user = self.context['request'].user
+
+        # Check if user already has any addresses
+        has_addresses = Address.objects.filter(user=user).exists()
+
+        validated_data['user'] = user
+        # Make it default only if no addresses exist
+        validated_data['is_default'] = not has_addresses
+
+        address = Address.objects.create(**validated_data)
+        return address
+
+    def update(self, instance, validated_data):
+        user = self.context['request'].user
+        if validated_data.get("is_default", False):
+            Address.objects.filter(user=user).exclude(id=instance.id).update(is_default=False)
+        return super().update(instance, validated_data)

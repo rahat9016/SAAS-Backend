@@ -111,7 +111,7 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')  # Because MAIL_ENCRYPTION=tls
 # DEFAULT_FROM_EMAIL = config("EMAIL_HOST_USER")
 
 GOOGLE_CLIENT_ID = config("GOOGLE_CLIENT_ID")
-
+RESET_LINK=config("RESET_LINK")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -141,7 +141,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=1),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
     "REFRESH_TOKEN_LIFETIME": timedelta(seconds=30),
 }
 
