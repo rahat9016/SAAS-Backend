@@ -2,8 +2,9 @@ from django.utils.translation import gettext as _
 from phonenumber_field.serializerfields import PhoneNumberField
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
-
-from .models import User,Address
+from .models import User, Profile,Address
+import os
+from PIL import Image
 
 
 class UserRegisterSerializer(serializers.Serializer):
@@ -75,7 +76,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
     last_name = serializers.CharField(source="profile.last_name", required=False)
     username = serializers.CharField(source="profile.username", read_only=True)
     profile_picture = serializers.ImageField(
-        source="profile.profile_picture", read_only=True
+        source="profile.profile_picture", required=False, allow_null=True
     )
     phone = PhoneNumberField(
         region="BD",
@@ -103,7 +104,33 @@ class UserProfileSerializer(serializers.ModelSerializer):
             "username",
         ]
 
-    read_only_fields = ["id", "email", "username", "created_at", "profile_picture"]
+    read_only_fields = ["id", "email", "username", "created_at",]
+
+    def validated_profile_picture(self, file):
+        if not file:
+            return None
+        file_size = 2 * 1024 * 1024
+
+        if file.size > file_size:
+            raise serializers.ValidationError("Image size must be under 2MB.")
+        valid_extensions = [".jpg", ".jpeg", ".png"]
+        ext = os.path.splitext(file.name)[1]
+
+        if ext not in valid_extensions:
+            raise serializers.ValidationError("Only JPG, JPEG and PNG images are allowed.")
+
+        valid_mimetypes = [".jpg", ".jpeg", ".png"]
+        if file.content_type not in valid_mimetypes:
+            raise serializers.ValidationError("Only JPG, JPEG and PNG images are allowed.")
+
+        try:
+            image = Image.open(file)
+        except Exception:
+            raise serializers.ValidationError("Invalid image format.")
+        file.seek(0)
+
+        return file
+
 
     def update(self, instance, validated_data):
         profile_data = validated_data.pop('profile', {})
@@ -166,3 +193,7 @@ class AddressSerializer(serializers.ModelSerializer):
         if validated_data.get("is_default", False):
             Address.objects.filter(user=user).exclude(id=instance.id).update(is_default=False)
         return super().update(instance, validated_data)
+
+
+
+

@@ -391,7 +391,7 @@ class UserProfileModeViewSet(ModelViewSet):
     serializer_class = UserProfileSerializer
     queryset = User.objects.select_related('profile')
     permission_classes = [IsAuthenticated, IsAdminOrSelf]
-    http_method_names = ["get", "patch"]
+    http_method_names = ["get", "patch", "delete"]
 
     def get_queryset(self):
         return self.queryset
@@ -427,3 +427,4 @@ class UserProfileModeViewSet(ModelViewSet):
         except Exception as e:
             print("Exception", str(e))
             return APIResponse.server_error(str(e))
+
