@@ -106,31 +106,35 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
     read_only_fields = ["id", "email", "username", "created_at",]
 
-    def validated_profile_picture(self, file):
+    def validate_profile_picture(self, file):
         if not file:
             return None
-        file_size = 2 * 1024 * 1024
 
-        if file.size > file_size:
+        request = self.context.get("request")    # using self to avoid static warning
+
+        max_size = 2 * 1024 * 1024
+        if file.size > max_size:
             raise serializers.ValidationError("Image size must be under 2MB.")
+
         valid_extensions = [".jpg", ".jpeg", ".png"]
-        ext = os.path.splitext(file.name)[1]
-
+        ext = os.path.splitext(file.name)[1].lower()
         if ext not in valid_extensions:
-            raise serializers.ValidationError("Only JPG, JPEG and PNG images are allowed.")
+            raise serializers.ValidationError(
+                "Only JPG, JPEG and PNG images are allowed."
+            )
 
-        valid_mimetypes = [".jpg", ".jpeg", ".png"]
+        valid_mimetypes = ["image/jpeg", "image/png"]
         if file.content_type not in valid_mimetypes:
-            raise serializers.ValidationError("Only JPG, JPEG and PNG images are allowed.")
+            raise serializers.ValidationError("Invalid image type.")
 
         try:
             image = Image.open(file)
+            image.verify()
         except Exception:
-            raise serializers.ValidationError("Invalid image format.")
+            raise serializers.ValidationError("Invalid or corrupted image file.")
+
         file.seek(0)
-
         return file
-
 
     def update(self, instance, validated_data):
         profile_data = validated_data.pop('profile', {})

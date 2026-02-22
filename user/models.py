@@ -7,6 +7,12 @@ from django.contrib.auth.models import (
     BaseUserManager,
     PermissionsMixin,
 )
+import os
+
+def profile_image_upload_to(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = f"{instance.user.id}.{ext}"
+    return os.path.join("uploads/images/profile/", filename)
 
 class UserRole(models.TextChoices):
     CUSTOMER = "customer", "Customer"
@@ -73,7 +79,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    profile_picture = models.ImageField(upload_to="profile/", blank=True, null=True)
+    profile_picture = models.ImageField(upload_to=profile_image_upload_to, blank=True, null=True)
     
     def __str__(self):
         return self.first_name + " " + self.last_name

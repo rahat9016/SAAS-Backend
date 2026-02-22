@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate
 from django.db import transaction
 from rest_framework import status
+from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
@@ -391,7 +392,8 @@ class UserProfileModeViewSet(ModelViewSet):
     serializer_class = UserProfileSerializer
     queryset = User.objects.select_related('profile')
     permission_classes = [IsAuthenticated, IsAdminOrSelf]
-    http_method_names = ["get", "patch", "delete"]
+    parser_classes = [MultiPartParser, FormParser]
+    http_method_names = ["get", "patch"]
 
     def get_queryset(self):
         return self.queryset
@@ -417,7 +419,17 @@ class UserProfileModeViewSet(ModelViewSet):
             instance = self.get_object()
             serializer = self.get_serializer(instance, data= request.data, partial=True)
             serializer.is_valid(raise_exception=True)
+
+            # if profile picture has in the request then delete previous image, if not found upload new picture
+            profile_data = request.data.get("profile") or  {}
+            new_picture = profile_data.get('profile_picture') or request.FILES.get('profile_picture')
+            profile = getattr(instance, "profile", None)
+
+            if new_picture and profile and profile.profile_picture:
+                profile.profile_picture.delete(save=False)
+
             serializer.save()
+
             return APIResponse.success("User details updated successfully.", data=serializer.data)
 
         except ValidationError as e:
