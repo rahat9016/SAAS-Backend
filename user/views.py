@@ -1,5 +1,7 @@
-from django.contrib.auth import authenticate
+from django.conf import settings
 from django.db import transaction
+from google.oauth2 import id_token
+from django.contrib.auth import authenticate
 from rest_framework import status
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -10,12 +12,17 @@ from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework_simplejwt.tokens import RefreshToken
 from core.services.email.otp_services import OTPEmailService
 from core.utils.response import APIResponse
-
-from google.oauth2 import id_token
+from rest_framework.generics import GenericAPIView
 from google.auth.transport import requests as google_requests
 from django.contrib.auth import get_user_model
-from django.conf import settings
-from .models import Profile
+from drf_spectacular.utils import extend_schema
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes
+from rest_framework.response import Response
+from core.services.email.base import BaseEmailService
+from django.template.loader import render_to_string
+from .models import Profile, Address
 from .serializer import (
     ChangePasswordSerializer,
     LoginSerializer,
@@ -23,14 +30,16 @@ from .serializer import (
     ResendOTPSerializer,
     UserRegisterSerializer,
     VerifySerializer,
-    UserProfileSerializer
+    UserProfileSerializer,
+    AddressSerializer,
+    ResetPasswordSerializer,
+    ForgotPasswordSerializer
 )
 from .permisiions import IsAdminOrSelf
-
 User = get_user_model()
 
 
-
+@extend_schema(tags=["Auth"])
 class GoogleSignInAPIView(APIView):
 
     def post(self, request):
@@ -83,7 +92,7 @@ class GoogleSignInAPIView(APIView):
                 data=str(e)
             )
 
-
+@extend_schema(tags=["Auth"])
 class RegisterAPIView(APIView):
     """
     Register User
@@ -135,7 +144,7 @@ class RegisterAPIView(APIView):
             # )
             return APIResponse.error("User registration failed.")
 
-
+@extend_schema(tags=["Auth"])
 class LoginAPIView(APIView):
     permission_classes = [AllowAny]
     serializer_class = LoginSerializer
@@ -189,7 +198,7 @@ class LoginAPIView(APIView):
             # logger.exception(f"Login failed: {str(e)}")
             return APIResponse.server_error(str(e))
 
-
+@extend_schema(tags=["Auth"])
 class RefreshTokenAPIView(APIView):
     # 1. If refresh token not pass then show an error
     # 2. If token has valid date
@@ -241,7 +250,7 @@ class RefreshTokenAPIView(APIView):
             return APIResponse.server_error("Refresh token failed.")
             APIResponse.server_error("Token refresh failed")
 
-
+@extend_schema(tags=["Auth"])
 class VerifyAccountAPIView(APIView):
     permission_classes = [AllowAny]
     serializer_class = VerifySerializer
@@ -278,7 +287,7 @@ class VerifyAccountAPIView(APIView):
             return APIResponse.server_error(str(e))
             return APIResponse.server_error("Account not activated. Please try again.")
 
-
+@extend_schema(tags=["Auth"])
 class ResendOTPAPIView(APIView):
     """ """
 
@@ -317,7 +326,7 @@ class ResendOTPAPIView(APIView):
 
         return APIResponse.success("A new OTP has been sent successfully. ")
 
-
+@extend_schema(tags=["Auth"])
 class VerifyOTPAPIView(APIView):
     permission_classes = [AllowAny]
     serializer_class = VerifySerializer
@@ -350,7 +359,7 @@ class VerifyOTPAPIView(APIView):
             # logger.exception(f"OTP verification failed: {str(e)}")
             return APIResponse.server_error(f"OTP verification failed. {str(e)}")
 
-
+@extend_schema(tags=["Auth"])
 class ChangePasswordAPIView(APIView):
     permission_classes = [IsAuthenticated]
     serializer_class = ChangePasswordSerializer
@@ -381,7 +390,7 @@ class ChangePasswordAPIView(APIView):
             return APIResponse.server_error(f"Change password failed. {str(e)}")
 
 
-
+@extend_schema(tags=["Users"])
 class UserProfileModeViewSet(ModelViewSet):
     """
         Allowed actions:
@@ -440,3 +449,113 @@ class UserProfileModeViewSet(ModelViewSet):
             print("Exception", str(e))
             return APIResponse.server_error(str(e))
 
+
+class ForgotPasswordAPIView(GenericAPIView):
+    serializer_class = ForgotPasswordSerializer
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        email = serializer.validated_data["email"]
+
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            return Response(
+                {"error": "Wrong email, user not found"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        uid = urlsafe_base64_encode(force_bytes(user.id))
+        token = PasswordResetTokenGenerator().make_token(user)
+
+        reset_link = f"{settings.RESET_LINK}/{uid}/{token}/"
+
+        html_message = render_to_string(
+            "emails/password_reset_email.html",
+            {
+                "email": user.email,
+                "reset_link": reset_link,
+            },
+        )
+
+        BaseEmailService()._sent_email_raw(
+            subject="Password Reset Request",
+            recipient_list=[user.email],
+            html_message=html_message,
+        )
+
+        return Response(
+            {"message": "Password reset email sent"},
+            status=status.HTTP_200_OK,
+        )
+
+
+class ResetPasswordAPIView(GenericAPIView):
+    serializer_class = ResetPasswordSerializer
+
+    def post(self, request, uidb64, token):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        try:
+            uid = urlsafe_base64_decode(uidb64).decode()
+            user = User.objects.get(id=uid)
+        except Exception:
+            return Response(
+                {"error": "Invalid reset link"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        token_generator = PasswordResetTokenGenerator()
+        if not token_generator.check_token(user, token):
+            return Response(
+                {"error": "Token invalid or expired"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        user.set_password(serializer.validated_data["new_password"])
+        user.is_active = True
+        user.save()
+
+        return Response(
+            {"message": "Password reset successful"},
+            status=status.HTTP_200_OK,
+        )
+
+@extend_schema(tags=["Address"])
+class AddressViewSet(ModelViewSet):
+    serializer_class = AddressSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Address.objects.filter(user=self.request.user)
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return APIResponse.success(data=serializer.data, message="User addresses retrieved successfully")
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return APIResponse.success(data=serializer.data, message="Address retrieved successfully")
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        return APIResponse.created(data=serializer.data, message="Address created successfully")
+
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+        return APIResponse.success(data=serializer.data, message="Address updated successfully")
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return APIResponse.success(message="Address deleted successfully")
