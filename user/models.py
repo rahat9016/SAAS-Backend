@@ -12,7 +12,7 @@ import os
 def profile_image_upload_to(instance, filename):
     ext = filename.split('.')[-1]
     filename = f"{instance.user.id}.{ext}"
-    return os.path.join("uploads/images/profile/", filename)
+    return os.path.join("images/profile/", filename)
 
 class UserRole(models.TextChoices):
     CUSTOMER = "customer", "Customer"
