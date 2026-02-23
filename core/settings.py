@@ -138,11 +138,13 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "EXCEPTION_HANDLER": "core.utils.exception_handler.custom_exception_handler",
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 10,
 }
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
-    "REFRESH_TOKEN_LIFETIME": timedelta(seconds=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(minutes=300),
 }
 
 SPECTACULAR_SETTINGS = {
@@ -199,25 +201,25 @@ USE_TZ = True
 #         "file": {
 #             "level": "INFO",
 #             "class": "logging.FileHandler",
-#             # "filename": BASE_DIR / "logs" / "django.log",
+#             "filename": BASE_DIR / "logs" / "django.log",
 #             "formatter": "detailed",
 #         },
 #         "error_file": {
 #             "level": "ERROR",
 #             "class": "logging.FileHandler",
-#             # "filename": BASE_DIR / "logs" / "errors.log",
+#             "filename": BASE_DIR / "logs" / "errors.log",
 #             "formatter": "verbose",
 #         },
 #         "email_file": {
 #             "level": "INFO",
 #             "class": "logging.FileHandler",
-#             # "filename": BASE_DIR / "logs" / "emails.log",
+#             "filename": BASE_DIR / "logs" / "emails.log",
 #             "formatter": "detailed",
 #         },
 #         "otp_file": {
 #             "level": "INFO",
 #             "class": "logging.FileHandler",
-#             # "filename": BASE_DIR / "logs" / "otp.log",
+#             "filename": BASE_DIR / "logs" / "otp.log",
 #             "formatter": "detailed",
 #         },
 #     },
@@ -252,8 +254,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
