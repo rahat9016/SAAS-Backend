@@ -33,39 +33,48 @@ from .serializer import (
     UserProfileSerializer,
     AddressSerializer,
     ResetPasswordSerializer,
-    ForgotPasswordSerializer
+    ForgotPasswordSerializer,
+    GoogleSignInSerializer
 )
 from .permisiions import IsAdminOrSelf
 User = get_user_model()
 
 
-@extend_schema(tags=["Auth"])
-class GoogleSignInAPIView(APIView):
+@extend_schema(
+    tags=["Auth"],
+    request=GoogleSignInSerializer,
+    responses={200: dict},
+)
+class GoogleSignInAPIView(GenericAPIView):
+    serializer_class = GoogleSignInSerializer
+    permission_classes = [AllowAny]
 
     def post(self, request):
-        token = request.data.get("token")
-        if not token:
-            return APIResponse.validation_error(
-                errors={"token": ["Google token is required"]}
-            )
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        token = serializer.validated_data["token"]
+
         try:
             idinfo = id_token.verify_oauth2_token(
                 token,
                 google_requests.Request(),
                 settings.GOOGLE_CLIENT_ID
             )
+
             email = idinfo.get("email")
             if not email:
                 return APIResponse.validation_error(
                     errors={"email": ["Email not found in Google token"]}
                 )
+
             user, created = User.objects.get_or_create(
                 email=email,
-                defaults={
-                    "is_active": True
-                }
+                defaults={"is_active": True}
             )
+
             refresh = RefreshToken.for_user(user)
+
             return APIResponse.success(
                 message="Google sign-in successful",
                 data={
@@ -78,19 +87,15 @@ class GoogleSignInAPIView(APIView):
                         "refresh": str(refresh),
                     }
                 },
-                status=status.HTTP_200_OK
             )
+
         except ValueError:
             return APIResponse.validation_error(
                 errors={"token": ["Invalid or expired Google token"]}
             )
 
         except Exception as e:
-            # 7️⃣ Any unexpected error
-            return APIResponse.server_error(
-                message="Google sign-in failed",
-                data=str(e)
-            )
+            return APIResponse.server_error("Google sign-in failed")
 
 @extend_schema(tags=["Auth"])
 class RegisterAPIView(APIView):

@@ -36,6 +36,8 @@ class UserRegisterSerializer(serializers.Serializer):
     def validate(self, data):
         return data
 
+class GoogleSignInSerializer(serializers.Serializer):
+    token = serializers.CharField()
 
 class LoginSerializer(serializers.Serializer):
     password = serializers.CharField(required=True, write_only=True)
