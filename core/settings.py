@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     "drf_spectacular",
     "phonenumber_field",
+    "authentication",
     "user",
     "catalog",
 ]
