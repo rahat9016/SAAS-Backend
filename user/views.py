@@ -1,42 +1,45 @@
 from django.conf import settings
+from django.contrib.auth import authenticate, get_user_model
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.core.files.base import ContentFile
 from django.db import transaction
+from django.template.loader import render_to_string
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from drf_spectacular.utils import extend_schema
+from google.auth.transport import requests as google_requests
 from google.oauth2 import id_token
-from django.contrib.auth import authenticate
 from rest_framework import status
-from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.exceptions import PermissionDenied, ValidationError
+from rest_framework.generics import GenericAPIView
+from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.exceptions import TokenError
-from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework_simplejwt.tokens import RefreshToken
+
+from core.services.email.base import BaseEmailService
 from core.services.email.otp_services import OTPEmailService
 from core.utils.response import APIResponse
-from rest_framework.generics import GenericAPIView
-from google.auth.transport import requests as google_requests
-from django.contrib.auth import get_user_model
-from drf_spectacular.utils import extend_schema
-from django.contrib.auth.tokens import PasswordResetTokenGenerator
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.utils.encoding import force_bytes
-from rest_framework.response import Response
-from core.services.email.base import BaseEmailService
-from django.template.loader import render_to_string
-from .models import Profile, Address
+
+from .models import Address, Profile
+from .permisiions import IsAdminOrSelf
 from .serializer import (
+    AddressSerializer,
     ChangePasswordSerializer,
+    ForgotPasswordSerializer,
+    GoogleSignInSerializer,
     LoginSerializer,
     RefreshTokenSerializer,
     ResendOTPSerializer,
+    ResetPasswordSerializer,
+    UserProfileSerializer,
     UserRegisterSerializer,
     VerifySerializer,
-    UserProfileSerializer,
-    AddressSerializer,
-    ResetPasswordSerializer,
-    ForgotPasswordSerializer,
-    GoogleSignInSerializer
 )
-from .permisiions import IsAdminOrSelf
+
 User = get_user_model()
 
 
@@ -49,20 +52,26 @@ class GoogleSignInAPIView(GenericAPIView):
     serializer_class = GoogleSignInSerializer
     permission_classes = [AllowAny]
 
-    def post(self, request):
+    @transaction.atomic
+    def post(self, request):    
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
         token = serializer.validated_data["token"]
-
+        print(token)
         try:
             idinfo = id_token.verify_oauth2_token(
                 token,
                 google_requests.Request(),
                 settings.GOOGLE_CLIENT_ID
             )
+            
+            print("get the id info data->\n\n\n", idinfo,"\n")
 
             email = idinfo.get("email")
+            first_name = idinfo.get("given_name", "")
+            last_name = idinfo.get("family_name", "")
+            picture = idinfo.get("picture", None)
             if not email:
                 return APIResponse.validation_error(
                     errors={"email": ["Email not found in Google token"]}
@@ -72,7 +81,23 @@ class GoogleSignInAPIView(GenericAPIView):
                 email=email,
                 defaults={"is_active": True}
             )
-
+            
+            if not user.is_active:
+                user.is_active = True
+                user.save()
+            
+            profile, _ = Profile.objects.get_or_create(user=user)
+            profile.first_name = first_name
+            profile.last_name = last_name
+            
+            if picture and not profile.profile_picture:
+                try:
+                    img_res = request.get(picture)
+                    if img_res.status_code == 200:
+                        profile.profile_picture.save(f"{user.id}.jpg", ContentFile(img_res.content), save=False)
+                except Exception:
+                    pass
+            profile.save()
             refresh = RefreshToken.for_user(user)
 
             return APIResponse.success(
@@ -81,6 +106,8 @@ class GoogleSignInAPIView(GenericAPIView):
                     "user": {
                         "id": str(user.id),
                         "email": user.email,
+                        "first_name": profile.first_name if profile else "",
+                        "last_name": profile.last_name if profile else "",
                     },
                     "tokens": {
                         "access": str(refresh.access_token),
@@ -89,12 +116,13 @@ class GoogleSignInAPIView(GenericAPIView):
                 },
             )
 
-        except ValueError:
+        except ValueError as e:
+            print(str(e))
             return APIResponse.validation_error(
                 errors={"token": ["Invalid or expired Google token"]}
             )
 
-        except Exception as e:
+        except Exception:
             return APIResponse.server_error("Google sign-in failed")
 
 @extend_schema(tags=["Auth"])
@@ -143,7 +171,7 @@ class RegisterAPIView(APIView):
             )
 
         except Exception as e:
-            print(e)
+            print(str(e))
             # logger.error(
             #     f"Registration failed for {request.data.get('email')}: {str(e)}"
             # )
