@@ -11,11 +11,10 @@ from rest_framework.exceptions import (
     APIException,
     AuthenticationFailed,
     ValidationError,
-NotFound
+    NotFound
 )
 from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework.views import APIView
 from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework_simplejwt.tokens import RefreshToken
 
