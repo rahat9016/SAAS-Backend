@@ -1,407 +1,307 @@
+import requests
 from django.conf import settings
-from django.contrib.auth import authenticate, get_user_model
+from django.contrib.auth import authenticate
 from django.core.files.base import ContentFile
 from django.db import transaction
 from drf_spectacular.utils import extend_schema
 from google.auth.transport import requests as google_requests
 from google.oauth2 import id_token
-from rest_framework.generics import GenericAPIView
 from rest_framework import status
+from rest_framework.exceptions import (
+    APIException,
+    AuthenticationFailed,
+    ValidationError,
+NotFound
+)
+from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework_simplejwt.tokens import RefreshToken
 
+from core.messages import AuthMessages
+from authentication.mixins import TokenMixins, UserMixins
 from core.services.email.otp_services import OTPEmailService
 from core.utils.response import APIResponse
-from user.models import Profile
+from core.utils.urls import get_absolute_url
+from user.models import Profile, User
 
 from .serializer import (
+    ChangePasswordSerializer,
     GoogleSignInSerializer,
     LoginSerializer,
     RefreshTokenSerializer,
     ResendOTPSerializer,
     UserRegisterSerializer,
     VerifySerializer,
-    ChangePasswordSerializer
 )
 
-User = get_user_model()
+
+
+class OTPBaseView(GenericAPIView):
+    permission_classes = [AllowAny]
+    otp_service_class = OTPEmailService
+
+    def get_otp_service(self):
+        return self.otp_service_class()
+
+    def send_otp(self, email, user_name=None):
+        service = self.get_otp_service()
+        return service.sent_otp(email, user_name=user_name)
+
+    def verify_otp(self, email, otp):
+        service = self.get_otp_service()
+        return service.verify_otp(email, otp)
 
 @extend_schema(
     tags=["Auth"],
     request=GoogleSignInSerializer,
     responses={200: dict},
 )
-class GoogleSignInAPIView(GenericAPIView):
+class GoogleSignInAPIView(TokenMixins, GenericAPIView):
     serializer_class = GoogleSignInSerializer
     permission_classes = [AllowAny]
 
     @transaction.atomic
-    def post(self, request):    
+    def post(self, request):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
         token = serializer.validated_data["token"]
-        print(token)
         try:
-            idinfo = id_token.verify_oauth2_token(
-                token,
-                google_requests.Request(),
-                settings.GOOGLE_CLIENT_ID
+            _signing_info = id_token.verify_oauth2_token(
+                token, google_requests.Request(), settings.GOOGLE_CLIENT_ID
             )
-            
-            print("get the id info data->\n\n\n", idinfo,"\n")
+        except ValueError:
+            raise ValidationError({"token": AuthMessages.TOKEN_INVALID})
+        email = _signing_info.get("email")
+        if not email:
+            raise ValidationError({"email": "Email not found in Google token"})
+        user, created = User.objects.get_or_create(
+            email=email, defaults={"is_active": True}
+        )
+        if not user.is_active:
+            user.is_active = True
+            user.save()
 
-            email = idinfo.get("email")
-            first_name = idinfo.get("given_name", "")
-            last_name = idinfo.get("family_name", "")
-            picture = idinfo.get("picture", None)
-            if not email:
-                return APIResponse.validation_error(
-                    errors={"email": ["Email not found in Google token"]}
-                )
-
-            user, created = User.objects.get_or_create(
-                email=email,
-                defaults={"is_active": True}
-            )
-            
-            if not user.is_active:
-                user.is_active = True
-                user.save()
-            
-            profile, _ = Profile.objects.get_or_create(user=user)
-            profile.first_name = first_name
-            profile.last_name = last_name
-            
-            if picture and not profile.profile_picture:
-                try:
-                    img_res = request.get(picture)
-                    if img_res.status_code == 200:
-                        profile.profile_picture.save(f"{user.id}.jpg", ContentFile(img_res.content), save=False)
-                except Exception:
-                    pass
-            profile.save()
-            refresh = RefreshToken.for_user(user)
-
-            return APIResponse.success(
-                message="Google sign-in successful",
-                data={
-                    "user": {
-                        "id": str(user.id),
-                        "email": user.email,
-                        "first_name": profile.first_name if profile else "",
-                        "last_name": profile.last_name if profile else "",
-                    },
-                    "tokens": {
-                        "access": str(refresh.access_token),
-                        "refresh": str(refresh),
-                    }
+        profile, _ = Profile.objects.get_or_create(user=user)
+        profile.first_name = _signing_info.get("given_name", "")
+        profile.last_name = _signing_info.get("family_name", "")
+        if picture := _signing_info.get("picture"):
+            self._download_profile_picture(profile, picture)
+        profile.save()
+        tokens = self.generate_token(user)
+        return APIResponse.success(
+            AuthMessages.GOOGLE_SIGNIN_SUCCESS,
+            data={
+                "user": {
+                    "id": str(user.id),
+                    "email": user.email,
+                    "first_name": profile.first_name,
+                    "last_name": profile.last_name,
                 },
-            )
-
-        except ValueError as e:
+                "tokens": tokens,
+            },
+        )
+    @staticmethod
+    def _download_profile_picture(profile, url):
+        try:
+            response = requests.get(url, timeout=5)
+            if response.status_code == 200:
+                profile.profile_picture.save(
+                    f"{profile.user.id}.jpg",
+                    ContentFile(response.content),
+                    save=False,
+                )
+        except Exception as e:
             print(str(e))
-            return APIResponse.validation_error(
-                errors={"token": ["Invalid or expired Google token"]}
-            )
 
-        except Exception:
-            return APIResponse.server_error("Google sign-in failed")
 
 @extend_schema(tags=["Auth"])
-class RegisterAPIView(APIView):
-    """
-    Register User
-    """
-
+class RegisterAPIView(GenericAPIView):
     permission_classes = [AllowAny]
     serializer_class = UserRegisterSerializer
 
+    @transaction.atomic
     def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-        if not serializer.is_valid():
-            return APIResponse.validation_error(
-                serializer.errors, "Invalid registered data."
-            )
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        validated = serializer.validated_data
+
         try:
-            validated_data = serializer.validated_data
-            first_name = validated_data["first_name"]
-            last_name = validated_data["last_name"]
-            email = validated_data["email"]
-            password = validated_data["password"]
-            phone = validated_data.get("phone")
-
-            if User.objects.filter(email=email).exists():
-                return APIResponse.conflict("User with this email already exists.")
-
-            with transaction.atomic():
-                user = User.objects.create_user(
-                    email=email,
-                    phone=phone,
-                    password=password,
-                    is_active=False,
-                )
-                Profile.objects.create(
-                    user=user, first_name=first_name, last_name=last_name
-                )
+            user = User.objects.create_user(
+                email=validated["email"],
+                phone=validated.get("phone"),
+                password=validated["password"],
+                is_active=False,
+            )
+            Profile.objects.create(
+                user=user,
+                first_name=validated["first_name"],
+                last_name=validated["last_name"],
+            )
 
             email_service = OTPEmailService()
-            email_service.sent_otp(email, user_name=first_name)
+            email_service.sent_otp(
+                validated["email"], user_name=validated["first_name"]
+            )
 
             return APIResponse.created(
-                "User created successfully done. Please check your email to active your account",
-                serializer.data,
+                AuthMessages.REGISTRATION_SUCCESS, data={"email": user.email}
             )
 
         except Exception as e:
-            print(str(e))
-            # logger.error(
-            #     f"Registration failed for {request.data.get('email')}: {str(e)}"
-            # )
-            return APIResponse.error("User registration failed.")
+            print("Registration failed", str(e))
+            raise APIException(AuthMessages.REGISTRATION_FAILED)
+
 
 @extend_schema(tags=["Auth"])
-class LoginAPIView(APIView):
+class LoginAPIView(TokenMixins, UserMixins, GenericAPIView):
     permission_classes = [AllowAny]
     serializer_class = LoginSerializer
 
     def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-        if not serializer.is_valid():
-            return APIResponse.validation_error(
-                serializer.errors, "Invalid login data."
-            )
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        validated = serializer.validated_data
 
-        email = serializer.validated_data["email"]
-        password = serializer.validated_data["password"]
-        try:
-            user = User.objects.get(email=email)
-            if not user.is_active:
-                return APIResponse.error(
-                    "This account is not active. Please active first."
-                )
+        user = self.get_active_user_by_email(validated["email"])
+        authenticated = authenticate(email=validated["email"], password=validated["password"])
+        
+        if not authenticated:
+            raise AuthenticationFailed(AuthMessages.INVALID_CREDENTIALS)
 
-            authenticated_user = authenticate(email=email, password=password)
-            if not authenticated_user:
-                return APIResponse.unauthorized("Invalid Credentials.")
+        # Generate tokens using TokenMixin
+        tokens = self.generate_token(user)
+        
+        profile = user.profile
+        profile_picture_url = (
+            get_absolute_url(request, profile.profile_picture.url) if profile.profile_picture else None
+        )
 
-            # Generate token.
-            refresh = RefreshToken.for_user(user)
-            profile = getattr(user, "profile", None)
-            return APIResponse.success(
-                "Login successfully done.",
-                data={
-                    "tokens": {
-                        "access": str(refresh.access_token),
-                        "refresh": str(refresh),
-                    },
-                    "user": {
-                        "id": str(user.id),
-                        "email": user.email,
-                        "phone": str(user.phone) if user.phone else None,
-                        "first_name": profile.first_name if profile else "",
-                        "last_name": profile.last_name if profile else "",
-                        "role": user.role,
-                    },
+        return APIResponse.success(
+            AuthMessages.LOGIN_SUCCESS,
+            data={
+                "tokens": tokens,
+                "user": {
+                    "id": str(user.id),
+                    "email": user.email,
+                    "phone": str(user.phone) if user.phone else None,
+                    "first_name": profile.first_name,
+                    "last_name": profile.last_name,
+                    "profile_picture": profile_picture_url,
                 },
-            )
-        except User.DoesNotExist:
-            return APIResponse.unauthorized("Invalid email or password.")
-
-        except Exception as e:
-            print(e)
-            return APIResponse.server_error("Login failed.")
-
+            },
+        )
+        
 @extend_schema(tags=["Auth"])
-class RefreshTokenAPIView(APIView):
-    # 1. If refresh token not pass then show an error
-    # 2. If token has valid date
-    # 3. do generate new access token
-    # 4. If token hasn't valid time show and error. Token expired
-    # 5. if anyhow case failed show error. token not generated.
+class RefreshTokenAPIView(GenericAPIView):
     serializer_class = RefreshTokenSerializer
+    permission_classes = [AllowAny]
 
     def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-        if not serializer.is_valid():
-            return APIResponse.validation_error(
-                serializer.errors, "Refresh token validation failed."
-            )
-        try:
-            refresh_token = serializer.validated_data["refresh_token"]
-            refresh = RefreshToken(refresh_token)
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
 
-            # Is refresh token has expired date
+        refresh_token = serializer.validated_data["refresh_token"]
+        try:
+            refresh = RefreshToken(refresh_token)
             refresh.check_exp()
             user_id = refresh["user_id"]
+            user = User.objects.get(id=user_id)
+            if not user.is_active:
+                raise AuthenticationFailed("User account not active")
 
-            try:
-                user = User.objects.get(id=user_id)
-                if not user.is_active:
-                    return APIResponse.error("This user account not active")
-
-                # Generate new access token
-                new_access_token = str(refresh.access_token)
-                return APIResponse.success(
-                    "Token refreshed successfully",
-                    data={
-                        "tokens": {
-                            "access": new_access_token,
-                        },
-                    },
-                )
-            except User.DoesNotExist:
-                return APIResponse.not_found("User not found for this token")
-
+            new_access_token = str(refresh.access_token)
+            return APIResponse.success(
+                "Token refreshed successfully",
+                data={"access": new_access_token},
+            )
         except TokenError as e:
-            print(e)
-            return APIResponse.server_error(str(e))
-            # logger.error(f"Token validation failed: {str(e)}")
-            return APIResponse.error("Refresh token has been expired")
-        except Exception as e:
-            # logger.exception(f"Token refresh failed: {str(e)}")
-            print(e)
-            return APIResponse.server_error("Refresh token failed.")
-            APIResponse.server_error("Token refresh failed")
+            raise AuthenticationFailed(str(e))
+        except User.DoesNotExist:
+            raise AuthenticationFailed("User not found for this token")
+
 
 @extend_schema(tags=["Auth"])
-class VerifyAccountAPIView(APIView):
-    permission_classes = [AllowAny]
+class VerifyAccountAPIView(OTPBaseView):
     serializer_class = VerifySerializer
 
     def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-
-        if not serializer.is_valid():
-            return APIResponse.validation_error(serializer.errors, "Invalid data")
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
 
         email = serializer.validated_data["email"]
         otp = serializer.validated_data["otp"]
 
-        try:
-            user = User.objects.get(email=email)
-            otp_service = OTPEmailService()
-            success, message = otp_service.verify_otp(email, otp)
+        user = User.objects.get(email=email)
+        success, message = self.verify_otp(email, otp)
+        if not success:
+            raise ValidationError(message)
 
-            if not success:
-                return APIResponse.error(message)
-
-            # OTP matched → activate the account
-            user.is_active = True
-            user.save()
-
-            return APIResponse.success("Your account has been verified")
-
-        except User.DoesNotExist:
-            return APIResponse.unauthorized("Please provide valid email.")
-
-        except Exception as e:
-            # logger.error(f"Verify Account: {str(e)}")
-            print(e)
-            return APIResponse.server_error(str(e))
-            return APIResponse.server_error("Account not activated. Please try again.")
+        user.is_active = True
+        user.save()
+        return APIResponse.success("Your account has been verified")
 
 @extend_schema(tags=["Auth"])
-class ResendOTPAPIView(APIView):
-    """ """
-
-    permission_classes = [AllowAny]
+class ResendOTPAPIView(OTPBaseView):
     serializer_class = ResendOTPSerializer
 
     def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-
-        if not serializer.is_valid():
-            return APIResponse.validation_error(
-                serializer.errors, "Resend OTP validation failed."
-            )
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
 
         email = serializer.validated_data["email"]
+        if not User.objects.filter(email=email).exists():
+            raise NotFound(AuthMessages.USER_NOT_FOUND)
 
-        otp_service = OTPEmailService()
-        allowed, wait_time = otp_service.can_resend_otp(email)
-
+        service = self.get_otp_service()
+        allowed, wait_time = service.can_resend_otp(email)
         if not allowed:
             return APIResponse.error(
                 f"Please wait for {wait_time} seconds before requesting another OTP.",
                 status=status.HTTP_429_TOO_MANY_REQUESTS,
             )
-        try:
-            otp_sent = otp_service.sent_otp(email)
 
-            if not otp_sent:
-                # logger.error("Failed to send OTP")
-                raise Exception("OTP sending failed")
-
-        except Exception as e:
-            # logger.exception(f"Resend OTP Failed: {str(e)}")
-            print(e)
-            return APIResponse.server_error("Resend OTP Failed.")
-
-        return APIResponse.success("A new OTP has been sent successfully. ")
+        self.send_otp(email)
+        return APIResponse.success("A new OTP has been sent successfully.")
 
 @extend_schema(tags=["Auth"])
-class VerifyOTPAPIView(APIView):
-    permission_classes = [AllowAny]
+class VerifyOTPAPIView(OTPBaseView):
     serializer_class = VerifySerializer
 
     def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-        if not serializer.is_valid():
-            return APIResponse.validation_error(serializer.errors, "Invalid OTP data.")
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
 
         email = serializer.validated_data["email"]
         otp = serializer.validated_data["otp"]
-        print(f"{email} - {otp}")
-        try:
-            User.objects.get(email=email)
-            otp_service = OTPEmailService()
-            is_success, message = otp_service.verify_otp(email, otp)
-            print("\nis_success ->", is_success)
-            print("\nmessage ->", message, "\n")
 
-            if not is_success:
-                return APIResponse.error(message)
+        if not User.objects.filter(email=email).exists():
+            raise NotFound(AuthMessages.USER_NOT_FOUND)
 
-            return APIResponse.success(message, data={"email": email})
+        success, message = self.verify_otp(email, otp)
+        if not success:
+            raise ValidationError(message)
 
-        except User.DoesNotExist:
-            return APIResponse.unauthorized("Please provide valid email.")
-
-        except Exception as e:
-            print(f"Verify OTP Failed: {str(e)}")
-            # logger.exception(f"OTP verification failed: {str(e)}")
-            return APIResponse.server_error(f"OTP verification failed. {str(e)}")
+        return APIResponse.success(message, data={"email": email})
 
 @extend_schema(tags=["Auth"])
-class ChangePasswordAPIView(APIView):
+class ChangePasswordAPIView(GenericAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = ChangePasswordSerializer
 
     def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-
-        if not serializer.is_valid():
-            return APIResponse.validation_error(
-                serializer.errors, "Invalided change password data"
-            )
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
 
         user = request.user
         current_password = serializer.validated_data["current_password"]
         new_password = serializer.validated_data["new_password"]
 
-        try:
-            if not user.check_password(current_password):
-                return APIResponse.unauthorized("Incorrect old password")
+        if not user.check_password(current_password):
+            raise AuthenticationFailed("Incorrect old password")
 
-            user.set_password(new_password)
-            user.save()
-
-            return APIResponse.success("Password changed successfully")
-
-        except Exception as e:
-            # logger.exception(f"Change password failed: {str(e)}")
-            return APIResponse.server_error(f"Change password failed. {str(e)}")
-
+        user.set_password(new_password)
+        user.save()
+        return APIResponse.success("Password changed successfully")

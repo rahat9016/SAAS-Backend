@@ -4,7 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+djangorestframework-stubs = "*"
+asgiref = "==3.10.0"
+django = "==5.2.7"
+sqlparse = "==0.5.3"
 
 [dev-packages]
 

@@ -1,35 +1,41 @@
-from rest_framework.views import exception_handler
+from django.core.exceptions import ObjectDoesNotExist
+from rest_framework.exceptions import (
+    AuthenticationFailed,
+    MethodNotAllowed,
+    NotFound,
+    NotAuthenticated,
+    PermissionDenied,
+    ValidationError,
+)
+from rest_framework.views import exception_handler as drf_exception_handler
 from core.utils.response import APIResponse
-from rest_framework import status
+
 
 def custom_exception_handler(exc, context):
-    """
-    Wrap DRF exceptions in your APIResponse format
-    """
-    response = exception_handler(exc, context)
+    if isinstance(exc, NotAuthenticated):
+        return APIResponse.unauthorized(str(exc))
 
-    if response is not None:
-        # DRF ValidationError
-        if response.status_code == status.HTTP_400_BAD_REQUEST:
-            return APIResponse.validation_error(errors=response.data)
-        # Not found
-        elif response.status_code == status.HTTP_404_NOT_FOUND:
-            return APIResponse.not_found()
-        # Unauthorized
-        elif response.status_code == status.HTTP_401_UNAUTHORIZED:
-            return APIResponse.unauthorized()
-        # Forbidden
-        elif response.status_code == status.HTTP_403_FORBIDDEN:
-            return APIResponse.forbidden()
-        # Conflict (optional)
-        elif response.status_code == status.HTTP_409_CONFLICT:
-            return APIResponse.conflict(data=response.data)
-        # Other errors
-        else:
-            return APIResponse.error(
-                message=str(response.data),
-                data=None,
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
-            )
-    # Non-DRF exception (500)
-    return APIResponse.server_error(message=str(exc))
+    if isinstance(exc, AuthenticationFailed):
+        return APIResponse.unauthorized(str(exc))
+
+    if isinstance(exc, NotFound):
+        return APIResponse.not_found(str(exc))
+
+    if isinstance(exc, PermissionDenied):
+        return APIResponse.forbidden(str(exc))
+
+    if isinstance(exc, ObjectDoesNotExist):
+        return APIResponse.not_found(str(exc))
+
+    if isinstance(exc, ValidationError):
+        drf_response = drf_exception_handler(exc, context)
+        return APIResponse.error(
+            message="Validation error",
+            errors=drf_response.data,
+            status=drf_response.status_code,
+        )
+
+    if isinstance(exc, MethodNotAllowed):
+        return APIResponse.error(message="Method not allowed", status=405)
+
+    return drf_exception_handler(exc, context)
