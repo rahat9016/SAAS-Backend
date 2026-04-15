@@ -14,6 +14,4 @@ router.register(r'addresses', AddressViewSet, basename='address')
 
 urlpatterns = [
     path("", include(router.urls)),
-    # path("auth/forgot-password/", ForgotPasswordAPIView.as_view()),
-    # path("auth/reset-password/<uidb64>/<token>/", ResetPasswordAPIView.as_view()),
 ]

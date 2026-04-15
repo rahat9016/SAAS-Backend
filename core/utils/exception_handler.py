@@ -12,20 +12,15 @@ from core.utils.response import APIResponse
 
 
 def custom_exception_handler(exc, context):
-    if isinstance(exc, NotAuthenticated):
+    # Known exception types → consistent APIResponse
+    if isinstance(exc, (NotAuthenticated, AuthenticationFailed)):
         return APIResponse.unauthorized(str(exc))
 
-    if isinstance(exc, AuthenticationFailed):
-        return APIResponse.unauthorized(str(exc))
-
-    if isinstance(exc, NotFound):
+    if isinstance(exc, (NotFound, ObjectDoesNotExist)):
         return APIResponse.not_found(str(exc))
 
     if isinstance(exc, PermissionDenied):
         return APIResponse.forbidden(str(exc))
-
-    if isinstance(exc, ObjectDoesNotExist):
-        return APIResponse.not_found(str(exc))
 
     if isinstance(exc, ValidationError):
         drf_response = drf_exception_handler(exc, context)
@@ -38,4 +33,16 @@ def custom_exception_handler(exc, context):
     if isinstance(exc, MethodNotAllowed):
         return APIResponse.error(message="Method not allowed", status=405)
 
-    return drf_exception_handler(exc, context)
+    drf_response = drf_exception_handler(exc, context)
+
+    if drf_response is not None:
+        # Wrap DRF's response into our APIResponse shape
+        return APIResponse.error(
+            message=drf_response.data.get('detail', 'An error occurred'),
+            errors=drf_response.data,
+            status=drf_response.status_code,
+        )
+    return APIResponse.error(
+        message="Internal server error",
+        status=500,
+    )
