@@ -9,3 +9,11 @@ class IsAdminOrSelf(BasePermission):
             return True
         else:
             return obj.id == user.id
+
+
+class IsAdminOrAddressOwner(BasePermission):
+    def has_object_permission(self, request, view, obj):
+        user = request.user
+        if user.is_staff or getattr(user, "role", None) == 'admin':
+            return True
+        return obj.id == user.id
