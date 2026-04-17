@@ -4,6 +4,7 @@ from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from user.models import User
 from core.messages import AuthMessages
+
 class UserRegisterSerializer(serializers.Serializer):
     first_name = serializers.CharField(required=True, max_length=255)
     last_name = serializers.CharField(required=True, max_length=255)
@@ -14,7 +15,7 @@ class UserRegisterSerializer(serializers.Serializer):
         validators=[
             UniqueValidator(
                 queryset=User.objects.all(),
-                message=_("A user already registered with this phone number."),
+                message=_(AuthMessages.PHONE_ALREADY_EXISTS),
             )
         ],
     )

@@ -93,25 +93,15 @@ class UserProfileSerializer(serializers.ModelSerializer):
         return instance
 
 
-
-
-
-
-class ForgotPasswordSerializer(serializers.Serializer):
-    email = serializers.EmailField()
-
-
-class ResetPasswordSerializer(serializers.Serializer):
-    new_password = serializers.CharField(write_only=True,min_length=6)
-    confirm_password = serializers.CharField()
-
-    def validate(self, data):
-        if data["new_password"] != data["confirm_password"]:
-            raise serializers.ValidationError("Passwords do not match")
-        return data
-
+class UserSerializer(serializers.ModelSerializer):
+    first_name = serializers.CharField(source="profile.first_name")
+    last_name = serializers.CharField(source="profile.last_name")
+    class Meta:
+        model = User
+        fields = ["id", "email", "first_name", "last_name"]
 
 class AddressSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
     class Meta:
         model = Address
         fields = "__all__"

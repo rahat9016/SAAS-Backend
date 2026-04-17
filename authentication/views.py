@@ -13,11 +13,12 @@ from rest_framework.exceptions import (
     ValidationError,
     NotFound
 )
+from django.core.validators import validate_image_file_extension
 from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework_simplejwt.tokens import RefreshToken
-
+from urllib.parse import urlparse
 from core.messages import AuthMessages
 from authentication.mixins import TokenMixins, UserMixins
 from core.services.email.otp_services import OTPEmailService
@@ -104,17 +105,38 @@ class GoogleSignInAPIView(TokenMixins, GenericAPIView):
         )
     @staticmethod
     def _download_profile_picture(profile, url):
+        # 1. Only allow specific Google domains
+        allowed_hosts = {'lh3.googleusercontent.com', 'lh4.googleusercontent.com',
+                         'lh5.googleusercontent.com', 'lh6.googleusercontent.com'}
+        parsed = urlparse(url)
+        if parsed.netloc not in allowed_hosts:
+            return
+        max_size = 5 * 1024 * 1024
         try:
-            response = requests.get(url, timeout=5)
-            if response.status_code == 200:
+            with requests.get(url, stream=True, timeout=5) as response:
+                response.raise_for_status()
+
+                content_type = response.headers.get('Content-Type', '')
+                if not content_type.startswith('image/'):
+                    return
+
+                content = b''
+                for chunk in response.iter_content(chunk_size=8192):
+                    content += chunk
+                    if len(content) > max_size:
+                        return
+                try:
+                    validate_image_file_extension(ContentFile(content, name="temp"))
+                except ValidationError:
+                    return
+
                 profile.profile_picture.save(
                     f"{profile.user.id}.jpg",
-                    ContentFile(response.content),
+                    ContentFile(content),
                     save=False,
                 )
         except Exception as e:
             print(str(e))
-
 
 @extend_schema(tags=["Auth"])
 class RegisterAPIView(GenericAPIView):
@@ -214,7 +236,11 @@ class RefreshTokenAPIView(GenericAPIView):
             new_access_token = str(refresh.access_token)
             return APIResponse.success(
                 "Token refreshed successfully",
-                data={"access": new_access_token},
+                data={
+                    "tokens": {
+                        "access": new_access_token
+                    }
+                },
             )
         except TokenError as e:
             raise AuthenticationFailed(str(e))

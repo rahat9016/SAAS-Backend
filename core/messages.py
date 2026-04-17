@@ -4,6 +4,7 @@ class AuthMessages:
     # User related
     USER_NOT_FOUND = "User not found."
     USER_ALREADY_EXISTS = "User with this email already exists."
+    PHONE_ALREADY_EXISTS = "User with this phone already exists."
     ACCOUNT_NOT_ACTIVE = "This account is not active. Please activate first."
     ACCOUNT_ACTIVATED = "Your account has been verified."
 
